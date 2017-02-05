@@ -1,0 +1,15 @@
+{
+    "name": "coffeeman/domain",
+    "description": "Domain for coffeman.",
+    "type": "project",
+    "require-dev": {
+        "codeception/codeception": "2.2.9"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "HaKIM",
+            "email": "webdevhakim@gmail.com"
+        }
+    ]
+}
