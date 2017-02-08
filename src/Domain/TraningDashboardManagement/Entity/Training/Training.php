@@ -8,7 +8,6 @@
 
 namespace Coffeeman\TrainingDashboardManagement\Entity\Training;
 
-
 class Training
 {
 
