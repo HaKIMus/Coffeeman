@@ -11,5 +11,10 @@
             "name": "HaKIM",
             "email": "webdevhakim@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Coffeeeman\\": "src/Domain"
+        }
+    }
 }
