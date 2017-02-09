@@ -11,7 +11,7 @@ declare(strict_types = 1);
 
 namespace Coffeeman\TrainingDashboardManagement\ValueObjects\Training;
 
-use Domain\TrainingDashboardManagement\ValueObjects\ValueInterface;
+use Coffeeman\TrainingDashboardManagement\ValueObjects\ValueInterface;
 
 class UserId implements ValueInterface
 {

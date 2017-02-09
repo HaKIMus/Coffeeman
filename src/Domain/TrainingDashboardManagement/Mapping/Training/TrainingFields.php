@@ -8,7 +8,7 @@ declare(strict_types = 1);
  * Time: 23:08
  */
 
-namespace Domain\TrainingDashboardManagement\Mapping;
+namespace Coffeeman\TrainingDashboardManagement\Mapping\Training;
 
 class TrainingFields
 {

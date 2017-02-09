@@ -15,6 +15,7 @@ use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\BurnedCalories;
 use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\TrainingType;
 use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\UserId;
 use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\WorkoutTime;
+use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\TrainingId;
 
 class Training
 {
@@ -24,12 +25,12 @@ class Training
     private $burnedCalories;
     private $workoutTime;
 
-    public function getTrainingId(): int
+    public function getTrainingId(): TrainingId
     {
         return $this->trainingId;
     }
 
-    public function setTrainingId(int $trainingId): void
+    public function setTrainingId(TrainingId $trainingId): void
     {
         $this->trainingId = $trainingId;
     }

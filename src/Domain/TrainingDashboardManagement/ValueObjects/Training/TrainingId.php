@@ -8,9 +8,21 @@ declare(strict_types = 1);
  * Time: 23:57
  */
 
-namespace Domain\TrainingDashboardManagement\ValueObjects\Training;
+namespace Coffeeman\TrainingDashboardManagement\ValueObjects\Training;
 
-class TrainingId
+use Coffeeman\TrainingDashboardManagement\ValueObjects\ValueInterface;
+
+class TrainingId implements ValueInterface
 {
+    private $id;
 
+    public function __construct(int $id)
+    {
+        $this->id = $id;
+    }
+
+    public function getValue(): int
+    {
+        return $this->id;
+    }
 }

@@ -8,9 +8,9 @@ declare(strict_types = 1);
  * Time: 23:16
  */
 
-namespace Domain\TrainingDashboardManagement\Factory;
+namespace Coffeeman\TrainingDashboardManagement\Factory;
 
-interface PaymentInterface
+interface FactoryInterface
 {
     public function create();
 }

@@ -11,7 +11,7 @@ declare(strict_types = 1);
 namespace Coffeeman\TrainingDashboardManagement\ValueObjects\Training;
 
 use Coffeeman\TrainingDashboardManagement\ValueObjects\Exceptions\Training\TrainingTypeException;
-use Domain\TrainingDashboardManagement\ValueObjects\ValueInterface;
+use Coffeeman\TrainingDashboardManagement\ValueObjects\ValueInterface;
 
 class TrainingType implements ValueInterface
 {

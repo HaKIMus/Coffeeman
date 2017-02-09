@@ -8,15 +8,14 @@ declare(strict_types = 1);
  * Time: 23:45
  */
 
-namespace Domain\TrainingDashboardManagement\Gateway\Training;
+namespace Coffeeman\TrainingDashboardManagement\Gateway\Training;
 
-use Domain\TrainingDashboardManagement\Gateway\GatewayInterface;
-use Domain\TrainingDashboardManagement\Mapping\TrainingFields;
+use Coffeeman\TrainingDashboardManagement\Gateway\GatewayInterface;
+use Coffeeman\TrainingDashboardManagement\Mapping\Training\TrainingFields;
 
-class PaymentDummyGateway implements GatewayInterface
+class TrainingDummyGateway implements GatewayInterface
 {
-
-    public function findBy(array $criteria): array
+    public function findAll(): array
     {
         return [
             [

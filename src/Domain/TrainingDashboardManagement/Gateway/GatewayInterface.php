@@ -8,10 +8,16 @@ declare(strict_types = 1);
  * Time: 23:37
  */
 
-namespace Domain\TrainingDashboardManagement\Gateway;
+namespace Coffeeman\TrainingDashboardManagement\Gateway;
 
 
 interface GatewayInterface
 {
+    public function findAll(): array;
 
+    public function findOneBy(array $criteria): array;
+
+    public function updateOneBy(array $data, array $criteria);
+
+    public function store(array $data);
 }
