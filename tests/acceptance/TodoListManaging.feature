@@ -36,9 +36,10 @@ Potrzeba biznesowa: Zarządzanie tablicą treningów
     Mając w repozytorium treningi
     Wtedy chcialbym zmienic ilosc spalonych kalorii na "<burnedCalories>" w treningu "<id>"
     Oraz w treningu "<id>" chcialbym zmienic typ treningu na "<trainingType>"
+    Oraz nie chciałbym aby możliwym było dodanie spalonych kalorii powyżej 2023
 
     Przykłady:
-      | id | burnedCalories | trainingType |
-      | 1  | 450            | ABS          |
-      | 2  | 320            | CARDIO       |
-      | 3  | 486            | HIIT         |
+      | id | burnedCalories | trainingType | burnedCalories |
+      | 1  | 450            | ABS          | 600            |
+      | 2  | 320            | CARDIO       | 670            |
+      | 3  | 486            | HIIT         | 2023           |
