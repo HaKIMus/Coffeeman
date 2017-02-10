@@ -15,7 +15,7 @@ use Coffeeman\TrainingDashboardManagement\Mapping\Training\TrainingFields;
 use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\TrainingId;
 
 /**
- * @Todo: It should have a interface.
+ * @Todo: It should have an interface.
  */
 class DefaultTrainingHydrator
 {
