@@ -8,12 +8,12 @@ declare(strict_types = 1);
  * Time: 14:38
  */
 
-namespace Domain\TrainingDashboardManagement\Hydrator\Training;
+namespace Coffeeman\TrainingDashboardManagement\Hydrator\Training;
 
 
 use Coffeeman\TrainingDashboardManagement\Entity\Training\Training;
 
-interface InterfaceTrainingHydrator
+interface TrainingHydratorInterface
 {
     public function extract(Training $training): array;
 
