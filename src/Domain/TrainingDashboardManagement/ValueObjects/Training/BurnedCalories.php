@@ -31,7 +31,7 @@ class BurnedCalories implements ValueInterface
         return $this->burnedCalories;
     }
 
-    public function validate($param): bool
+    private function validate($param): bool
     {
         return $param < 2000;
     }

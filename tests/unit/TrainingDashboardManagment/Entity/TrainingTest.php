@@ -22,7 +22,7 @@ class TrainingTest extends Unit
     // tests
     public function testCorrectlyResult()
     {
-        $this->training->setTrainingId(1);
+        $this->training->setTrainingId(new \Coffeeman\TrainingDashboardManagement\ValueObjects\Training\TrainingId(1));
         $this->tester->assertEquals(1, $this->training->getTrainingId());
     }
 }

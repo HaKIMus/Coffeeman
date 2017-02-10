@@ -33,6 +33,6 @@ class TrainingType implements ValueInterface
 
     private function validate($param): bool
     {
-        return strlen($param) > 16;
+        return strlen($param) < 16;
     }
 }
