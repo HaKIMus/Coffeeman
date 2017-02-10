@@ -18,12 +18,8 @@ use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\TrainingType;
 use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\UserId;
 use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\WorkoutTime;
 
-/**
- * @Todo: It should have an interface.
- */
-class DefaultTrainingHydrator
+class DefaultTrainingHydrator implements TrainingHydratorInterface
 {
-
     public function extract(Training $training): array
     {
         return [

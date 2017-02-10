@@ -11,11 +11,11 @@ declare(strict_types = 1);
 namespace Coffeeman\TrainingDashboardManagement\Repository\Training;
 
 use Coffeeman\TrainingDashboardManagement\Entity\Training\Training;
-use Coffeeman\TrainingDashboardManagement\Gateway\Training\TrainingDummyGateway;
-use Coffeeman\TrainingDashboardManagement\Hydrator\Training\DefaultTrainingHydrator;
+use Coffeeman\TrainingDashboardManagement\Factory\FactoryInterface;
+use Coffeeman\TrainingDashboardManagement\Gateway\GatewayInterface;
+use Coffeeman\TrainingDashboardManagement\Hydrator\Training\TrainingHydratorInterface;
 use Coffeeman\TrainingDashboardManagement\Repository\Excpetions\Training\TrainingRepositoryException;
 use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\TrainingId;
-use Coffeeman\TrainingDashboardManagement\Factory\Training\TrainingFactory;
 
 class TrainingRepository
 {
@@ -24,9 +24,9 @@ class TrainingRepository
     protected $gateway;
 
     public function __construct(
-        DefaultTrainingHydrator $hydrator,
-        TrainingFactory $factory,
-        TrainingDummyGateway $gateway
+        TrainingHydratorInterface $hydrator,
+        FactoryInterface $factory,
+        GatewayInterface $gateway
     ) {
         $this->hydrator = $hydrator;
         $this->factory = $factory;
