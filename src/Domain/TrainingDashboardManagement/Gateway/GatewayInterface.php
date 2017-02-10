@@ -15,6 +15,8 @@ interface GatewayInterface
 {
     public function findAll(): array;
 
+    public function findById(int $id): array;
+
     public function findOneBy(array $criteria): array;
 
     public function updateOneBy(array $data, array $criteria);

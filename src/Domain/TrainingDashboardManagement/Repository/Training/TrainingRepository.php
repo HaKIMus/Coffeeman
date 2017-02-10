@@ -14,7 +14,7 @@ use Coffeeman\TrainingDashboardManagement\Entity\Training\Training;
 use Coffeeman\TrainingDashboardManagement\Gateway\Training\TrainingDummyGateway;
 use Coffeeman\TrainingDashboardManagement\Hydrator\Training\DefaultTrainingHydrator;
 use Coffeeman\TrainingDashboardManagement\Repository\Excpetions\Training\TrainingRepositoryException;
-use Coffeeman\TrainingDashboardManagement\ValueObjects\ValueInterface;
+use Coffeeman\TrainingDashboardManagement\ValueObjects\Training\TrainingId;
 use Coffeeman\TrainingDashboardManagement\Factory\Training\TrainingFactory;
 
 class TrainingRepository
@@ -33,9 +33,9 @@ class TrainingRepository
         $this->gateway = $gateway;
     }
 
-    public function findById(ValueInterface $trainingId): Training
+    public function findById(TrainingId $trainingId): Training
     {
-        $trainingData = $this->gateway->findOneBy($trainingId->getValue());
+        $trainingData = $this->gateway->findById($trainingId->getValue());
 
         if (!$this->isNull($trainingData)) {
             throw new TrainingRepositoryException('Training ('. $trainingId->getValue() .') not found!');
@@ -66,8 +66,8 @@ class TrainingRepository
      * @Todo: editTraining(), registerTraining() & deleteTraining().
      */
 
-    private function isNull($param): bool
+    private function isNull(array $param): bool
     {
-        return $param === 0;
+        return count($param) > 0;
     }
 }

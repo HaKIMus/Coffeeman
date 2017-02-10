@@ -16,5 +16,5 @@ class TrainingFields
     const USER_ID = 'user_id';
     const TRAINING_TYPE = 'training_type';
     const BURNED_CALORIES = 'burned_calories';
-    const WORKOUT_TIME = 'workout_time';
+    const WORKOUT_TIME = '00:33:30';
 }

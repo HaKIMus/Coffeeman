@@ -16,19 +16,13 @@ class WorkoutTime implements ValueInterface
 {
     private $workoutTime;
 
-    public function __construct(\DateTime $startTime, \DateTime $endTime)
+    public function __construct(string $workoutTime)
     {
-        $this->workoutTime = $this->convertToWorkoutTime($startTime, $endTime);
+        $this->workoutTime = $workoutTime;
     }
 
-    public function getValue()
+    public function getValue(): string
     {
         return $this->workoutTime;
-    }
-
-    private function convertToWorkoutTime(\DateTime $start, \DateTime $end)
-    {
-        $this->workoutTime = $start->diff($end);
-        return $this->workoutTime->format('%H %i %s');
     }
 }

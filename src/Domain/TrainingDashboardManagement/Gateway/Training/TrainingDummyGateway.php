@@ -35,7 +35,7 @@ class TrainingDummyGateway implements GatewayInterface
         ];
     }
 
-    public function findOneBy(array $criteria): array
+    public function findById(int $trainingId): array
     {
         return [
             TrainingFields::TRAINING_ID => 1,
@@ -44,6 +44,11 @@ class TrainingDummyGateway implements GatewayInterface
             TrainingFields::BURNED_CALORIES => 235,
             TrainingFields::WORKOUT_TIME => '00:30:33',
         ];
+    }
+
+    public function findOneBy(array $criteria): array
+    {
+        // TODO: Implement findOneBy() method.
     }
 
     public function updateOneBy(array $data, array $criteria): void
