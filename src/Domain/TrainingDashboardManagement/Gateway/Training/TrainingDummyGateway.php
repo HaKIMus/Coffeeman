@@ -23,14 +23,14 @@ class TrainingDummyGateway implements GatewayInterface
                 TrainingFields::USER_ID => 1,
                 TrainingFields::TRAINING_TYPE => 'HIIT',
                 TrainingFields::BURNED_CALORIES => 235,
-                TrainingFields::WORKOUT_TIME => '00:30:33',
+                TrainingFields::WORKOUT_TIME => new \DateTime('now'),
             ],
             [
                 TrainingFields::TRAINING_ID => 2,
                 TrainingFields::USER_ID => 2,
                 TrainingFields::TRAINING_TYPE => 'ABS',
                 TrainingFields::BURNED_CALORIES => 260,
-                TrainingFields::WORKOUT_TIME => '00:40:40',
+                TrainingFields::WORKOUT_TIME => new \DateTime('now'),
             ]
         ];
     }
@@ -42,7 +42,7 @@ class TrainingDummyGateway implements GatewayInterface
             TrainingFields::USER_ID => 1,
             TrainingFields::TRAINING_TYPE => 'HIIT',
             TrainingFields::BURNED_CALORIES => 235,
-            TrainingFields::WORKOUT_TIME => '00:30:33',
+            TrainingFields::WORKOUT_TIME => new \DateTime('now'),
         ];
     }
 

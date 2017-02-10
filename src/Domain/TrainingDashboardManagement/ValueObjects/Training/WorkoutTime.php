@@ -16,13 +16,13 @@ class WorkoutTime implements ValueInterface
 {
     private $workoutTime;
 
-    public function __construct(string $workoutTime)
+    public function __construct(\DateTime $workoutTime)
     {
         $this->workoutTime = $workoutTime;
     }
 
     public function getValue(): string
     {
-        return $this->workoutTime;
+        return $this->workoutTime->format('H:i:s');
     }
 }
