@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Coffeeman\\": "src/Domain/"
+            "Coffeeman\\": "src/"
         }
     }
 }

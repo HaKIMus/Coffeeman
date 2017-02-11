@@ -12,7 +12,7 @@ class TrainingTest extends Unit
 
     protected function _before()
     {
-        $this->training = new Coffeeman\TrainingDashboardManagement\Entity\Training\Training();
+        $this->training = new Coffeeman\TrainingDashboardManagement\Domain\Entity\Training\Training();
     }
 
     protected function _after()
