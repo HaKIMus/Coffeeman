@@ -1,0 +1,6 @@
+Coffeeman\Domain\Training\BurnedCalories:
+  type: embeddable
+  fields:
+    burnedCalories:
+      tpye: int
+      nullable: false

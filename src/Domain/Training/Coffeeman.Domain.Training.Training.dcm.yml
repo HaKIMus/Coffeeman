@@ -1,0 +1,19 @@
+Coffeeman\Domain\Training\Training:
+  type: entity
+  table: training
+  id:
+    trainingId:
+      type: integer
+      generator: { strategy: AUTO }
+  fields: ~
+    #no fields
+  embedded:
+    trainingType:
+      class: Coffeeman\Domain\Training\TrainingType
+      columnPrefix: false
+    burnedCalories:
+      class: Coffeeman\Domain\Training\BurnedCalories
+      columnPrefix: false
+    workoutTime:
+      class: Coffeeman\Domain\Training\WorkoutTime
+      columnPrefix: false

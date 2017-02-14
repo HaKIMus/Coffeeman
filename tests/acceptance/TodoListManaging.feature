@@ -15,11 +15,11 @@ Potrzeba biznesowa: Zarządzanie tablicą treningów
 
   Założenia:
     Kiedy mam nastepujace dane o treningach, chce je dodac do repozytorium:
-      | id | userId | trainingType | burnedCalories | startTraining       | endTraining         |
-      | 1  | 1      | CARDIO       | 300            | 2017-02-06 21:12:15 | 2017-02-06 22:32:15 |
-      | 2  | 1      | CARDIO       | 460            | 2017-02-06 15:16:35 | 2017-02-06 02:12:15 |
-      | 3  | 3      | HIIT         | 345            | 2017-02-06 06:45:34 | 2017-02-06 21:42:15 |
-      | 4  | 4      | ABS          | 671            | 2017-02-06 21:52:59 | 2017-02-06 01:12:15 |
+      | id | userId | trainingType | burnedCalories | workoutTime |
+      | 1  | 1      | CARDIO       | 300            | 21:12:15    |
+      | 2  | 1      | CARDIO       | 460            | 15:16:35    |
+      | 3  | 3      | HIIT         | 345            | 06:45:34    |
+      | 4  | 4      | ABS          | 671            | 21:52:59    |
 
   Scenariusz: Pobieranie wybranego treningu
     Mając w repozytorium treningi
@@ -36,7 +36,7 @@ Potrzeba biznesowa: Zarządzanie tablicą treningów
     Mając w repozytorium treningi
     Wtedy chcialbym zmienic ilosc spalonych kalorii na "<burnedCalories>" w treningu "<id>"
     Oraz w treningu "<id>" chcialbym zmienic typ treningu na "<trainingType>"
-    Oraz nie chciałbym aby możliwym było dodanie spalonych kalorii powyżej 2023
+    Oraz nie chciałbym aby możliwym było dodanie spalonych kalorii powyżej 2000
 
     Przykłady:
       | id | burnedCalories | trainingType | burnedCalories |
