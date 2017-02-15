@@ -8,6 +8,9 @@ Coffeeman\Domain\Training\Training:
   fields: ~
     #no fields
   embedded:
+    userId:
+      class: Coffeeman\Domain\Training\UserId
+      columnPrefix: false
     trainingType:
       class: Coffeeman\Domain\Training\TrainingType
       columnPrefix: false

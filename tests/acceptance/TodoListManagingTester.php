@@ -15,7 +15,7 @@ class TodoListManagingTester extends \Codeception\Actor
      */
     public function wRepozytoriumTreningi()
     {
-        throw new \Codeception\Exception\Incomplete("Step `w repozytorium treningi` is not defined");
+        for
     }
 
     /**

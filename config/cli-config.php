@@ -7,15 +7,14 @@
  */
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
-require_once __DIR__ . "/../vendor/autoload.php";
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
-$paths = array(__DIR__ . "/../src/Domain/Training/");
+require __DIR__ . '/../vendor/autoload.php';
+$paths = array(__DIR__ . '/../src/Domain/Training');
 $isDevMode = false;
 
-// the connection configuration
 $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',

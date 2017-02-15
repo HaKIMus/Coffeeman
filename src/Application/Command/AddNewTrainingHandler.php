@@ -14,6 +14,7 @@ use Coffeeman\Domain\Training\BurnedCalories;
 use Coffeeman\Domain\Training\Training;
 use Coffeeman\Domain\Training\TrainingId;
 use Coffeeman\Domain\Training\TrainingType;
+use Coffeeman\Domain\Training\UserId;
 use Coffeeman\Domain\Training\WorkoutTime;
 use Coffeeman\Domain\Trainings;
 
@@ -30,6 +31,7 @@ final class AddNewTrainingHandler
     {
         $training = new Training(
             new TrainingId(1),
+            new UserId(1),
             new TrainingType('HIIT'),
             new BurnedCalories(200),
             new WorkoutTime('20:30:40')

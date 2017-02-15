@@ -6,6 +6,8 @@ class Training
 {
     private $trainingId;
 
+    private $userId;
+
     private $trainingType;
 
     private $burnedCalories;
@@ -14,11 +16,13 @@ class Training
 
     public function __construct(
         TrainingId $trainingId,
+        UserId $userId,
         TrainingType $trainingType,
         BurnedCalories $burnedCalories,
         WorkoutTime $workoutTime
     ) {
         $this->trainingId = $trainingId;
+        $this->userId = $userId;
         $this->trainingType = $trainingType;
         $this->burnedCalories = $burnedCalories;
         $this->workoutTime = $workoutTime;
@@ -27,6 +31,11 @@ class Training
     public function getId(): TrainingId
     {
         return $this->trainingId;
+    }
+
+    public function getUserId(): UserId
+    {
+        return $this->userId;
     }
 
     public function getTrainingType(): TrainingType
