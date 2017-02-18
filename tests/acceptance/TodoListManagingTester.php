@@ -1,4 +1,5 @@
 <?php
+use Behat\Gherkin\Node\TableNode;
 
 /**
  * Created by PhpStorm.
@@ -10,26 +11,50 @@ class TodoListManagingTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
+    public static $trainingRepository;
+
+    public function __construct()
+    {
+        self::$trainingRepository = new \Coffeeman\Infrastructure\DoctrineTrainings(\Doctrine\ORM\EntityManager::class);
+    }
+
     /**
      * @Given w repozytorium treningi
+     *
+     * @param TableNode $tableNode
      */
-    public function wRepozytoriumTreningi()
+    public function wRepozytoriumTreningi(TableNode $tableNode)
     {
-        for
+        $training = $tableNode->getHash();
+
+        foreach ($training as $item) {
+            $entity = new \Coffeeman\Domain\Training\Training(
+                new \Coffeeman\Domain\Training\TrainingId($item['id']),
+                new \Coffeeman\Domain\Training\UserId($item['userId']),
+                new \Coffeeman\Domain\Training\TrainingType($item['trainingType']),
+                new \Coffeeman\Domain\Training\BurnedCalories($item['burnedCalories']),
+                new \Coffeeman\Domain\Training\WorkoutTime($item['workoutTime'])
+            );
+
+            $newTraining = new \Coffeeman\Infrastructure\DoctrineTrainings(\Doctrine\ORM\EntityManager::class);
+            $newTraining->add($entity);
+        }
     }
 
     /**
      * @Then chcialbym pobrac trening :arg1
+     *
+     * @param $arg1
      */
     public function chcialbymPobracTrening($arg1)
     {
-        throw new \Codeception\Exception\Incomplete("Step `chcialbym pobrac trening :arg1` is not defined");
+        self::$trainingRepository->getById($arg1);
     }
 
     /**
      * @When mam następujące dane o treningach, chcę je dodać do repozytorium:
      */
-    public function mamNastpujaceDaneOTreningachChceJeDodcaDoRepozytorium()
+    public function mamNastpujaceDaneOTreningachChceJeDodacDoRepozytorium()
     {
         throw new \Codeception\Exception\Incomplete("Step `mam nastepujace dane o treningach, chce je dodac do repozytorium:` is not defined");
     }

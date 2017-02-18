@@ -10,6 +10,7 @@ declare(strict_types = 1);
 
 namespace Coffeeman\Application\Command;
 
+use Coffeeman\Application\Query\Training\TrainingView;
 use Coffeeman\Domain\Training\BurnedCalories;
 use Coffeeman\Domain\Training\Training;
 use Coffeeman\Domain\Training\TrainingId;
@@ -27,16 +28,18 @@ final class AddNewTrainingHandler
         $this->trainings = $trainings;
     }
 
-    public function handle(Training $command)
+    public function handle(AddNewTraining $command)
     {
         $training = new Training(
-            new TrainingId(1),
-            new UserId(1),
-            new TrainingType('HIIT'),
-            new BurnedCalories(200),
-            new WorkoutTime('20:30:40')
+            new TrainingId($command->getId()->getTrainingId()),
+            new UserId($command->getUserId()->getUserId()),
+            new TrainingType($command->getTrainingType()->getTrainingType()),
+            new BurnedCalories($command->getBurnedCalories()->getBurnedCalories()),
+            new WorkoutTime($command->getWorkoutTime()->getWorkoutTime())
         );
 
-        $this->trainings->add($training);
+        var_dump($training);
+
+        //$this->trainings->add($training);
     }
 }

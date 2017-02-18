@@ -10,6 +10,10 @@ declare(strict_types = 1);
 
 namespace Coffeeman\Application\Command;
 
+/**
+ * @TODO: That's useless, don't you?
+ *  - Read it one more time: https://zawarstwaabstrakcji.pl/20170130-cqrs-w-praktyce-wprowadzenie-php/
+ */
 final class TrainingCommandBus implements CommandBus
 {
     private $handlers = [];

@@ -11,8 +11,8 @@ declare(strict_types = 1);
 namespace Coffeeman\Infrastructure;
 
 use Coffeeman\Domain\Training\Training;
-use Coffeeman\Domain\Trainings;
 use Coffeeman\Domain\Exception\TrainingNotFoundException;
+use Coffeeman\Domain\Trainings;
 use Doctrine\ORM\EntityManager;
 
 final class DoctrineTrainings implements Trainings

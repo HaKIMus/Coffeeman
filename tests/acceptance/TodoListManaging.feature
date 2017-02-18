@@ -42,4 +42,3 @@ Potrzeba biznesowa: Zarządzanie tablicą treningów
       | id | burnedCalories | trainingType | burnedCalories |
       | 1  | 450            | ABS          | 600            |
       | 2  | 320            | CARDIO       | 670            |
-      | 3  | 486            | HIIT         | 2023           |

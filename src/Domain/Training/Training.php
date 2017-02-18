@@ -27,31 +27,5 @@ class Training
         $this->burnedCalories = $burnedCalories;
         $this->workoutTime = $workoutTime;
     }
-
-    public function getId(): TrainingId
-    {
-        return $this->trainingId;
-    }
-
-    public function getUserId(): UserId
-    {
-        return $this->userId;
-    }
-
-    public function getTrainingType(): TrainingType
-    {
-        return $this->trainingType;
-    }
-
-    public function getBurnedCalories(): BurnedCalories
-    {
-        return $this->burnedCalories;
-    }
-
-
-    public function getWorkoutTime(): WorkoutTime
-    {
-        return $this->workoutTime;
-    }
 }
 
