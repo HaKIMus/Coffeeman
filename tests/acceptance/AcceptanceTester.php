@@ -1,5 +1,4 @@
 <?php
-use Behat\Gherkin\Node\TableNode;
 
 /**
  * Created by PhpStorm.
@@ -7,54 +6,28 @@ use Behat\Gherkin\Node\TableNode;
  * Date: 07.02.17
  * Time: 22:13
  */
-class TodoListManagingTester extends \Codeception\Actor
+class AcceptanceTester extends \Codeception\Actor
 {
-    use _generated\AcceptanceTesterActions;
-
-    public static $trainingRepository;
-
-    public function __construct()
-    {
-        self::$trainingRepository = new \Coffeeman\Infrastructure\DoctrineTrainings(\Doctrine\ORM\EntityManager::class);
-    }
-
     /**
      * @Given w repozytorium treningi
-     *
-     * @param TableNode $tableNode
      */
-    public function wRepozytoriumTreningi(TableNode $tableNode)
+    public function wRepozytoriumTreningi()
     {
-        $training = $tableNode->getHash();
-
-        foreach ($training as $item) {
-            $entity = new \Coffeeman\Domain\Training\Training(
-                new \Coffeeman\Domain\Training\TrainingId($item['id']),
-                new \Coffeeman\Domain\Training\UserId($item['userId']),
-                new \Coffeeman\Domain\Training\TrainingType($item['trainingType']),
-                new \Coffeeman\Domain\Training\BurnedCalories($item['burnedCalories']),
-                new \Coffeeman\Domain\Training\WorkoutTime($item['workoutTime'])
-            );
-
-            $newTraining = new \Coffeeman\Infrastructure\DoctrineTrainings(\Doctrine\ORM\EntityManager::class);
-            $newTraining->add($entity);
-        }
+        throw new \Codeception\Exception\Incomplete("Step `w repozytorium treningi` is not defined");
     }
 
     /**
      * @Then chcialbym pobrac trening :arg1
-     *
-     * @param $arg1
      */
     public function chcialbymPobracTrening($arg1)
     {
-        self::$trainingRepository->getById($arg1);
+        throw new \Codeception\Exception\Incomplete("Step `chcialbym pobrac trening :arg1` is not defined");
     }
 
     /**
-     * @When mam następujące dane o treningach, chcę je dodać do repozytorium:
+     * @When mam nastepujace dane o treningach, chce je dodac do repozytorium:
      */
-    public function mamNastpujaceDaneOTreningachChceJeDodacDoRepozytorium()
+    public function mamNastepujaceDaneOTreningachChceJeDodacDoRepozytorium()
     {
         throw new \Codeception\Exception\Incomplete("Step `mam nastepujace dane o treningach, chce je dodac do repozytorium:` is not defined");
     }
@@ -90,4 +63,14 @@ class TodoListManagingTester extends \Codeception\Actor
     {
         throw new \Codeception\Exception\Incomplete("Step `w treningu :arg1 chcialbym zmienic typ treningu na :arg2` is not defined");
     }
+
+    /**
+     * @Then nie chciałbym aby możliwym było dodanie spalonych kalorii powyżej :num1:num2:num2:num2
+     */
+    public function nieChciabymAbyMoliwymByoDodanieSpalonychKaloriiPowyej($num1, $num2, $num3, $num4)
+    {
+        throw new \Codeception\Exception\Incomplete("Step `nie chciałbym aby możliwym było dodanie spalonych kalorii powyżej :num1:num2:num2:num2` is not defined");
+    }
+
+
 }

@@ -8,7 +8,9 @@ declare(strict_types = 1);
  * Time: 20:32
  */
 
-namespace Coffeeman\Application\Command;
+namespace Coffeeman\Application\Command\Training;
+
+use Coffeeman\Application\Command\CommandBus;
 
 /**
  * @TODO: That's useless, don't you?

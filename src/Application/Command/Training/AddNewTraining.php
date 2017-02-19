@@ -8,7 +8,7 @@ declare(strict_types = 1);
  * Date: 18.02.17
  * Time: 00:57
  */
-namespace Coffeeman\Application\Command;
+namespace Coffeeman\Application\Command\Training;
 
 use Coffeeman\Domain\Training\BurnedCalories;
 use Coffeeman\Domain\Training\TrainingId;

@@ -8,9 +8,8 @@ declare(strict_types = 1);
  * Time: 20:37
  */
 
-namespace Coffeeman\Application\Command;
+namespace Coffeeman\Application\Command\Training;
 
-use Coffeeman\Application\Query\Training\TrainingView;
 use Coffeeman\Domain\Training\BurnedCalories;
 use Coffeeman\Domain\Training\Training;
 use Coffeeman\Domain\Training\TrainingId;
@@ -38,8 +37,6 @@ final class AddNewTrainingHandler
             new WorkoutTime($command->getWorkoutTime()->getWorkoutTime())
         );
 
-        var_dump($training);
-
-        //$this->trainings->add($training);
+        $this->trainings->add($training);
     }
 }
