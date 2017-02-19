@@ -1,0 +1,6 @@
+Coffeeman\Domain\Training\UserId:
+  type: embeddable
+  fields:
+    userId:
+      type: integer
+      nullable: false

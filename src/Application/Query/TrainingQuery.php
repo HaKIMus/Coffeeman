@@ -12,10 +12,13 @@ namespace Coffeeman\Application\Query;
 
 
 use Coffeeman\Application\Query\Training\TrainingView;
+use Coffeeman\Domain\Training\Training;
 
 interface TrainingQuery
 {
-    public function getById(int $userView): TrainingView;
+    public function add(Training $training);
+
+    public function getById(int $trainingId): TrainingView;
 
     public function getAll(): array;
 }

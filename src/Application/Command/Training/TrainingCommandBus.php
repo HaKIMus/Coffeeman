@@ -8,8 +8,14 @@ declare(strict_types = 1);
  * Time: 20:32
  */
 
-namespace Coffeeman\Application\Command;
+namespace Coffeeman\Application\Command\Training;
 
+use Coffeeman\Application\Command\CommandBus;
+
+/**
+ * @TODO: That's useless, don't you?
+ *  - Read it one more time: https://zawarstwaabstrakcji.pl/20170130-cqrs-w-praktyce-wprowadzenie-php/
+ */
 final class TrainingCommandBus implements CommandBus
 {
     private $handlers = [];

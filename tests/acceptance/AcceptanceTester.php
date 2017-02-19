@@ -6,10 +6,8 @@
  * Date: 07.02.17
  * Time: 22:13
  */
-class TodoListManagingTester extends \Codeception\Actor
+class AcceptanceTester extends \Codeception\Actor
 {
-    use _generated\AcceptanceTesterActions;
-
     /**
      * @Given w repozytorium treningi
      */
@@ -27,9 +25,9 @@ class TodoListManagingTester extends \Codeception\Actor
     }
 
     /**
-     * @When mam następujące dane o treningach, chcę je dodać do repozytorium:
+     * @When mam nastepujace dane o treningach, chce je dodac do repozytorium:
      */
-    public function mamNastpujaceDaneOTreningachChceJeDodcaDoRepozytorium()
+    public function mamNastepujaceDaneOTreningachChceJeDodacDoRepozytorium()
     {
         throw new \Codeception\Exception\Incomplete("Step `mam nastepujace dane o treningach, chce je dodac do repozytorium:` is not defined");
     }
@@ -65,4 +63,14 @@ class TodoListManagingTester extends \Codeception\Actor
     {
         throw new \Codeception\Exception\Incomplete("Step `w treningu :arg1 chcialbym zmienic typ treningu na :arg2` is not defined");
     }
+
+    /**
+     * @Then nie chciałbym aby możliwym było dodanie spalonych kalorii powyżej :num1:num2:num2:num2
+     */
+    public function nieChciabymAbyMoliwymByoDodanieSpalonychKaloriiPowyej($num1, $num2, $num3, $num4)
+    {
+        throw new \Codeception\Exception\Incomplete("Step `nie chciałbym aby możliwym było dodanie spalonych kalorii powyżej :num1:num2:num2:num2` is not defined");
+    }
+
+
 }

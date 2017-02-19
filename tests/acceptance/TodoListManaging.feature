@@ -15,7 +15,7 @@ Potrzeba biznesowa: Zarządzanie tablicą treningów
 
   Założenia:
     Kiedy mam nastepujace dane o treningach, chce je dodac do repozytorium:
-      | id | userId | trainingType | burnedCalories | workoutTime |
+      | trainingId | userId | trainingType | burnedCalories | workoutTime |
       | 1  | 1      | CARDIO       | 300            | 21:12:15    |
       | 2  | 1      | CARDIO       | 460            | 15:16:35    |
       | 3  | 3      | HIIT         | 345            | 06:45:34    |
@@ -32,14 +32,8 @@ Potrzeba biznesowa: Zarządzanie tablicą treningów
     Wtedy chcialbym usunac trening "3"
     Oraz chcialbym aby nie bylo mozliwe pobranie samochodu "3"
 
-  Szablon scenariusza: Modyfikowanie wybranego treningu
+  Scenariusz: Modyfikowanie wybranego treningu
     Mając w repozytorium treningi
     Wtedy chcialbym zmienic ilosc spalonych kalorii na "<burnedCalories>" w treningu "<id>"
     Oraz w treningu "<id>" chcialbym zmienic typ treningu na "<trainingType>"
     Oraz nie chciałbym aby możliwym było dodanie spalonych kalorii powyżej 2000
-
-    Przykłady:
-      | id | burnedCalories | trainingType | burnedCalories |
-      | 1  | 450            | ABS          | 600            |
-      | 2  | 320            | CARDIO       | 670            |
-      | 3  | 486            | HIIT         | 2023           |

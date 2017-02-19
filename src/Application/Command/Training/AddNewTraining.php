@@ -1,14 +1,14 @@
 <?php
 
 declare(strict_types = 1);
+
 /**
  * Created by PhpStorm.
  * User: hakim
- * Date: 12.02.17
- * Time: 22:19
+ * Date: 18.02.17
+ * Time: 00:57
  */
-
-namespace Coffeeman\Application\Query\Training;
+namespace Coffeeman\Application\Command\Training;
 
 use Coffeeman\Domain\Training\BurnedCalories;
 use Coffeeman\Domain\Training\TrainingId;
@@ -16,7 +16,7 @@ use Coffeeman\Domain\Training\TrainingType;
 use Coffeeman\Domain\Training\UserId;
 use Coffeeman\Domain\Training\WorkoutTime;
 
-final class TrainingView
+class AddNewTraining
 {
     private $trainingId;
 

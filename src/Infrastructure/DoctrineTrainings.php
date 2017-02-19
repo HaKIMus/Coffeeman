@@ -11,11 +11,11 @@ declare(strict_types = 1);
 namespace Coffeeman\Infrastructure;
 
 use Coffeeman\Domain\Training\Training;
-use Coffeeman\Domain\Trainings;
 use Coffeeman\Domain\Exception\TrainingNotFoundException;
+use Coffeeman\Domain\Trainings;
 use Doctrine\ORM\EntityManager;
 
-final class DoctrineTrainings implements Trainings
+class DoctrineTrainings implements Trainings
 {
     private $entityManager;
 
@@ -48,7 +48,7 @@ final class DoctrineTrainings implements Trainings
         $trainings = $this->entityManager->getRepository(Training::class)->findAll();
 
         if ($trainings === null) {
-            throw new TrainingNotFoundException();
+            throw new TrainingNotFoundException("Trainings not found!");
         }
 
         return $trainings;
