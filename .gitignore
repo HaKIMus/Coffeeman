@@ -1,6 +1,6 @@
 https:
 vendor
 .idea
-composer.loc
+composer.lock
 public
 .git
