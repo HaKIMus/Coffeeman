@@ -1,0 +1,14 @@
+Coffeeman\Domain\Workout\WorkoutType:
+  type: entity
+  table: workoutType
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    type:
+      type: string
+      length: 255
+      nullable: false
+      unique: true

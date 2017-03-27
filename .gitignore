@@ -1,0 +1,5 @@
+https:/
+vendor/
+.idea/
+composer.lock
+public/

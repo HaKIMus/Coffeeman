@@ -1,0 +1,25 @@
+{
+    "name": "coffeeman/coffeeman",
+    "description": "Project for DDD learning.",
+    "type": "project",
+    "require-dev": {
+        "codeception/codeception": "^2.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "HaKIM",
+            "email": "webdevhakim@gmail.com"
+        }
+    ],
+    "require": {
+        "broadway/broadway": "^1.0",
+        "doctrine/orm": "^2.5",
+        "symfony/yaml": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Coffeeman\\": "src"
+        }
+    }
+}
