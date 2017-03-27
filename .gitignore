@@ -1,5 +1,5 @@
-https:
-vendor
-.idea
+https:/
+vendor/
+.idea/
 composer.lock
-public
+public/
