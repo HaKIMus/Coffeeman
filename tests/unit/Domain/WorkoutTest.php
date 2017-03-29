@@ -8,37 +8,15 @@ use Coffeeman\Domain\Workout\WorkoutBurnedCalories;
 use Coffeeman\Domain\Workout\WorkoutStartDate;
 use Coffeeman\Domain\Workout\WorkoutStopDate;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutType;
-use Doctrine\ORM\Tools\Setup;
-use Doctrine\ORM\EntityManager;
 
 class WorkoutTest extends \PHPUnit_Framework_TestCase
 {
-    protected $entityManager;
-
-    public function __construct()
+    public function testIsWorkoutCorrectlyWorking()
     {
-        $paths = [
-            __DIR__ . '/../../../src/Domain/Workout'
-        ];
-        $isDevMode  = true;
+        $assets = new \Assets();
+        $assets->setEntityManager();
 
-        $dbParams = [
-            'driver' => 'pdo_mysql',
-            'user' => 'root',
-            'password' => '',
-            'dbname' => 'coffeeman',
-            'host' => '127.0.0.1',
-        ];
-
-        $config = Setup::createYAMLMetadataConfiguration($paths, $isDevMode);
-        $entityManager = EntityManager::create($dbParams, $config);
-
-        $this->entityManager = $entityManager;
-    }
-
-    public function testForWorkoutCorrectlyWorking()
-    {
-        $workoutType = new DoctrineWorkoutType($this->entityManager);
+        $workoutType = new DoctrineWorkoutType($assets->getEntityManager());
         $type = $workoutType->getById(1);
 
         $workout = new Workout(

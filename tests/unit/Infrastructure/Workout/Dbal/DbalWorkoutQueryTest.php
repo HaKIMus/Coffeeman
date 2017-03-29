@@ -13,31 +13,18 @@ class DbalWorkoutQueryTest extends \PHPUnit_Framework_TestCase
 
     public function __construct()
     {
-        $dbParams = [
-            'driver' => 'pdo_mysql',
-            'user' => 'root',
-            'password' => '',
-            'dbname' => 'coffeeman',
-            'host' => '127.0.0.1',
-        ];
+        $assets = new \Assets();
+        $assets->setDbParams();
 
-        $this->connection = new Connection($dbParams, new Driver());
+        $this->connection = new Connection($assets->getDbParams(), new Driver());
         $this->workoutQuery = new DbalWorkoutQuery($this->connection);
     }
 
-    public function testGetByIdWorkout()
+    public function testGetWorkoutById()
     {
         $workout = $this->workoutQuery->getById(1);
 
         $this->assertNotEmpty($workout);
-    }
-
-    /**
-     * @expectedException TypeError
-     */
-    public function testShouldReturnException()
-    {
-        $this->workoutQuery->getById(0);
     }
 
     public function testGetAllWorkouts()
@@ -45,5 +32,13 @@ class DbalWorkoutQueryTest extends \PHPUnit_Framework_TestCase
         $workouts = $this->workoutQuery->getAll();
 
         $this->assertNotEmpty($workouts);
+    }
+
+    /**
+     * @expectedException TypeError
+     */
+    public function testGetWorkoutByIdShouldReturnException()
+    {
+        $this->workoutQuery->getById(0);
     }
 }

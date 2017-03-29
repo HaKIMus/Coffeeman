@@ -8,7 +8,7 @@
 
 namespace Coffeeman\Domain\Validation;
 
-use Assert\InvalidArgumentException;
+use \InvalidArgumentException;
 
 class BurnedCaloriesInteger
 {
@@ -17,7 +17,7 @@ class BurnedCaloriesInteger
     public function __construct(int $value)
     {
         if ($value < 50 || $value > 2000) {
-            throw new InvalidArgumentException('Value cannot be greater than 200 and not less than 50!');
+            throw new InvalidArgumentException('Value cannot be greater than 2000 and not less than 50!');
         }
 
         $this->value = $value;
