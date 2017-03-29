@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 use Behat\Gherkin\Node\TableNode;
+=======
+>>>>>>> 994943ed86b3589b29b84e875488cc7a736bed25
 
 
 /**
@@ -21,6 +24,7 @@ class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
+<<<<<<< HEAD
     /**
      * @Given these workouts exists
      *
@@ -30,4 +34,9 @@ class AcceptanceTester extends \Codeception\Actor
     {
         throw new \Codeception\Exception\Incomplete("Step `these workouts exists` is not defined");
     }
+=======
+   /**
+    * Define custom actions here
+    */
+>>>>>>> 994943ed86b3589b29b84e875488cc7a736bed25
 }
