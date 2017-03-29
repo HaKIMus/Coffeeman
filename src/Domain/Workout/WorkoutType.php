@@ -17,4 +17,3 @@ class WorkoutType
      */
     private $type;
 }
-

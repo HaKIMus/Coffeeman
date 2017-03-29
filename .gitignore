@@ -1,6 +1,4 @@
-https:/
 vendor/
-.idea/
 composer.lock
 tests/_envs/
 tests/_output/

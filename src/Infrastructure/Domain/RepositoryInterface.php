@@ -9,7 +9,7 @@
 
 namespace Coffeeman\Infrastructure\Domain;
 
-interface Repository
+interface RepositoryInterface
 {
     public function rollback();
     public function commit();

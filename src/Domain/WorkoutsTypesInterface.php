@@ -6,9 +6,9 @@
  * Date: 27.03.17
  * Time: 21:43
  */
-namespace Coffeeman\Domain\Workout;
+namespace Coffeeman\Domain;
 
-interface Workouts
+interface WorkoutsTypesInterface
 {
     public function getById(int $id);
     public function getAll();

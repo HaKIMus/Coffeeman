@@ -8,7 +8,7 @@
  */
 namespace Coffeeman\Domain;
 
-interface WorkoutsTypes
+interface WorkoutsInterface
 {
     public function getById(int $id);
     public function getAll();

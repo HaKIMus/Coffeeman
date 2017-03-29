@@ -10,21 +10,12 @@
 namespace Coffeeman\Infrastructure\Domain\Workout;
 
 use Coffeeman\Domain\Workout\Workout;
-use Coffeeman\Domain\Workout\Workouts;
-use Coffeeman\Infrastructure\Domain\Repository;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityRepository;
+use Coffeeman\Domain\WorkoutsInterface;
+use Coffeeman\Infrastructure\Domain\RepositoryInterface;
+use Coffeeman\Infrastructure\Domain\RepositoryAbstract;
 
-final class DoctrineWorkout extends EntityRepository implements Repository, Workouts
+final class DoctrineWorkout extends RepositoryAbstract implements RepositoryInterface, WorkoutsInterface
 {
-    private $entityManager;
-
-    public function __construct(EntityManager $entityManager)
-    {
-        $this->entityManager = $entityManager;
-        $this->entityManager->beginTransaction();
-    }
-
     public function rollback()
     {
         $this->entityManager->rollback();
