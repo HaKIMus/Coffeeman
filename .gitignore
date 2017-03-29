@@ -1,14 +1,6 @@
-<<<<<<< HEAD
 https:/
 vendor/
 .idea/
 composer.lock
-public/
-.git/
 tests/_envs/
 tests/_output/
-=======
-https:
-vendor
-composer.lock
->>>>>>> 994943ed86b3589b29b84e875488cc7a736bed25

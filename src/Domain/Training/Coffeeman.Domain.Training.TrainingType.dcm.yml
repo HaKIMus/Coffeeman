@@ -1,7 +1,0 @@
-Coffeeman\Domain\Training\TrainingType:
-  type: embeddable
-  fields:
-    trainingType:
-      type: string
-      length: 255
-      nullable: false

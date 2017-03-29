@@ -1,7 +1,0 @@
-Coffeeman\Domain\Training\WorkoutTime:
-  type: embeddable
-  fields:
-    workoutTime:
-      type: string
-      length: 255
-      nullable: false

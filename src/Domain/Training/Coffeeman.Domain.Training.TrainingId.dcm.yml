@@ -1,7 +1,0 @@
-Coffeeman\Domain\Training\TrainingId:
-  type: embeddable
-  fields:
-    trainingId:
-      tpye: int
-      strategy: auto
-      nullable: false

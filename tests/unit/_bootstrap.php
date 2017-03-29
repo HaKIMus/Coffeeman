@@ -1,6 +1,4 @@
 <?php
-<<<<<<< HEAD
-// Here you can initialize variables that will be available to your tests
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
@@ -46,6 +44,3 @@ class Assets
         return $this->entityManager;
     }
 }
-=======
-// Here you can initialize variables that will be available to your tests
->>>>>>> 994943ed86b3589b29b84e875488cc7a736bed25

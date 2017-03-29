@@ -11,9 +11,6 @@ settings:
     memory_limit: 1024M
 extensions:
     enabled:
-<<<<<<< HEAD
-        - Codeception\Extension\RunFailed
-=======
         - Codeception\Extension\RunFailed
 modules:
     config:
@@ -22,4 +19,3 @@ modules:
             user: ''
             password: ''
             dump: tests/_data/dump.sql
->>>>>>> 994943ed86b3589b29b84e875488cc7a736bed25
