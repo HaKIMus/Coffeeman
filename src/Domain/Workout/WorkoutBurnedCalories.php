@@ -2,23 +2,15 @@
 
 namespace Coffeeman\Domain\Workout;
 
-/**
- * WorkoutBurnedCalories
- */
+use Coffeeman\Domain\Validation\BurnedCaloriesInteger;
+
 class WorkoutBurnedCalories
 {
-    /**
-     * @var integer
-     */
     private $workoutBurnedCalories;
 
-    /**
-     * WorkoutBurnedCalories constructor.
-     * @param $workoutBurnedCalories
-     */
-    public function __construct($workoutBurnedCalories)
+    public function __construct(BurnedCaloriesInteger $workoutBurnedCalories)
     {
-        $this->workoutBurnedCalories = $workoutBurnedCalories;
+        $this->workoutBurnedCalories = $workoutBurnedCalories->getValue();
     }
 }
 

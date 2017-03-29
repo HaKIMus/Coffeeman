@@ -4,3 +4,5 @@ vendor/
 composer.lock
 public/
 .git/
+tests/_envs/
+tests/_output/

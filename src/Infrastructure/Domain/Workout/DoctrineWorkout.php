@@ -15,7 +15,7 @@ use Coffeeman\Infrastructure\Domain\Repository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 
-class DoctrineWorkout extends EntityRepository implements Repository, Workouts
+final class DoctrineWorkout extends EntityRepository implements Repository, Workouts
 {
     private $entityManager;
 
