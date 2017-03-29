@@ -1,7 +1,7 @@
 <?php
 namespace Infrastructure\Workout\Dbal;
 
-use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
+use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQueryInterface;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use TypeError;
@@ -17,7 +17,7 @@ class DbalWorkoutQueryTest extends \PHPUnit_Framework_TestCase
         $assets->setDbParams();
 
         $this->connection = new Connection($assets->getDbParams(), new Driver());
-        $this->workoutQuery = new DbalWorkoutQuery($this->connection);
+        $this->workoutQuery = new DbalWorkoutQueryInterface($this->connection);
     }
 
     public function testGetWorkoutById()

@@ -8,11 +8,11 @@
 
 namespace Coffeeman\Infrastructure\Domain\Workout\Dbal;
 
-use Coffeeman\Application\Query\WorkoutQuery;
+use Coffeeman\Application\Query\WorkoutQueryInterface;
 use Coffeeman\Application\Query\Workout\WorkoutView;
 use Doctrine\DBAL\Connection;
 
-class DbalWorkoutQuery implements WorkoutQuery
+class DbalWorkoutQueryInterface implements WorkoutQueryInterface
 {
     private $connection;
 

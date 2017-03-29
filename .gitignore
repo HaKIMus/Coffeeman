@@ -2,3 +2,4 @@ vendor/
 composer.lock
 tests/_envs/
 tests/_output/
+public/
