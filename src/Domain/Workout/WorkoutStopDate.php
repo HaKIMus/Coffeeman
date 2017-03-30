@@ -9,7 +9,5 @@ class WorkoutStopDate
     public function __construct($workoutStopDate)
     {
         $this->workoutStopDate = $workoutStopDate;
-
-        return $this;
     }
 }

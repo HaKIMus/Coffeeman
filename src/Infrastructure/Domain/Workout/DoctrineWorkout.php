@@ -11,8 +11,8 @@ namespace Coffeeman\Infrastructure\Domain\Workout;
 
 use Coffeeman\Domain\Workout\Workout;
 use Coffeeman\Domain\WorkoutsInterface;
-use Coffeeman\Infrastructure\Domain\RepositoryInterface;
 use Coffeeman\Infrastructure\Domain\RepositoryAbstract;
+use Coffeeman\Infrastructure\Domain\RepositoryInterface;
 
 final class DoctrineWorkout extends RepositoryAbstract implements RepositoryInterface, WorkoutsInterface
 {
