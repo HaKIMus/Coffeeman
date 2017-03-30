@@ -1,4 +1,5 @@
 <?php
+use Behat\Gherkin\Node\TableNode;
 
 /**
  * Inherited Methods
