@@ -12,7 +12,7 @@ use Coffeeman\Application\Query\WorkoutQueryInterface;
 use Coffeeman\Application\Query\Workout\WorkoutView;
 use Doctrine\DBAL\Connection;
 
-class DbalWorkoutQueryInterface implements WorkoutQueryInterface
+class DbalWorkoutQuery implements WorkoutQueryInterface
 {
     private $connection;
 
