@@ -1,8 +1,9 @@
 #Coffeman
 
-<img src="https://scrutinizer-ci.com/g/HaKIMus/DomainCoffeman/badges/build.png?b=master">
-<img src="https://insight.sensiolabs.com/projects/77d30155-03c1-4ef5-b751-b048350a669f/big.png">
-<img src="https://scrutinizer-ci.com/g/HaKIMus/DomainCoffeman/badges/quality-score.png?b=master">
+[![Build Status](https://scrutinizer-ci.com/g/HaKIMus/DomainCoffeman/badges/build.png?b=master)](https://scrutinizer-ci.com/g/HaKIMus/DomainCoffeman/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/HaKIMus/DomainCoffeman/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/HaKIMus/DomainCoffeman/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/HaKIMus/DomainCoffeman/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/HaKIMus/DomainCoffeman/?branch=master)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/77d30155-03c1-4ef5-b751-b048350a669f/big.png)](https://insight.sensiolabs.com/projects/77d30155-03c1-4ef5-b751-b048350a669f)
 
 Domain for Coffeeman.
 
