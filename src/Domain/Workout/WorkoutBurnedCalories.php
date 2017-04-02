@@ -13,4 +13,3 @@ class WorkoutBurnedCalories
         $this->workoutBurnedCalories = $workoutBurnedCalories->getValue();
     }
 }
-

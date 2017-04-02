@@ -12,8 +12,8 @@ class CoffeemanDatabase
     {
         return $dbParams = [
             'driver' => 'pdo_mysql',
-            'user' => 'scrutinizer',
-            'password' => 'scrutinizer',
+            'user' => 'root',
+            'password' => '',
             'dbname' => 'coffeeman',
             'host' => '127.0.0.1',
         ];
@@ -28,8 +28,8 @@ class CoffeemanDatabase
 
         $dbParams = [
             'driver' => 'pdo_mysql',
-            'user' => 'scrutinizer',
-            'password' => 'scrutinizer',
+            'user' => 'root',
+            'password' => '',
             'dbname' => 'coffeeman',
             'host' => '127.0.0.1',
         ];

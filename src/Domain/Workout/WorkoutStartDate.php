@@ -11,4 +11,3 @@ class WorkoutStartDate
         $this->workoutStartDate = $workoutStartDate;
     }
 }
-

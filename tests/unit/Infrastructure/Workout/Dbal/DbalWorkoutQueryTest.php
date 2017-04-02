@@ -16,8 +16,6 @@ class DbalWorkoutQueryTest extends Unit
     {
         $this->connection = new Connection(\CoffeemanDatabase::getDbParams(), new Driver());
         $this->workoutQuery = new DbalWorkoutQuery($this->connection);
-
-        var_dump($this->workoutQuery->getById(1));
     }
 
     public function testGetWorkoutById()

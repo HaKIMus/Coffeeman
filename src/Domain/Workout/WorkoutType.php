@@ -8,4 +8,3 @@ class WorkoutType
 
     private $type;
 }
-
