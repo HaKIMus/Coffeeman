@@ -1,0 +1,119 @@
+build:
+    environment:
+        php:
+            version: 7.1
+        hosts:
+            local.dev: '127.0.0.1'
+    project_setup:
+        before:
+            - mysql -e "-- phpMyAdmin SQL Dump
+                        -- version 4.6.5.2
+                        -- https://www.phpmyadmin.net/
+                        --
+                        -- Host: localhost
+                        -- Czas generowania: 02 Kwi 2017, 22:47
+                        -- Wersja serwera: 10.1.21-MariaDB
+                        -- Wersja PHP: 7.1.1
+
+                        SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+                        SET time_zone = "+00:00";
+
+
+                        /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+                        /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+                        /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+                        /*!40101 SET NAMES utf8mb4 */;
+
+                        --
+                        -- Baza danych: `coffeeman`
+                        --
+
+                        -- --------------------------------------------------------
+
+                        --
+                        -- Struktura tabeli dla tabeli `workout`
+                        --
+
+                        CREATE TABLE `workout` (
+                          `id` int(11) NOT NULL,
+                          `workoutBurnedCalories` int(11) NOT NULL,
+                          `workoutStartDate` datetime NOT NULL,
+                          `workoutStopDate` datetime NOT NULL,
+                          `workoutTypeId` int(11) DEFAULT NULL
+                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+                        --
+                        -- Zrzut danych tabeli `workout`
+                        --
+
+                        INSERT INTO `workout` (`id`, `workoutBurnedCalories`, `workoutStartDate`, `workoutStopDate`, `workoutTypeId`) VALUES
+                        (1, 233, '2017-03-28 12:48:38', '2017-03-28 13:37:31', 4);
+
+                        -- --------------------------------------------------------
+
+                        --
+                        -- Struktura tabeli dla tabeli `workoutType`
+                        --
+
+                        CREATE TABLE `workoutType` (
+                          `id` int(11) NOT NULL,
+                          `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+                        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+                        --
+                        -- Zrzut danych tabeli `workoutType`
+                        --
+
+                        INSERT INTO `workoutType` (`id`, `type`) VALUES
+                        (3, 'ABS'),
+                        (1, 'CARDIO'),
+                        (4, 'FBW'),
+                        (2, 'HIIT'),
+                        (5, 'Other');
+
+                        --
+                        -- Indeksy dla zrzutów tabel
+                        --
+
+                        --
+                        -- Indexes for table `workout`
+                        --
+                        ALTER TABLE `workout`
+                          ADD PRIMARY KEY (`id`),
+                          ADD UNIQUE KEY `UNIQ_649FFB729B04DBF4` (`workoutBurnedCalories`),
+                          ADD KEY `IDX_649FFB724FABCE2E` (`workoutTypeId`);
+
+                        --
+                        -- Indexes for table `workoutType`
+                        --
+                        ALTER TABLE `workoutType`
+                          ADD PRIMARY KEY (`id`),
+                          ADD UNIQUE KEY `UNIQ_E84D3FA58CDE5729` (`type`);
+
+                        --
+                        -- AUTO_INCREMENT for dumped tables
+                        --
+
+                        --
+                        -- AUTO_INCREMENT dla tabeli `workout`
+                        --
+                        ALTER TABLE `workout`
+                          MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+                        --
+                        -- AUTO_INCREMENT dla tabeli `workoutType`
+                        --
+                        ALTER TABLE `workoutType`
+                          MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+                        --
+                        -- Ograniczenia dla zrzutów tabel
+                        --
+
+                        --
+                        -- Ograniczenia dla tabeli `workout`
+                        --
+                        ALTER TABLE `workout`
+                          ADD CONSTRAINT `FK_649FFB724FABCE2E` FOREIGN KEY (`workoutTypeId`) REFERENCES `workoutType` (`id`) ON DELETE CASCADE;
+
+                        /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+                        /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+                        /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;"

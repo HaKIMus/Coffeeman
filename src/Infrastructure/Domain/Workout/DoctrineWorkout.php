@@ -10,12 +10,12 @@
 namespace Coffeeman\Infrastructure\Domain\Workout;
 
 use Coffeeman\Domain\Workout\Workout;
-use Coffeeman\Domain\Workout\Workouts;
-use Coffeeman\Infrastructure\Domain\Repository;
+use Coffeeman\Domain\WorkoutsInterface;
+use Coffeeman\Infrastructure\Domain\RepositoryInterface;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 
-final class DoctrineWorkout extends EntityRepository implements Repository, Workouts
+class DoctrineWorkout extends EntityRepository implements RepositoryInterface, WorkoutsInterface
 {
     private $entityManager;
 
@@ -25,34 +25,34 @@ final class DoctrineWorkout extends EntityRepository implements Repository, Work
         $this->entityManager->beginTransaction();
     }
 
-    public function rollback()
+    public function rollback(): void
     {
         $this->entityManager->rollback();
     }
 
-    public function commit()
+    public function commit(): void
     {
         $this->entityManager->flush();
         $this->entityManager->getConnection()->commit();
     }
 
-    public function add($entity)
+    public function add($entity): void
     {
         if (!$this->entityManager->contains($entity)) {
             $this->entityManager->persist($entity);
         }
     }
 
-    public function remove($entity)
+    public function remove($entity): void
     {
         $this->entityManager->remove($entity);
     }
-    public function getById(int $id)
+    public function getById(int $id): Workout
     {
         return $this->entityManager->getRepository(Workout::class)->find($id);
     }
 
-    public function getAll()
+    public function getAll(): array
     {
         return $this->entityManager->getRepository(Workout::class)->findAll();
     }

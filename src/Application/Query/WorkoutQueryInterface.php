@@ -10,7 +10,7 @@ namespace Coffeeman\Application\Query;
 
 use Coffeeman\Application\Query\Workout\WorkoutView;
 
-interface WorkoutQuery
+interface WorkoutQueryInterface
 {
     public function getById(int $id): WorkoutView;
     public function getAll(): array;

@@ -22,7 +22,7 @@ class WorkoutView
         int $burnedCalories,
         string $startDate,
         string $stopDate,
-        string $type
+        int $type
     ){
         $this->burnedCalories = $burnedCalories;
         $this->startDate = $startDate;

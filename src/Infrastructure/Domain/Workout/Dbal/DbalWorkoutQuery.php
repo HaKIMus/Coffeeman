@@ -8,11 +8,11 @@
 
 namespace Coffeeman\Infrastructure\Domain\Workout\Dbal;
 
-use Coffeeman\Application\Query\WorkoutQuery;
+use Coffeeman\Application\Query\WorkoutQueryInterface;
 use Coffeeman\Application\Query\Workout\WorkoutView;
 use Doctrine\DBAL\Connection;
 
-class DbalWorkoutQuery implements WorkoutQuery
+class DbalWorkoutQuery implements WorkoutQueryInterface
 {
     private $connection;
 
@@ -31,6 +31,7 @@ class DbalWorkoutQuery implements WorkoutQuery
                     'w.workoutStopDate',
                     'w.workoutTypeId')
             ->from('workout', 'w')
+            ->innerJoin('w', 'workoutType', 'wType', 'wType.id = w.workoutTypeId')
             ->where('w.id = :id')
             ->setParameter('id', $id);
 
@@ -53,7 +54,8 @@ class DbalWorkoutQuery implements WorkoutQuery
                 'w.workoutStartDate',
                 'w.workoutStopDate',
                 'w.workoutTypeId')
-            ->from('workout', 'w');
+            ->from('workout', 'w')
+            ->innerJoin('w', 'workoutType', 'wType', 'wType.id = w.id');
 
         $workoutsData = $this->connection->fetchAll($queryBuilder->getSQL(), $queryBuilder->getParameters());
 
