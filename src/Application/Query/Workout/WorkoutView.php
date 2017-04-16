@@ -10,43 +10,25 @@ namespace Coffeeman\Application\Query\Workout;
 
 class WorkoutView
 {
-    private $burnedCalories;
-
-    private $startDate;
-
-    private $stopDate;
-
     private $workoutTypeId;
 
+    private $workoutPropertyId;
+
     public function __construct(
-        int $burnedCalories,
-        string $startDate,
-        string $stopDate,
-        int $type
+        int $workoutTypeId,
+        int $workoutPropertyId
     ){
-        $this->burnedCalories = $burnedCalories;
-        $this->startDate = $startDate;
-        $this->stopDate = $stopDate;
-        $this->workoutTypeId = $type;
+        $this->workoutTypeId = $workoutTypeId;
+        $this->workoutPropertyId = $workoutPropertyId;
     }
 
-    public function getBurnedCalories(): int
-    {
-        return $this->burnedCalories;
-    }
-
-    public function getStartDate(): string
-    {
-        return $this->startDate;
-    }
-
-    public function getStopDate(): string
-    {
-        return $this->stopDate;
-    }
-
-    public function getWorkoutTypeId(): string
+    public function getWorkoutTypeId(): int
     {
         return $this->workoutTypeId;
+    }
+
+    public function getWorkoutPropertyId(): int
+    {
+        return $this->workoutPropertyId;
     }
 }

@@ -10,19 +10,15 @@ Coffeeman\Domain\Workout\Workout:
     ~ #none
   manyToOne:
     workoutTypeId:
-      targetEntity: Coffeeman\Domain\Workout\WorkoutType
+      targetEntity: Coffeeman\Domain\Workout\Type\WorkoutType
       cascade: ["persist"]
       joinColumn:
         name: workoutTypeId
         referencedColumnName: id
         onDelete: CASCADE
-  embedded:
-    burnedCalories:
-      class: Coffeeman\Domain\Workout\WorkoutBurnedCalories
-      columnPrefix: false
-    startDate:
-      class: Coffeeman\Domain\Workout\WorkoutStartDate
-      columnPrefix: false
-    stopDate:
-      class: Coffeeman\Domain\Workout\WorkoutStopDate
-      columnPrefix: false
+  oneToOne:
+    workoutPropertyId:
+      targetEntity: Coffeeman\Domain\Workout\Property\WorkoutProperty
+      joinColumn:
+        name: workoutPropertyId
+        referencedColumnName: id

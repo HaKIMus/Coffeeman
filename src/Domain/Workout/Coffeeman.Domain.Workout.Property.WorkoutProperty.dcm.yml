@@ -1,0 +1,20 @@
+Coffeeman\Domain\Workout\Property\WorkoutProperty:
+  type: entity
+  table: workoutProperty
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    ~ #none
+  embedded:
+    burnedCalories:
+      class: Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories
+      columnPrefix: false
+    startDate:
+      class: Coffeeman\Domain\Workout\Property\WorkoutStartDate
+      columnPrefix: false
+    stopDate:
+      class: Coffeeman\Domain\Workout\Property\WorkoutStopDate
+      columnPrefix: false

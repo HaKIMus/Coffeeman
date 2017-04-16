@@ -1,8 +1,8 @@
 <?php
 
-namespace Coffeeman\Domain\Workout;
+namespace Coffeeman\Domain\Workout\Property;
 
-class WorkoutStopDate
+final class WorkoutStopDate
 {
     private $workoutStopDate;
 

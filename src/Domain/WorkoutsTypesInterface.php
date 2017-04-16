@@ -8,7 +8,7 @@
  */
 namespace Coffeeman\Domain;
 
-use Coffeeman\Domain\Workout\WorkoutType;
+use Coffeeman\Domain\Workout\Type\WorkoutType;
 
 interface WorkoutsTypesInterface
 {

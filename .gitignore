@@ -1,8 +1,8 @@
 https:/
 vendor/
-.idea/
 composer.lock
 public/
 .git/
 tests/_envs/
 tests/_output/
+.idea/

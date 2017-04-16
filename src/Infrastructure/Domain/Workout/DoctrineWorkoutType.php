@@ -8,9 +8,10 @@
  */
 namespace Coffeeman\Infrastructure\Domain\Workout;
 
+
 use Coffeeman\Domain\WorkoutsTypesInterface;
-use Coffeeman\Domain\Workout\WorkoutType;
 use Coffeeman\Infrastructure\Domain\RepositoryInterface;
+use Coffeeman\Domain\Workout\Type\WorkoutType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 

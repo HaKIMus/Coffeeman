@@ -1,4 +1,4 @@
-Coffeeman\Domain\Workout\WorkoutBurnedCalories:
+Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories:
   type: embeddable
   fields:
     workoutBurnedCalories:

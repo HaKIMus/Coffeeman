@@ -2,6 +2,9 @@
 
 namespace Coffeeman\Domain\Workout;
 
+use Coffeeman\Domain\Workout\Property\WorkoutProperty;
+use Coffeeman\Domain\Workout\Type\WorkoutType;
+
 /**
  * Workout
  */
@@ -9,23 +12,15 @@ class Workout
 {
     private $id;
 
-    private $burnedCalories;
-
-    private $startDate;
-
-    private $stopDate;
-
     private $workoutTypeId;
 
+    private $workoutPropertyId;
+
     public function __construct(
-        WorkoutBurnedCalories $burnedCalories,
-        WorkoutStartDate $startDate,
-        WorkoutStopDate $stopDate,
-        WorkoutType $type
+        WorkoutType $typeId,
+        WorkoutProperty $property
     ){
-        $this->burnedCalories = $burnedCalories;
-        $this->startDate = $startDate;
-        $this->stopDate = $stopDate;
-        $this->workoutTypeId = $type;
+        $this->workoutTypeId = $typeId;
+        $this->workoutPropertyId = $property;
     }
 }
