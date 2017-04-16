@@ -35,7 +35,7 @@ class CreateNewWorkout
         return $this->workoutTypeId;
     }
 
-    public function getBurnedCalories(): string
+    public function getBurnedCalories(): int
     {
         return $this->burnedCalories;
     }
