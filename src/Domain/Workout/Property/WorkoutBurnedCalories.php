@@ -1,10 +1,10 @@
 <?php
 
-namespace Coffeeman\Domain\Workout;
+namespace Coffeeman\Domain\Workout\Property;
 
 use Coffeeman\Domain\Validation\BurnedCaloriesInteger;
 
-class WorkoutBurnedCalories
+final class WorkoutBurnedCalories
 {
     private $workoutBurnedCalories;
 

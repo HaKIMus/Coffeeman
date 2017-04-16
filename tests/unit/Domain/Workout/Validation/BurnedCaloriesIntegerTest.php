@@ -1,10 +1,11 @@
 <?php
-namespace Domain\Validation;
+namespace Tests\Validation;
 
+use Codeception\Test\Unit;
 use Coffeeman\Domain\Validation\BurnedCaloriesInteger;
 use InvalidArgumentException;
 
-class BurnedCaloriesIntegerTest extends \PHPUnit_Framework_TestCase
+class BurnedCaloriesIntegerTest extends Unit
 {
     public function testValidationShouldWorkWellWithCorrectlyValue()
     {

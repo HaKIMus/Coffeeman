@@ -26,21 +26,19 @@ class DbalWorkoutQuery implements WorkoutQueryInterface
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
             ->select(
-                'w.workoutBurnedCalories',
-                    'w.workoutStartDate',
-                    'w.workoutStopDate',
-                    'w.workoutTypeId')
+                'w.workoutTypeId',
+                'w.workoutPropertyId')
             ->from('workout', 'w')
+            ->innerJoin('w', 'workoutType', 'wType', 'wType.id = w.workoutTypeId')
+            ->innerJoin('w', 'workoutProperty', 'wProperty', 'wProperty.id = w.workoutPropertyId')
             ->where('w.id = :id')
             ->setParameter('id', $id);
 
         $workoutData = $this->connection->fetchAssoc($queryBuilder->getSQL(), $queryBuilder->getParameters());
-
+        var_dump($workoutData);
         return new WorkoutView(
-            $workoutData['workoutBurnedCalories'],
-            $workoutData['workoutStartDate'],
-            $workoutData['workoutStopDate'],
-            $workoutData['workoutTypeId']
+            $workoutData['workoutTypeId'],
+            $workoutData['workoutPropertyId']
         );
     }
 
@@ -49,20 +47,18 @@ class DbalWorkoutQuery implements WorkoutQueryInterface
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
             ->select(
-                'w.workoutBurnedCalories',
-                'w.workoutStartDate',
-                'w.workoutStopDate',
-                'w.workoutTypeId')
-            ->from('workout', 'w');
+                'w.workoutTypeId',
+                'w.workoutPropertyId')
+            ->from('workout', 'w')
+            ->innerJoin('w', 'workoutType', 'wType', 'wType.id = w.workoutTypeId')
+            ->innerJoin('w', 'workoutProperty', 'wProperty', 'wProperty.id = w.workoutPropertyId');
 
         $workoutsData = $this->connection->fetchAll($queryBuilder->getSQL(), $queryBuilder->getParameters());
 
         return array_map(function(array $workoutData) {
             return new WorkoutView(
-                $workoutData['workoutBurnedCalories'],
-                $workoutData['workoutStartDate'],
-                $workoutData['workoutStopDate'],
-                $workoutData['workoutTypeId']
+                $workoutData['workoutTypeId'],
+                $workoutData['workoutPropertyId']
             );
         }, $workoutsData);
     }

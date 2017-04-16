@@ -1,7 +1,7 @@
-Coffeeman\Domain\Workout\WorkoutStopDate:
+Coffeeman\Domain\Workout\Property\WorkoutStartDate:
   type: embeddable
   fields:
-    workoutStopDate:
+    workoutStartDate:
       type: datetime
       nullable: false
       unique: false

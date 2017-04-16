@@ -1,22 +1,20 @@
 <?php
 namespace Infrastructure\Workout\Dbal;
 
+use Codeception\Test\Unit;
 use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use TypeError;
 
-class DbalWorkoutQueryTest extends \PHPUnit_Framework_TestCase
+class DbalWorkoutQueryTest extends Unit
 {
     protected $connection;
     private $workoutQuery;
 
     public function __construct()
     {
-        $assets = new \Assets();
-        $assets->setDbParams();
-
-        $this->connection = new Connection($assets->getDbParams(), new Driver());
+        $this->connection = new Connection(\CoffeemanDatabase::getDbParams(), new Driver());
         $this->workoutQuery = new DbalWorkoutQuery($this->connection);
     }
 

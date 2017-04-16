@@ -1,6 +1,7 @@
 <?php
 use Behat\Gherkin\Node\TableNode;
 
+
 /**
  * Inherited Methods
  * @method void wantToTest($text)

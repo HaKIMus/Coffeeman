@@ -12,10 +12,9 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
-modules:
     config:
         Db:
-            dsn: ''
-            user: ''
+            dsn: 'pdo_mysql'
+            user: 'root'
             password: ''
-            dump: tests/_data/dump.sql
+            dump: tests/_data/coffeeman.sql

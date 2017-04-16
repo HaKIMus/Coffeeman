@@ -8,8 +8,10 @@
  */
 namespace Coffeeman\Domain;
 
+use Coffeeman\Domain\Workout\Type\WorkoutType;
+
 interface WorkoutsTypesInterface
 {
-    public function getById(int $id);
-    public function getAll();
+    public function getById(int $id): WorkoutType;
+    public function getAll(): array;
 }

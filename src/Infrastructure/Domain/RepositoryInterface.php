@@ -11,8 +11,8 @@ namespace Coffeeman\Infrastructure\Domain;
 
 interface RepositoryInterface
 {
-    public function rollback();
-    public function commit();
-    public function add($entity);
-    public function remove($entity);
+    public function rollback(): void;
+    public function commit(): void;
+    public function add($entity): void;
+    public function remove($entity): void;
 }

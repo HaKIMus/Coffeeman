@@ -8,5 +8,5 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: http://localhost/coffeeman/public/
+            url: http://localhost/coffeeman/public
         - \Helper\Acceptance
