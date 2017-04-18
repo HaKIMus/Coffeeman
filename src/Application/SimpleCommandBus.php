@@ -8,19 +8,17 @@
 
 namespace Coffeeman\Application;
 
-use Coffeeman\Application\Validation\CommandClass;
-
 final class SimpleCommandBus implements CommandBusInterface
 {
-    private $handler = [];
+    private $handlers = [];
 
-    public function registerHandler(CommandClass $commandClass, $handler): void
+    public function registerHandler($command, CommandHandlerInterface $handler): void
     {
-        $this->handler[$commandClass->getValue()] = $handler;
+        $this->handlers[get_class($command)] = $handler;
     }
 
     public function handle($command): void
     {
-        $this->handler[get_class($command)]->handle($command);
+        $this->handlers[get_class($command)]->handle($command);
     }
 }

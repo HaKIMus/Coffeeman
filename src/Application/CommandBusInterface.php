@@ -8,10 +8,8 @@
 
 namespace Coffeeman\Application;
 
-use Coffeeman\Application\Validation\CommandClass;
-
 interface CommandBusInterface
 {
-    public function registerHandler(CommandClass $commandClass, $handler): void;
+    public function registerHandler($command, CommandHandlerInterface $handler): void;
     public function handle($command): void;
 }

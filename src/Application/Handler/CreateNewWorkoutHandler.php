@@ -9,6 +9,7 @@
 namespace Coffeeman\Application\Handler;
 
 use Coffeeman\Application\Command\CreateNewWorkout;
+use Coffeeman\Application\CommandHandlerInterface;
 use Coffeeman\Domain\Validation\BurnedCaloriesInteger;
 use Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories;
 use Coffeeman\Domain\Workout\Property\WorkoutProperty;
@@ -18,7 +19,8 @@ use Coffeeman\Domain\Workout\Workout;
 use Coffeeman\Domain\Workout\Type\WorkoutType;
 use Coffeeman\Domain\WorkoutsInterface;
 
-final class CreateNewWorkoutHandler
+
+final class CreateNewWorkoutHandler implements CommandHandlerInterface
 {
     private $workouts;
 
@@ -27,7 +29,7 @@ final class CreateNewWorkoutHandler
         $this->workouts = $workouts;
     }
 
-    public function handle(CreateNewWorkout $command): void
+    public function handle($command): void
     {
         $workout = new Workout(
             new WorkoutType($command->getWorkoutTypeId()),
