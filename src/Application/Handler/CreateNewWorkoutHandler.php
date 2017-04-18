@@ -8,7 +8,6 @@
 
 namespace Coffeeman\Application\Handler;
 
-use Coffeeman\Application\Command\CreateNewWorkout;
 use Coffeeman\Application\CommandHandlerInterface;
 use Coffeeman\Domain\Validation\BurnedCaloriesInteger;
 use Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories;
