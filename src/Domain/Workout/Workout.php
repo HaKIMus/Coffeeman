@@ -14,13 +14,13 @@ class Workout
 
     private $workoutTypeId;
 
-    private $workoutPropertyId;
+    private $workoutProperty;
 
     public function __construct(
         WorkoutType $typeId,
-        WorkoutProperty $propertyId
+        WorkoutProperty $property
     ){
         $this->workoutTypeId = $typeId;
-        $this->workoutPropertyId = $propertyId;
+        $this->workoutProperty = $property;
     }
 }

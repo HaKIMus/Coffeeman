@@ -18,7 +18,7 @@ use Coffeeman\Domain\Workout\Property\WorkoutStopDate;
 use Coffeeman\Domain\Workout\Workout;
 use Coffeeman\Domain\Workout\Type\WorkoutType;
 use Coffeeman\Domain\WorkoutsInterface;
-
+use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutType;
 
 final class CreateNewWorkoutHandler implements CommandHandlerInterface
 {
@@ -31,8 +31,15 @@ final class CreateNewWorkoutHandler implements CommandHandlerInterface
 
     public function handle(CommandInterface $command): void
     {
+        /**
+         * TODO: Replace with DependencyInjection
+         */
+        require __DIR__ . '/../../../config/cli-config.php';
+
+        $workoutType = new DoctrineWorkoutType($entityManager);
+
         $workout = new Workout(
-            new WorkoutType($command->getWorkoutTypeId()),
+            $workoutType->getById($command->getWorkoutTypeId()),
             new WorkoutProperty(
                 new WorkoutBurnedCalories(new BurnedCaloriesInteger($command->getBurnedCalories())),
                 new WorkoutStartDate($command->getStartDate()),
@@ -41,5 +48,6 @@ final class CreateNewWorkoutHandler implements CommandHandlerInterface
         );
 
         $this->workouts->add($workout);
+        $this->workouts->commit();
     }
 }
