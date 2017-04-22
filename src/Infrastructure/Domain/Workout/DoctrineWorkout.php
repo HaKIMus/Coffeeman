@@ -47,6 +47,7 @@ class DoctrineWorkout extends EntityRepository implements RepositoryInterface, W
     {
         $this->entityManager->remove($entity);
     }
+
     public function getById(int $id): Workout
     {
         return $this->entityManager->getRepository(Workout::class)->find($id);

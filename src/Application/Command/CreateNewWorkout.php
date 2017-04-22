@@ -8,7 +8,9 @@
 
 namespace Coffeeman\Application\Command;
 
-class CreateNewWorkout
+use Coffeeman\Application\CommandInterface;
+
+class CreateNewWorkout implements CommandInterface
 {
     private $workoutTypeId;
 

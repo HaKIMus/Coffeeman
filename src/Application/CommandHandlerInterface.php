@@ -10,5 +10,5 @@ namespace Coffeeman\Application;
 
 interface CommandHandlerInterface
 {
-    public function handle($command): void;
+    public function handle(CommandInterface $command): void;
 }

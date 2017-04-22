@@ -10,6 +10,6 @@ namespace Coffeeman\Application;
 
 interface CommandBusInterface
 {
-    public function registerHandler($command, CommandHandlerInterface $handler): void;
-    public function handle($command): void;
+    public function registerHandler(CommandInterface $command, CommandHandlerInterface $handler): void;
+    public function handle(CommandInterface $command): void;
 }

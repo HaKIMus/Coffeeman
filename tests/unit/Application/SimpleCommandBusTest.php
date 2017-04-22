@@ -10,54 +10,38 @@ use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkout;
 class SimpleCommandBusTest extends Unit
 {
     private $simpleCommandBus;
+    private $createNewWorkout;
+    private $doctrineWorkout;
 
     public function __construct()
     {
         $this->simpleCommandBus = new SimpleCommandBus();
+        $this->createNewWorkout = $this->getMockBuilder(CreateNewWorkout::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->createNewWorkout->method('getWorkoutTypeId')
+            ->willReturn(1);
+        $this->createNewWorkout->method('getBurnedCalories')
+            ->willReturn(200);
+        $this->createNewWorkout->method('getStartDate')
+            ->willReturn(new \DateTime());
+        $this->createNewWorkout->method('getStopDate')
+            ->willReturn(new \DateTime());
+
+        $this->doctrineWorkout = $this->getMockBuilder(DoctrineWorkout::class)
+            ->disableOriginalConstructor()
+            ->getMock();
     }
 
     public function testRegisterHandler()
     {
-        $doctrineWorkout = $this->getMockBuilder(DoctrineWorkout::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $createNewWorkout = $this->getMockBuilder(CreateNewWorkout::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $createNewWorkout->method('getWorkoutTypeId')
-            ->willReturn(1);
-        $createNewWorkout->method('getBurnedCalories')
-            ->willReturn(200);
-        $createNewWorkout->method('getStartDate')
-            ->willReturn(new \DateTime());
-        $createNewWorkout->method('getStopDate')
-            ->willReturn(new \DateTime());
-
-        $this->simpleCommandBus->registerHandler($createNewWorkout, new CreateNewWorkoutHandler($doctrineWorkout));
+        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout));
     }
 
     public function testHandleCreateNewWorkoutClass()
     {
-        $doctrineWorkout = $this->getMockBuilder(DoctrineWorkout::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $createNewWorkout = $this->getMockBuilder(CreateNewWorkout::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $createNewWorkout->method('getWorkoutTypeId')
-            ->willReturn(1);
-        $createNewWorkout->method('getBurnedCalories')
-            ->willReturn(200);
-        $createNewWorkout->method('getStartDate')
-            ->willReturn(new \DateTime());
-        $createNewWorkout->method('getStopDate')
-            ->willReturn(new \DateTime());
-
-        $this->simpleCommandBus->registerHandler($createNewWorkout, new CreateNewWorkoutHandler($doctrineWorkout));
-        $this->simpleCommandBus->handle($createNewWorkout);
+        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout));
+        $this->simpleCommandBus->handle($this->createNewWorkout);
     }
 }
