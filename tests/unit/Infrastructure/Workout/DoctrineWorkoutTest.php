@@ -1,7 +1,5 @@
 <?php
-
 namespace Tests\Infrastructure\Workout;
-
 use Codeception\Test\Unit;
 use Coffeeman\Domain\Validation\BurnedCaloriesInteger;
 use Coffeeman\Domain\Workout\Property\WorkoutProperty;
@@ -11,7 +9,6 @@ use Coffeeman\Domain\Workout\Property\WorkoutStartDate;
 use Coffeeman\Domain\Workout\Property\WorkoutStopDate;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkout;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutType;
-
 class DoctrineWorkoutTest extends Unit
 {
     private $doctrineWorkout;
@@ -38,14 +35,12 @@ class DoctrineWorkoutTest extends Unit
                 new WorkoutStopDate(new \DateTime())
             )
         );
-
         $this->doctrineTypeWorkout->add($workout);
     }
 
     public function testGetWorkoutById()
     {
         $workout = $this->doctrineWorkout->getById(1);
-
         $this->assertNotEmpty($workout);
         $this->isInstanceOf(Workout::class);
     }
@@ -53,7 +48,6 @@ class DoctrineWorkoutTest extends Unit
     public function testGetAllWorkouts()
     {
         $workouts = $this->doctrineWorkout->getAll();
-
         $this->assertNotEmpty($workouts);
         $this->assertInternalType('array', $workouts);
     }

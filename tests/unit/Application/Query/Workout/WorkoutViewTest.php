@@ -1,4 +1,5 @@
 <?php
+
 namespace Application\Query\Workout;
 
 use Coffeeman\Application\Query\Workout\WorkoutView;

@@ -10,9 +10,3 @@ Coffeeman\Domain\Workout\Type\WorkoutType:
     name:
       class: Coffeeman\Domain\Workout\Type\WorkoutTypeName
       columnPrefix: false
-
-#    type:
-#      type: string
-#      length: 255
-#      nullable: false
-#      unique: true

@@ -35,7 +35,7 @@ class DbalWorkoutQuery implements WorkoutQueryInterface
             ->setParameter('id', $id);
 
         $workoutData = $this->connection->fetchAssoc($queryBuilder->getSQL(), $queryBuilder->getParameters());
-        var_dump($workoutData);
+
         return new WorkoutView(
             $workoutData['workoutTypeId'],
             $workoutData['workoutPropertyId']

@@ -4,4 +4,4 @@ Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories:
     workoutBurnedCalories:
       type: integer
       nullable: false
-      unique: true
+      unique: false

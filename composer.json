@@ -13,7 +13,6 @@
         }
     ],
     "require": {
-        "broadway/broadway": "^1.0",
         "doctrine/orm": "^2.5",
         "symfony/yaml": "^3.2"
     },
