@@ -36,12 +36,12 @@ class SimpleCommandBusTest extends Unit
 
     public function testRegisterHandler()
     {
-        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout));
+        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout, \CoffeemanDatabase::getEntityManager()));
     }
 
     public function testHandleCreateNewWorkoutClass()
     {
-        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout));
+        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout, \CoffeemanDatabase::getEntityManager()));
         $this->simpleCommandBus->handle($this->createNewWorkout);
     }
 }

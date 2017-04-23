@@ -14,8 +14,9 @@ class CreateNewWorkoutHandlerTest extends \PHPUnit_Framework_TestCase
         $workoutDoctrine = $this->getMockBuilder(DoctrineWorkout::class)
             ->disableOriginalConstructor()
             ->getMock();
+        $entityManager = new \CoffeemanDatabase();
 
-        $this->createNewWorkoutHandler = new CreateNewWorkoutHandler($workoutDoctrine);
+        $this->createNewWorkoutHandler = new CreateNewWorkoutHandler($workoutDoctrine, \CoffeemanDatabase::getEntityManager());
     }
 
     public function testCreateNewWorkoutHandle()

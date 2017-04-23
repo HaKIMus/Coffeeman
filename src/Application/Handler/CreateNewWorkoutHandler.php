@@ -18,24 +18,22 @@ use Coffeeman\Domain\Workout\Property\WorkoutStopDate;
 use Coffeeman\Domain\Workout\Workout;
 use Coffeeman\Domain\WorkoutsInterface;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutType;
+use Doctrine\ORM\EntityManager;
 
 final class CreateNewWorkoutHandler implements CommandHandlerInterface
 {
     private $workouts;
+    private $entityManager;
 
-    public function __construct(WorkoutsInterface $workouts)
+    public function __construct(WorkoutsInterface $workouts, EntityManager $entityManager)
     {
         $this->workouts = $workouts;
+        $this->entityManager = $entityManager;
     }
 
     public function handle(CommandInterface $command): void
     {
-        /**
-         * TODO: Replace with DependencyInjection
-         */
-        require __DIR__ . '/../../../config/cli-config.php';
-
-        $workoutType = new DoctrineWorkoutType($entityManager);
+        $workoutType = new DoctrineWorkoutType($this->entityManager);
 
         $workout = new Workout(
             $workoutType->getById($command->getWorkoutTypeId()),
