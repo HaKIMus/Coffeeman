@@ -16,7 +16,6 @@ use Coffeeman\Domain\Workout\Property\WorkoutProperty;
 use Coffeeman\Domain\Workout\Property\WorkoutStartDate;
 use Coffeeman\Domain\Workout\Property\WorkoutStopDate;
 use Coffeeman\Domain\Workout\Workout;
-use Coffeeman\Domain\Workout\Type\WorkoutType;
 use Coffeeman\Domain\WorkoutsInterface;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutType;
 
