@@ -17,8 +17,9 @@ Coffeeman\Domain\Workout\Workout:
         referencedColumnName: id
         onDelete: CASCADE
   oneToOne:
-    workoutPropertyId:
+    workoutProperty:
       targetEntity: Coffeeman\Domain\Workout\Property\WorkoutProperty
+      cascade: ["persist"]
       joinColumn:
         name: workoutPropertyId
         referencedColumnName: id

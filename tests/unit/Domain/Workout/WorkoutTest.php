@@ -25,6 +25,7 @@ class WorkoutTest extends Unit
                 new WorkoutStopDate(new \DateTime())
             )
         );
+
         $this->assertNotEmpty($workout);
     }
 }

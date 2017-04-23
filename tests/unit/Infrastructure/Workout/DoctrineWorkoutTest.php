@@ -13,15 +13,18 @@ class DoctrineWorkoutTest extends Unit
 {
     private $doctrineWorkout;
     private $doctrineTypeWorkout;
+
     public function __construct()
     {
         $this->doctrineWorkout = new DoctrineWorkout(\CoffeemanDatabase::getEntityManager());
         $this->doctrineTypeWorkout = new DoctrineWorkoutType(\CoffeemanDatabase::getEntityManager());
     }
+
     public function _after()
     {
         $this->doctrineTypeWorkout->rollback();
     }
+
     public function testAddWorkout()
     {
         $workout = new Workout(
@@ -34,12 +37,14 @@ class DoctrineWorkoutTest extends Unit
         );
         $this->doctrineTypeWorkout->add($workout);
     }
+
     public function testGetWorkoutById()
     {
         $workout = $this->doctrineWorkout->getById(1);
         $this->assertNotEmpty($workout);
         $this->isInstanceOf(Workout::class);
     }
+
     public function testGetAllWorkouts()
     {
         $workouts = $this->doctrineWorkout->getAll();
