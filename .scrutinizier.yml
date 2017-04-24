@@ -12,6 +12,6 @@ build:
         script: vendor/bin/codecept run
     project_setup:
         before:
-            - mysql -uroot -e "SET GLOBAL sql_mode = 'STRICT_ALL_TABLES'"
+            - mysql -uroot -e "CREATE DATABASE coffeeman_test"
         override: []
         after: []
