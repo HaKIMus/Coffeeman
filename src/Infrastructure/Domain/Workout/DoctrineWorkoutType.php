@@ -17,44 +17,42 @@ use Doctrine\ORM\EntityRepository;
 
 class DoctrineWorkoutType extends EntityRepository implements RepositoryInterface, WorkoutsTypesInterface
 {
-    private $entityManager;
-
     public function __construct(EntityManager $entityManager)
     {
-        $this->entityManager = $entityManager;
-        $this->entityManager->beginTransaction();
+        $this->_em = $entityManager;
+        $this->_em->beginTransaction();
     }
 
     public function rollback(): void
     {
-        $this->entityManager->rollback();
+        $this->_em->rollback();
     }
 
     public function commit(): void
     {
-        $this->entityManager->flush();
-        $this->entityManager->getConnection()->commit();
+        $this->_em->flush();
+        $this->_em->getConnection()->commit();
     }
 
     public function add($entity): void
     {
-        if (!$this->entityManager->contains($entity)) {
-            $this->entityManager->persist($entity);
+        if (!$this->_em->contains($entity)) {
+            $this->_em->persist($entity);
         }
     }
 
     public function remove($entity): void
     {
-        $this->entityManager->remove($entity);
+        $this->_em->remove($entity);
     }
 
     public function getById(int $id): WorkoutType
     {
-        return $this->entityManager->getRepository(WorkoutType::class)->find($id);
+        return $this->_em->getRepository(WorkoutType::class)->find($id);
     }
 
     public function getAll(): array
     {
-        return $this->entityManager->getRepository(WorkoutType::class)->findAll();
+        return $this->_em->getRepository(WorkoutType::class)->findAll();
     }
 }
