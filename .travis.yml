@@ -10,8 +10,6 @@ before_script:
   - composer self-update
   - composer install --prefer-source
 
-sudo: true
-
 before_install:
   - mysql -e 'CREATE DATABASE coffeeman_test;'
   - mysql -u root -p coffeeman_test < tests/_data/dump.sql
