@@ -4,12 +4,6 @@ build:
             local.dev: '127.0.0.1'
         php:
             version: 7.1
-
-        before_script:
-          - composer self-update
-          - composer install --prefer-source
-
-        script: vendor/bin/codecept run
     project_setup:
         before:
             - mysql -e "CREATE DATABASE coffeeman_test"
