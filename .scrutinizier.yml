@@ -3,7 +3,7 @@ build:
         hosts:
             local.dev: '127.0.0.1'
         php:
-          - '7.1.1'
+            version: 7.1
 
         before_script:
           - composer self-update
@@ -12,6 +12,6 @@ build:
         script: vendor/bin/codecept run
     project_setup:
         before:
-            - mysql -uroot -e "CREATE DATABASE coffeeman_test"
+            - mysql -uroot -e "CREATE DATABASE coffeeman_test;"
         override: []
         after: []
