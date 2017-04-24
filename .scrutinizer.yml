@@ -12,6 +12,6 @@ build:
         script: vendor/bin/codecept run
     project_setup:
         before:
-            - mysql -e "CREATE DATABASE coffeeman_test;"
+            - mysql -e "CREATE DATABASE coffeeman_test"
         override: []
         after: []
