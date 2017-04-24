@@ -12,9 +12,13 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
-    config:
-        Db:
-            dsn: 'pdo_mysql'
+modules:
+    enabled:
+        - Db:
+            dsn: 'mysql:host=127.0.0.1;dbname=coffeeman_test'
             user: 'root'
             password: ''
-            dump: tests/_data/coffeeman.sql
+            dump: 'tests/_data/dump.sql'
+            populate: false
+            cleanup: false
+            reconnect: true

@@ -4,6 +4,7 @@ namespace Application\Handler;
 use Coffeeman\Application\Command\CreateNewWorkout;
 use Coffeeman\Application\Handler\CreateNewWorkoutHandler;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkout;
+use Tests\Unit\CoffeemanDatabase;
 
 class CreateNewWorkoutHandlerTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,9 +15,8 @@ class CreateNewWorkoutHandlerTest extends \PHPUnit_Framework_TestCase
         $workoutDoctrine = $this->getMockBuilder(DoctrineWorkout::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $entityManager = new \CoffeemanDatabase();
 
-        $this->createNewWorkoutHandler = new CreateNewWorkoutHandler($workoutDoctrine, \CoffeemanDatabase::getEntityManager());
+        $this->createNewWorkoutHandler = new CreateNewWorkoutHandler($workoutDoctrine, CoffeemanDatabase::getEntityManager());
     }
 
     public function testCreateNewWorkoutHandle()

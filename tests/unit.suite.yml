@@ -7,8 +7,3 @@ modules:
     enabled:
         - Asserts
         - \Helper\Unit
-        - Doctrine2:
-            connection_callback: ['CoffeemanDatabase', 'getEntityManager']
-    config:
-        Doctrine2:
-            cleanup: true

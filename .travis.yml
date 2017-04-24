@@ -8,3 +8,15 @@ before_script:
   - composer install --prefer-source
 
 script: vendor/bin/codecept run
+
+build:
+    environment:
+        hosts:
+            local.dev: '127.0.0.1'
+    project_setup:
+        before:
+            - sudo service start mysql || true
+            - mysql -e "CREATE DATABASE coffeeman_test"
+
+        override: []
+        after: []

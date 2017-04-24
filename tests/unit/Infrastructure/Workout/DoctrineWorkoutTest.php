@@ -9,6 +9,8 @@ use Coffeeman\Domain\Workout\Property\WorkoutStartDate;
 use Coffeeman\Domain\Workout\Property\WorkoutStopDate;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkout;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutType;
+use Tests\Unit\CoffeemanDatabase;
+
 class DoctrineWorkoutTest extends Unit
 {
     private $doctrineWorkout;
@@ -16,8 +18,8 @@ class DoctrineWorkoutTest extends Unit
 
     public function __construct()
     {
-        $this->doctrineWorkout = new DoctrineWorkout(\CoffeemanDatabase::getEntityManager());
-        $this->doctrineTypeWorkout = new DoctrineWorkoutType(\CoffeemanDatabase::getEntityManager());
+        $this->doctrineWorkout = new DoctrineWorkout(CoffeemanDatabase::getEntityManager());
+        $this->doctrineTypeWorkout = new DoctrineWorkoutType(CoffeemanDatabase::getEntityManager());
     }
 
     public function _after()

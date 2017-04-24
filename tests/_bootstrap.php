@@ -1,6 +1,9 @@
 <?php
 // This is global bootstrap for autoloading
 
+
+namespace Tests\Unit;
+
 require __DIR__ . '/../vendor/autoload.php';
 
 use Doctrine\ORM\Tools\Setup;
@@ -14,7 +17,7 @@ class CoffeemanDatabase
             'driver' => 'pdo_mysql',
             'user' => 'root',
             'password' => '',
-            'dbname' => 'coffeeman',
+            'dbname' => 'coffeeman_test',
             'host' => '127.0.0.1',
         ];
     }
@@ -30,7 +33,7 @@ class CoffeemanDatabase
             'driver' => 'pdo_mysql',
             'user' => 'root',
             'password' => '',
-            'dbname' => 'coffeeman',
+            'dbname' => 'coffeeman_test',
             'host' => '127.0.0.1',
         ];
 

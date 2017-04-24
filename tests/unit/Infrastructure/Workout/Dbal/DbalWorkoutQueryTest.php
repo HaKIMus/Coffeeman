@@ -5,6 +5,7 @@ use Codeception\Test\Unit;
 use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
+use Tests\Unit\CoffeemanDatabase;
 use TypeError;
 
 class DbalWorkoutQueryTest extends Unit
@@ -14,7 +15,7 @@ class DbalWorkoutQueryTest extends Unit
 
     public function __construct()
     {
-        $this->connection = new Connection(\CoffeemanDatabase::getDbParams(), new Driver());
+        $this->connection = new Connection(CoffeemanDatabase::getDbParams(), new Driver());
         $this->workoutQuery = new DbalWorkoutQuery($this->connection);
     }
 

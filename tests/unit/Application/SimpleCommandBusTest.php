@@ -6,6 +6,7 @@ use Coffeeman\Application\Command\CreateNewWorkout;
 use Coffeeman\Application\Handler\CreateNewWorkoutHandler;
 use Coffeeman\Application\SimpleCommandBus;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkout;
+use Tests\Unit\CoffeemanDatabase;
 
 class SimpleCommandBusTest extends Unit
 {
@@ -36,12 +37,12 @@ class SimpleCommandBusTest extends Unit
 
     public function testRegisterHandler()
     {
-        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout, \CoffeemanDatabase::getEntityManager()));
+        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout, CoffeemanDatabase::getEntityManager()));
     }
 
     public function testHandleCreateNewWorkoutClass()
     {
-        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout, \CoffeemanDatabase::getEntityManager()));
+        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout, CoffeemanDatabase::getEntityManager()));
         $this->simpleCommandBus->handle($this->createNewWorkout);
     }
 }
