@@ -1,22 +1,19 @@
 language: php
 
-php:
-  - '7.1'
-
-before_script:
-  - composer self-update
-  - composer install --prefer-source
-
-script: vendor/bin/codecept run
-
 build:
     environment:
         hosts:
             local.dev: '127.0.0.1'
+        php:
+          - '7.1'
+
+        before_script:
+          - composer self-update
+          - composer install --prefer-source
+
+        script: vendor/bin/codecept run
     project_setup:
         before:
-            - sudo service start mysql || true
-            - mysql -e "CREATE DATABASE coffeeman_test"
-
+            - mysql -uroot -e "SET GLOBAL sql_mode = 'STRICT_ALL_TABLES'"
         override: []
         after: []
