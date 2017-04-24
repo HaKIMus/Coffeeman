@@ -3,7 +3,7 @@ build:
         hosts:
             local.dev: '127.0.0.1'
         php:
-          - '7.1'
+          - '7.1.1'
 
         before_script:
           - composer self-update
