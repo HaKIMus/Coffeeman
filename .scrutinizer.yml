@@ -7,5 +7,6 @@ build:
     project_setup:
         before:
             - mysql -e "CREATE DATABASE coffeeman_test"
+            - mysql -u root coffeeman_test < tests/_data/dump.sql
         override: []
         after: []
