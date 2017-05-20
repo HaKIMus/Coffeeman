@@ -13,16 +13,13 @@ use Coffeeman\Application\CommandInterface;
 class CreateNewWorkout implements CommandInterface
 {
     private $workoutTypeId;
-
     private $burnedCalories;
-
     private $startDate;
-
     private $stopDate;
 
     public function __construct(
         int $typeId,
-        string $burnedCalories,
+        int $burnedCalories,
         \DateTime $startDate,
         \DateTime $stopDate
     ){

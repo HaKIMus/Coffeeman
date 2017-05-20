@@ -11,7 +11,6 @@ namespace Coffeeman\Application\Query\Workout;
 class WorkoutView
 {
     private $workoutTypeId;
-
     private $workoutPropertyId;
 
     public function __construct(

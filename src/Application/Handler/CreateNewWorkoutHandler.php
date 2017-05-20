@@ -10,7 +10,7 @@ namespace Coffeeman\Application\Handler;
 
 use Coffeeman\Application\CommandHandlerInterface;
 use Coffeeman\Application\CommandInterface;
-use Coffeeman\Domain\Validation\BurnedCaloriesInteger;
+use Coffeeman\Domain\Contract\BurnedCaloriesContract;
 use Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories;
 use Coffeeman\Domain\Workout\Property\WorkoutProperty;
 use Coffeeman\Domain\Workout\Property\WorkoutStartDate;
@@ -38,7 +38,7 @@ final class CreateNewWorkoutHandler implements CommandHandlerInterface
         $workout = new Workout(
             $workoutType->getById($command->getWorkoutTypeId()),
             new WorkoutProperty(
-                new WorkoutBurnedCalories(new BurnedCaloriesInteger($command->getBurnedCalories())),
+                new WorkoutBurnedCalories(new BurnedCaloriesContract($command->getBurnedCalories())),
                 new WorkoutStartDate($command->getStartDate()),
                 new WorkoutStopDate($command->getStopDate())
             )

@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Infrastructure\Workout;
 use Codeception\Test\Unit;
-use Coffeeman\Domain\Validation\BurnedCaloriesInteger;
+use Coffeeman\Domain\Contract\BurnedCaloriesContract;
 use Coffeeman\Domain\Workout\Property\WorkoutProperty;
 use Coffeeman\Domain\Workout\Workout;
 use Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories;
@@ -32,7 +32,7 @@ class DoctrineWorkoutTest extends Unit
         $workout = new Workout(
             $this->doctrineTypeWorkout->getById(1),
             new WorkoutProperty(
-                new WorkoutBurnedCalories(new BurnedCaloriesInteger(200)),
+                new WorkoutBurnedCalories(new BurnedCaloriesContract(200)),
                 new WorkoutStartDate(new \DateTime()),
                 new WorkoutStopDate(new \DateTime())
             )

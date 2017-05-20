@@ -6,10 +6,8 @@ final class WorkoutStopDate
 {
     private $workoutStopDate;
 
-    public function __construct($workoutStopDate)
+    public function __construct(\DateTime $workoutStopDate)
     {
         $this->workoutStopDate = $workoutStopDate;
-
-        return $this;
     }
 }

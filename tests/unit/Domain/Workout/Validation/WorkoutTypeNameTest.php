@@ -2,15 +2,15 @@
 namespace Tests\Validation;
 
 use Codeception\Test\Unit;
-use Coffeeman\Domain\Validation\BurnedCaloriesInteger;
+use Coffeeman\Domain\Contract\WorkoutTypeNameContract;
 use InvalidArgumentException;
 
-class BurnedCaloriesIntegerTest extends Unit
+class WorkoutTypeNameTest extends Unit
 {
     public function testValidationShouldWorkWellWithCorrectlyValue()
     {
-        $burnedCaloriesInteger = new BurnedCaloriesInteger(200);
-        $this->assertEquals(200, $burnedCaloriesInteger->getValue());
+        $workoutTypeNameContract = new WorkoutTypeNameContract('Example Workout Type');
+        $this->assertEquals('Example Workout Type', $workoutTypeNameContract->getValue());
     }
 
     /**
@@ -18,7 +18,7 @@ class BurnedCaloriesIntegerTest extends Unit
      */
     public function testValidationWithValueGreaterThan2000ShouldReturnException()
     {
-        new BurnedCaloriesInteger(2001);
+        new WorkoutTypeNameContract('IT WILL BE A LONG NAME OF WORKOUT TYPE - IT SHOULD RETURN AN EXCEPTION');
     }
 
     /**
@@ -26,6 +26,6 @@ class BurnedCaloriesIntegerTest extends Unit
      */
     public function testValidationWithValueLessThan50ShouldReturnException()
     {
-        new BurnedCaloriesInteger(49);
+        new WorkoutTypeNameContract('Q');
     }
 }

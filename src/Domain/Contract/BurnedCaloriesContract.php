@@ -6,11 +6,11 @@
  * Time: 22:37
  */
 
-namespace Coffeeman\Domain\Validation;
+namespace Coffeeman\Domain\Contract;
 
 use \InvalidArgumentException;
 
-class BurnedCaloriesInteger
+final class BurnedCaloriesContract implements ContractInterface
 {
     private $value;
 

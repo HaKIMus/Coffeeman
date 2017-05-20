@@ -8,12 +8,14 @@
 
 namespace Coffeeman\Domain\Workout\Type;
 
-class WorkoutTypeName
+use Coffeeman\Domain\Contract\WorkoutTypeNameContract;
+
+final class WorkoutTypeName
 {
     private $name;
 
-    public function __construct(string $name)
+    public function __construct(WorkoutTypeNameContract $name)
     {
-        $this->name = $name;
+        $this->name = $name->getValue();
     }
 }
