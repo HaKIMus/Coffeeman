@@ -15,6 +15,8 @@ class DbalWorkoutQueryTest extends Unit
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->connection = new Connection(CoffeemanDatabase::getDbParams(), new Driver());
         $this->workoutQuery = new DbalWorkoutQuery($this->connection);
     }

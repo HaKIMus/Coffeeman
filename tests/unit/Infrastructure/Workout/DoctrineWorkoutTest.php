@@ -18,6 +18,8 @@ class DoctrineWorkoutTest extends Unit
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->doctrineWorkout = new DoctrineWorkout(CoffeemanDatabase::getEntityManager());
         $this->doctrineTypeWorkout = new DoctrineWorkoutType(CoffeemanDatabase::getEntityManager());
     }
@@ -37,6 +39,7 @@ class DoctrineWorkoutTest extends Unit
                 new WorkoutStopDate(new \DateTime())
             )
         );
+
         $this->doctrineTypeWorkout->add($workout);
     }
 

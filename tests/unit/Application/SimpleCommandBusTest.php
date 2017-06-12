@@ -16,6 +16,8 @@ class SimpleCommandBusTest extends Unit
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->simpleCommandBus = new SimpleCommandBus();
         $this->createNewWorkout = $this->getMockBuilder(CreateNewWorkout::class)
             ->disableOriginalConstructor()
