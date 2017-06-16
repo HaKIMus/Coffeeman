@@ -9,6 +9,7 @@ class CreateNewWorkoutTest extends \PHPUnit_Framework_TestCase
     {
         $createNewWorkout = new CreateNewWorkout(
             1,
+            1,
             360,
             new \DateTime('2017-03-06 20:30:11'),
             new \DateTime('2017-03-06 20:36:14')

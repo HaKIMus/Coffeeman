@@ -27,6 +27,8 @@ class CreateNewWorkoutHandlerTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        $createNewWorkout->method('getSportsmanId')
+            ->willReturn(1);
         $createNewWorkout->method('getWorkoutTypeId')
             ->willReturn(1);
         $createNewWorkout->method('getBurnedCalories')

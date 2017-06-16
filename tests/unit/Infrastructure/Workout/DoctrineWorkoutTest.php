@@ -32,6 +32,7 @@ class DoctrineWorkoutTest extends Unit
     public function testAddWorkout()
     {
         $workout = new Workout(
+            1,
             $this->doctrineTypeWorkout->getById(1),
             new WorkoutProperty(
                 new WorkoutBurnedCalories(new BurnedCaloriesContract(200)),

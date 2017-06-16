@@ -36,6 +36,7 @@ final class CreateNewWorkoutHandler implements CommandHandlerInterface
         $workoutType = new DoctrineWorkoutType($this->entityManager);
 
         $workout = new Workout(
+            $command->getSportsmanId(),
             $workoutType->getById($command->getWorkoutTypeId()),
             new WorkoutProperty(
                 new WorkoutBurnedCalories(new BurnedCaloriesContract($command->getBurnedCalories())),
@@ -46,5 +47,6 @@ final class CreateNewWorkoutHandler implements CommandHandlerInterface
 
         $this->workouts->add($workout);
         $this->workouts->commit();
+        $workoutType->commit();
     }
 }
