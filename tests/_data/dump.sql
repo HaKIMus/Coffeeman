@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Czas generowania: 14 Cze 2017, 07:22
--- Wersja serwera: 10.1.22-MariaDB
--- Wersja PHP: 7.1.4
+-- Generation Time: Jun 16, 2017 at 01:30 PM
+-- Server version: 10.1.22-MariaDB
+-- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `coffeeman`
+-- Database: `coffeeman`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `workout`
+-- Table structure for table `workout`
 --
 
 CREATE TABLE `workout` (
@@ -36,16 +36,25 @@ CREATE TABLE `workout` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Zrzut danych tabeli `workout`
+-- Dumping data for table `workout`
 --
 
 INSERT INTO `workout` (`id`, `sportsmanId`, `workoutPropertyId`, `workoutTypeId`) VALUES
-(2, 1, 3, 1);
+(2, 1, 3, 1),
+(3, 1, 4, 1),
+(4, 1, 5, 2),
+(5, 1, 6, 2),
+(6, 1, 7, 2),
+(7, 1, 8, 3),
+(8, 1, 9, 3),
+(9, 1, 10, 3),
+(10, 1, 11, 2),
+(11, 1, 12, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `workoutProperty`
+-- Table structure for table `workoutProperty`
 --
 
 CREATE TABLE `workoutProperty` (
@@ -56,16 +65,25 @@ CREATE TABLE `workoutProperty` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Zrzut danych tabeli `workoutProperty`
+-- Dumping data for table `workoutProperty`
 --
 
 INSERT INTO `workoutProperty` (`id`, `workoutBurnedCalories`, `workoutStartDate`, `workoutStopDate`) VALUES
-(3, 60, '2017-06-14 06:02:39', '2017-06-14 06:02:39');
+(3, 60, '2017-06-14 06:02:39', '2017-06-14 06:02:39'),
+(4, 100, '2017-06-15 05:52:22', '2017-06-15 05:52:22'),
+(5, 160, '2017-06-16 11:26:25', '2017-06-16 12:10:44'),
+(6, 140, '2017-06-16 09:18:12', '2017-06-16 09:18:12'),
+(7, 120, '2017-06-16 09:19:17', '2017-06-16 09:19:17'),
+(8, 230, '2017-04-16 09:00:42', '2017-06-16 09:49:07'),
+(9, 230, '2017-04-16 09:00:42', '2017-06-16 09:50:37'),
+(10, 230, '2017-04-16 09:00:42', '2017-06-16 09:51:27'),
+(11, 240, '2017-04-16 08:00:42', '2017-04-16 09:04:32'),
+(12, 210, '2017-04-16 10:00:42', '2017-04-16 11:04:32');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `workoutType`
+-- Table structure for table `workoutType`
 --
 
 CREATE TABLE `workoutType` (
@@ -74,14 +92,16 @@ CREATE TABLE `workoutType` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Zrzut danych tabeli `workoutType`
+-- Dumping data for table `workoutType`
 --
 
 INSERT INTO `workoutType` (`id`, `name`) VALUES
-(1, 'HIIT');
+(1, 'HIIT'),
+(2, 'CARDIO'),
+(3, 'ABS');
 
 --
--- Indeksy dla zrzutów tabel
+-- Indexes for dumped tables
 --
 
 --
@@ -109,26 +129,26 @@ ALTER TABLE `workoutType`
 --
 
 --
--- AUTO_INCREMENT dla tabeli `workout`
+-- AUTO_INCREMENT for table `workout`
 --
 ALTER TABLE `workout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT dla tabeli `workoutProperty`
+-- AUTO_INCREMENT for table `workoutProperty`
 --
 ALTER TABLE `workoutProperty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT dla tabeli `workoutType`
+-- AUTO_INCREMENT for table `workoutType`
 --
 ALTER TABLE `workoutType`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `workout`
+-- Constraints for table `workout`
 --
 ALTER TABLE `workout`
   ADD CONSTRAINT `FK_649FFB7211CB947` FOREIGN KEY (`workoutPropertyId`) REFERENCES `workoutProperty` (`id`),
