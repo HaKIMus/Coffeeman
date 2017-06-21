@@ -10,43 +10,25 @@ namespace Coffeeman\Domain\Workout\Sum;
 
 use Coffeeman\Application\Query\WorkoutQueryInterface;
 
-class SumAllWorkouts
+class SumAllWorkouts implements SumInterface
 {
     private $summary = [];
-
-    private $workoutDbal;
-
-    private $sportsmanId;
-
-    public function __construct(WorkoutQueryInterface $workoutDbal, int $sportsmanId)
-    {
-        $this->sportsmanId = $sportsmanId;
-        $this->workoutDbal = $workoutDbal;
-
-        $this->sumData();
-    }
 
     public function getSummary(): array
     {
         return $this->summary;
     }
 
-    private function sumData(): void
+    public function sumData(WorkoutQueryInterface $workoutDBAL, int $sportsmanId): void
     {
-        $informationAboutSportsman = $this->workoutDbal->getBySportsmanId($this->sportsmanId);
+        $informationAboutSportsman = $workoutDBAL->getBySportsmanId($sportsmanId);
+        $mostSportsmanPopularWorkout = $workoutDBAL->getBySportsmanIdMostPopularWorkoutType($sportsmanId)[0];
 
         $this->summary['burnedCalories'] = 0;
         foreach ($informationAboutSportsman as $information) {
             $this->summary['sportsmanId'] = $information->getSportsmanId();
-            $this->summary['workoutTypeId'] = $information->getWorkoutTypeId();
-            $this->summary['workoutPropertyId'] = $information->getWorkoutPropertyId();
             $this->summary['burnedCalories'] += $information->getBurnedCalories();
+            $this->summary['mostPopularWorkoutType'] = $mostSportsmanPopularWorkout->getWorkoutTypeName();
         }
     }
-
-    private function sumMostUsedWorkoutType() {
-
-    }
-
-    private function sumSpendTimeOnWorkouts() {}
 }

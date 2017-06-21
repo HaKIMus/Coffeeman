@@ -23,7 +23,7 @@ class DbalWorkoutQueryTest extends Unit
 
     public function testGetWorkoutById()
     {
-        $workout = $this->workoutQuery->getById(1);
+        $workout = $this->workoutQuery->getById(2);
 
         $this->assertNotEmpty($workout);
     }

@@ -46,7 +46,7 @@ class DoctrineWorkoutTest extends Unit
 
     public function testGetWorkoutById()
     {
-        $workout = $this->doctrineWorkout->getById(1);
+        $workout = $this->doctrineWorkout->getById(2);
         $this->assertNotEmpty($workout);
         $this->isInstanceOf(Workout::class);
     }

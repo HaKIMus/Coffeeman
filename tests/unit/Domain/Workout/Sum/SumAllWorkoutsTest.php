@@ -10,18 +10,17 @@ use Tests\Unit\CoffeemanDatabase;
 
 class SumAllWorkoutsTest extends \Codeception\Test\Unit
 {
-    public function testSomeFeature()
+    public function testGetSummaryOfWorkouts()
     {
         $summary = [
-            'burnedCalories' => 60,
+            'burnedCalories' => 1720,
             'sportsmanId' => 1,
-            'workoutTypeId' => 1,
-            'workoutPropertyId' => 3
+            'mostPopularWorkoutType' => 'CARDIO'
         ];
 
-        $sumAllWorkouts = new SumAllWorkouts(
-            new DbalWorkoutQuery(
-                new Connection(CoffeemanDatabase::getDbParams(), new Driver())),
+        $sumAllWorkouts = new SumAllWorkouts();
+        $sumAllWorkouts->sumData(
+            new DbalWorkoutQuery(new Connection(CoffeemanDatabase::getDbParams(), new Driver())),
             1);
         $this->assertEquals($summary, $sumAllWorkouts->getSummary());
     }

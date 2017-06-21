@@ -113,19 +113,19 @@ class DbalWorkoutQuery implements WorkoutQueryInterface
         }, $workoutsData);
     }
 
-    public function getBySportsmanIdMostPopularWorkoutType(int $sportsmanId): array
+    public function getBySportsmanIdMostPopularWorkoutType(int $sportsmanId)
     {
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
-            ->select('w.sportsmanId',
-                'COUNT(w.workoutTypeId) as w.workoutTypeId',
+            ->select('w.workoutTypeId',
+                'COUNT(w.workoutTypeId) AS mostPopularWorkoutType',
                 'wType.id',
                 'wType.name')
             ->from('workout', 'w')
             ->innerJoin('w', 'workoutType', 'wType', 'wType.id = w.workoutTypeId')
             ->where('w.sportsmanId = :sportsmanId')
             ->groupBy('w.workoutTypeId')
-            ->orderBy('w.mostPopularWorkoutTypeId', 'DESC')
+            ->orderBy('mostPopularWorkoutType', 'DESC')
             ->setMaxResults(1)
             ->setParameter('sportsmanId', $sportsmanId);
 
