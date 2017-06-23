@@ -81,7 +81,7 @@ class DbalWorkoutQuery implements WorkoutQueryInterface
         }, $workoutsData);
     }
 
-    public function getBySportsmanId(int $sportsmanId): array
+    public function getAllWorkoutsBySportsmanId(int $sportsmanId): array
     {
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
@@ -129,15 +129,13 @@ class DbalWorkoutQuery implements WorkoutQueryInterface
             ->setMaxResults(1)
             ->setParameter('sportsmanId', $sportsmanId);
 
-        $workoutsData = $this->connection->fetchAll($queryBuilder->getSQL(), $queryBuilder->getParameters());
+        $workoutData = $this->connection->fetchAssoc($queryBuilder->getSQL(), $queryBuilder->getParameters());
 
-        return array_map(function (array $workoutData) {
-            return new WorkoutView(
-                0,
-                $workoutData['workoutTypeId'],
-                0,
-                $workoutData['name']
-            );
-        }, $workoutsData);
+        return new WorkoutView(
+            0,
+            $workoutData['workoutTypeId'],
+            0,
+            $workoutData['name']
+        );
     }
 }

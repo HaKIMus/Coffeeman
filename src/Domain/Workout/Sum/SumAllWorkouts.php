@@ -21,8 +21,8 @@ class SumAllWorkouts implements SumInterface
 
     public function sumData(WorkoutQueryInterface $workoutDBAL, int $sportsmanId): void
     {
-        $informationAboutSportsman = $workoutDBAL->getBySportsmanId($sportsmanId);
-        $mostSportsmanPopularWorkout = $workoutDBAL->getBySportsmanIdMostPopularWorkoutType($sportsmanId)[0];
+        $informationAboutSportsman = $workoutDBAL->getAllWorkoutsBySportsmanId($sportsmanId);
+        $mostSportsmanPopularWorkout = $workoutDBAL->getBySportsmanIdMostPopularWorkoutType($sportsmanId);
 
         $this->summary['burnedCalories'] = 0;
         foreach ($informationAboutSportsman as $information) {

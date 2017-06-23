@@ -35,6 +35,17 @@ class DbalWorkoutQueryTest extends Unit
         $this->assertNotEmpty($workouts);
     }
 
+    public function testGetAllWorkoutsBySportsmanId()
+    {
+        $sportsmanWorkouts = $this->workoutQuery->getAllWorkoutsBySportsmanId(1);
+    }
+
+    public function testGetBySportsmanIdMostPopularWorkoutType()
+    {
+        $mostPopularWorkoutBySportsmanId = $this->workoutQuery->getBySportsmanIdMostPopularWorkoutType(1);
+        $this->assertEquals('CARDIO', $mostPopularWorkoutBySportsmanId->getWorkoutTypeName());
+    }
+
     /**
      * @expectedException TypeError
      */
