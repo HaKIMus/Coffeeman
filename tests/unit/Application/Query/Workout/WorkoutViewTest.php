@@ -10,9 +10,16 @@ class WorkoutViewTest extends \PHPUnit_Framework_TestCase
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->workoutView = new WorkoutView(
             1,
-            1
+            1,
+            1,
+            'HIIT',
+            200,
+            '2017-06-22 23:11:00',
+            '2017-06-22 23:30:00'
         );
     }
 

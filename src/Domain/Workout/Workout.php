@@ -2,40 +2,42 @@
 
 namespace Coffeeman\Domain\Workout;
 
+use Coffeeman\Application\Query\WorkoutQueryInterface;
 use Coffeeman\Domain\Workout\Property\WorkoutProperty;
+use Coffeeman\Domain\Workout\Sum\Sum;
+use Coffeeman\Domain\Workout\Sum\SumAllWorkouts;
 use Coffeeman\Domain\Workout\Type\WorkoutType;
 
 class Workout
 {
     private $id;
 
+    private $sportsmanId;
+
     private $workoutTypeId;
 
     private $workoutProperty;
 
-    private $workoutStartedAt;
-
-    private $workoutStoppedAt;
+    private $sumAllWorkouts;
 
     public function __construct(
+        int $sportsmanId,
         WorkoutType $typeId,
         WorkoutProperty $property
     ){
+        $this->sportsmanId = $sportsmanId;
         $this->workoutTypeId = $typeId;
         $this->workoutProperty = $property;
     }
 
-    public function startWorkout()
+    public function sumAllWorkouts(WorkoutQueryInterface $workoutQuery): void
     {
-        $this->workoutStartedAt = new \DateTime();
+        $this->sumAllWorkouts = new Sum(new SumAllWorkouts());
+        $this->sumAllWorkouts->allWorkouts($workoutQuery, 1);
     }
 
-    public function stopWorkout()
+    public function getSummaryAllWorkouts()
     {
-        if (!isset($this->workoutStartedAt)) {
-            throw new \Exception('Workout have not started!');
-        }
-
-        $this->workoutStoppedAt = new \DateTime();
+        return $this->sumAllWorkouts->getSummedAllWorkouts();
     }
 }

@@ -7,7 +7,10 @@ Coffeeman\Domain\Workout\Workout:
       generator:
         strategy: AUTO
   fields:
-    ~ #none
+    sportsmanId:
+      type: integer
+      nullable: false
+      unique: false
   manyToOne:
     workoutTypeId:
       targetEntity: Coffeeman\Domain\Workout\Type\WorkoutType
