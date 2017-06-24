@@ -2,8 +2,13 @@
 
 namespace Coffeeman\Domain\Workout;
 
+use Coffeeman\Application\Query\WorkoutQueryInterface;
 use Coffeeman\Domain\Workout\Property\WorkoutProperty;
+use Coffeeman\Domain\Workout\Sum\Sum;
+use Coffeeman\Domain\Workout\Sum\SumAllWorkouts;
 use Coffeeman\Domain\Workout\Type\WorkoutType;
+use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
+use Doctrine\DBAL\Connection;
 
 class Workout
 {
@@ -27,13 +32,14 @@ class Workout
         $this->workoutProperty = $property;
     }
 
-    public function sumAllWorkouts(): void
+    public function sumAllWorkouts(WorkoutQueryInterface $workoutQuery): void
     {
-        $this->sumAllWorkouts = new SumAllWorkouts();
+        $this->sumAllWorkouts = new Sum(new SumAllWorkouts());
+        $this->sumAllWorkouts->allWorkouts($workoutQuery, 1);
     }
 
     public function getSummaryAllWorkouts()
     {
-        return $this->sumAllWorkouts->getSummary();
+        return $this->sumAllWorkouts->getSummedAllWorkouts();
     }
 }
