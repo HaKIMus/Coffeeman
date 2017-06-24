@@ -7,8 +7,6 @@ use Coffeeman\Domain\Workout\Property\WorkoutProperty;
 use Coffeeman\Domain\Workout\Sum\Sum;
 use Coffeeman\Domain\Workout\Sum\SumAllWorkouts;
 use Coffeeman\Domain\Workout\Type\WorkoutType;
-use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
-use Doctrine\DBAL\Connection;
 
 class Workout
 {
