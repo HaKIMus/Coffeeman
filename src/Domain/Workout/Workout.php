@@ -36,7 +36,7 @@ class Workout
         $this->sumAllWorkouts->allWorkouts($workoutQuery, 1);
     }
 
-    public function getSummaryAllWorkouts()
+    public function getSummaryAllWorkouts(): array
     {
         return $this->sumAllWorkouts->getSummedAllWorkouts();
     }
