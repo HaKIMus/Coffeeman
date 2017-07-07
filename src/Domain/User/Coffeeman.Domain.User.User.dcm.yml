@@ -1,0 +1,8 @@
+Coffeeman\Domain\User\User:
+  type: entity
+  table: workout
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: webdevhakim
@@ -12,10 +13,10 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 $paths = [
-    __DIR__ . '/../src/Domain/Workout'
+    __DIR__ . '/../src/Domain/Workout',
+    __DIR__ . '/../src/Domain/User'
 ];
 $isDevMode  = true;
-
 $dbParams = [
     'driver' => 'pdo_mysql',
     'user' => 'root',
@@ -23,8 +24,6 @@ $dbParams = [
     'dbname' => 'coffeeman',
     'host' => '127.0.0.1',
 ];
-
 $config = Setup::createYAMLMetadataConfiguration($paths, $isDevMode);
 $entityManager = EntityManager::create($dbParams, $config);
-
 return \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager);

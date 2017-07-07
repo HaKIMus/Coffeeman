@@ -10,7 +10,7 @@ namespace Coffeeman\Domain\Workout\Sum;
 
 use Coffeeman\Application\Query\WorkoutQueryInterface;
 
-class Sum
+final class Sum
 {
     private $sumObject;
 

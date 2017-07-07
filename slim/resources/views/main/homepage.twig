@@ -1,0 +1,26 @@
+{% extends 'template.twig' %}
+
+{% block body %}
+    <main class="container">
+        <section id="sign-in">
+            <div class="sign-in col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="usernameInput" class="">Username</label>
+                        <input type="text" class="form-control" id="usernameInput" placeholder="Username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passwordInput">Password</label>
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                    </div>
+
+                    <button type="submit" class="btn btn-default btn-sign-in">Log In</button>
+                </form>
+            </div>
+        </section>
+        <div class="col-md-6">
+            <img src="http://www.clker.com/cliparts/1/c/1/S/m/c/coffee-bean.svg" alt="Seed of coffee" class="coffeeman-logo">
+        </div>
+    </main>
+{% endblock %}
