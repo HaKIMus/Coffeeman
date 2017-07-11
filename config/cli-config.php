@@ -16,6 +16,7 @@ $paths = [
     __DIR__ . '/../src/Domain/Workout',
     __DIR__ . '/../src/Domain/User'
 ];
+
 $isDevMode  = true;
 $dbParams = [
     'driver' => 'pdo_mysql',
@@ -24,6 +25,10 @@ $dbParams = [
     'dbname' => 'coffeeman',
     'host' => '127.0.0.1',
 ];
+
 $config = Setup::createYAMLMetadataConfiguration($paths, $isDevMode);
 $entityManager = EntityManager::create($dbParams, $config);
+
+\Doctrine\DBAL\Types\Type::addType('uuid', 'Ramsey\Uuid\Doctrine\UuidType');
+
 return \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager);

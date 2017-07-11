@@ -1,8 +1,22 @@
 Coffeeman\Domain\User\User:
   type: entity
-  table: workout
+  table: user
   id:
     id:
-      type: integer
+      type: uuid
       generator:
-        strategy: AUTO
+        strategy: CUSTOM
+      customIdGenerator:
+        class: Ramsey\Uuid\Doctrine\UuidGenerator
+  fields:
+    ~ #none
+  embedded:
+    name:
+      class: Coffeeman\Domain\User\Name
+      columnPrefix: false
+    password:
+      class: Coffeeman\Domain\User\Password
+      columnPrefix: false
+    email:
+      class: Coffeeman\Domain\User\Email
+      columnPrefix: false
