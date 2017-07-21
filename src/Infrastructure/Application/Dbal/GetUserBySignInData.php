@@ -6,13 +6,12 @@
  * Time: 15:58
  */
 
-namespace Coffeeman\Infrastructure\Service\Dbal;
+namespace Coffeeman\Infrastructure\Application\Dbal;
 
 use Coffeeman\Application\Query\User\UserView;
 use Coffeeman\Infrastructure\Domain\AbstractDBALQuery;
-use PHPUnit\Runner\Exception;
 
-final class UserByLoginData extends AbstractDBALQuery
+final class GetUserBySignInData extends AbstractDBALQuery
 {
     public function getUserByLoginData(string $username, string $password): UserView
     {
@@ -38,8 +37,8 @@ final class UserByLoginData extends AbstractDBALQuery
         return new UserView(
             $userData['id'],
             $userData['username'],
-            $userData['password'],
-            $userData['email']
+            $userData['email'],
+            $userData['password']
         );
     }
 }

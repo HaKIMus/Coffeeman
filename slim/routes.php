@@ -9,5 +9,5 @@
 $app->get('/', 'HomeController:index')
     ->setName('homepage');
 
-$app->post('/login','HomeController:loginAction')
-    ->setName('login');
+$app->post('/signIn','HomeController:signInAction')
+    ->setName('signIn');

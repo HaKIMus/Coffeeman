@@ -10,9 +10,12 @@ declare (strict_types = 1);
 
 namespace Coffeeman\UserInterface\Slim\Controller;
 
+use Coffeeman\Application\Command\SignInUser;
+use Coffeeman\Application\Handler\SignInUserHandler;
 use Coffeeman\Application\Service\Login\LoginService;
+use Coffeeman\Application\SimpleCommandBus;
 use Coffeeman\Infrastructure\Service\Login\Login;
-use Coffeeman\Infrastructure\Service\Dbal\UserByLoginData;
+use Coffeeman\Infrastructure\Service\Dbal\GetUserBySignInData;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use Psr\Http\Message\ResponseInterface;
@@ -29,13 +32,20 @@ final class HomeController extends Controller
         ]);
     }
 
-    public function loginAction(Request $request): void
+    public function signInAction(Request $request): void
     {
-        $loginService = new LoginService(
+        $signInUserCommand = new SignInUser(
             $request->getParam('username'),
             $request->getParam('password'),
-            new Login());
+            new Connection($this->container['dbParams'], new Driver()));
 
-        $loginService->login(new UserByLoginData(new Connection($this->container['dbParams'], new Driver())));
+        $commandBus = new SimpleCommandBus();
+
+        $signInUserHandler = new SignInUserHandler();
+
+        $commandBus->registerHandler($signInUserCommand, $signInUserHandler);
+        $commandBus->handle($signInUserCommand);
+
+        var_dump($signInUserHandler->getUser());
     }
 }

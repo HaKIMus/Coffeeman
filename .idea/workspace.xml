@@ -2,34 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9a32b14-bfea-4b91-902f-3da5fbf1ea6c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Command/CreateNewUser.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Handler/CreateNewUserHandler.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Query/User/UserView.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Query/UserQueryInterface.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Service/Login/LoginService.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Domain/UsersInterface.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Infrastructure/Domain/AbstractDBALQuery.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Infrastructure/Domain/User/Dbal/DbalUserQuery.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Infrastructure/Service/Dbal/UserByLoginData.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Infrastructure/Service/Login/Login.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Domain/User/Coffeeman.Domain.User.Name.dcm.yml" afterPath="$PROJECT_DIR$/src/Domain/User/Coffeeman.Domain.User.Username.dcm.yml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Domain/User/Name.php" afterPath="$PROJECT_DIR$/src/Domain/User/Username.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/DomainCoffeman.iml" afterPath="$PROJECT_DIR$/.idea/DomainCoffeman.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Command/SignInUser.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Handler/SignInUserHandler.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Application/Service/Login/LoginService.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Infrastructure/Service/Login/Login.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/unit/Application/Service/Login/LoginServiceTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/unit/Infrastructure/Service/LoginTest.php" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Infrastructure/Service/Dbal/UserByLoginData.php" afterPath="$PROJECT_DIR$/src/Infrastructure/Application/Dbal/GetUserBySignInData.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/cli-config.php" afterPath="$PROJECT_DIR$/config/cli-config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.php" afterPath="$PROJECT_DIR$/public/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slim/dependencies.php" afterPath="$PROJECT_DIR$/slim/dependencies.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slim/resources/views/main/homepage.twig" afterPath="$PROJECT_DIR$/slim/resources/views/main/homepage.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slim/routes.php" afterPath="$PROJECT_DIR$/slim/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domain/User/Coffeeman.Domain.User.User.dcm.yml" afterPath="$PROJECT_DIR$/src/Domain/User/Coffeeman.Domain.User.User.dcm.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domain/User/User.php" afterPath="$PROJECT_DIR$/src/Domain/User/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Domain/Workout/Workout.php" afterPath="$PROJECT_DIR$/src/Domain/Workout/Workout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Infrastructure/Domain/User/DoctrineUser.php" afterPath="$PROJECT_DIR$/src/Infrastructure/Domain/User/DoctrineUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Infrastructure/Domain/Workout/Dbal/DbalWorkoutQuery.php" afterPath="$PROJECT_DIR$/src/Infrastructure/Domain/Workout/Dbal/DbalWorkoutQuery.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserInterface/Slim/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/UserInterface/Slim/Controller/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/_support/_generated/AcceptanceTesterActions.php" afterPath="$PROJECT_DIR$/tests/_support/_generated/AcceptanceTesterActions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/_support/_generated/FunctionalTesterActions.php" afterPath="$PROJECT_DIR$/tests/_support/_generated/FunctionalTesterActions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/_support/_generated/UnitTesterActions.php" afterPath="$PROJECT_DIR$/tests/_support/_generated/UnitTesterActions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/_data/dump.sql" afterPath="$PROJECT_DIR$/tests/_data/dump.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,34 +24,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserInterface/Slim/Controller/HomeController.php">
+      <file leaf-file-name="SignInUserHandlerTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/unit/Application/Handler/SignInUserHandlerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserByLoginData.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Service/Dbal/UserByLoginData.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+            <state relative-caret-position="342">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <element signature="e#137#183#0#PHP" expanded="true" />
+                <element signature="e#39#84#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homepage.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/slim/resources/views/main/homepage.twig">
+      <file leaf-file-name="dump.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/_data/dump.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="124" lean-forward="false" selection-start-line="14" selection-start-column="124" selection-end-line="14" selection-end-column="124" />
+            <state relative-caret-position="108">
+              <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetUserBySignInData.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Infrastructure/Application/Dbal/GetUserBySignInData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="702">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding>
+                <element signature="e#141#187#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,7 +61,7 @@
       <file leaf-file-name="dependencies.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/slim/dependencies.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
+            <state relative-caret-position="392">
               <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
               <folding />
             </state>
@@ -86,8 +72,70 @@
         <entry file="file://$PROJECT_DIR$/slim/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserInterface/Slim/Controller/HomeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding>
+                <element signature="e#168#213#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homepage.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/slim/resources/views/main/homepage.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="53" lean-forward="false" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetUserBySignInDataTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/unit/Infrastructure/Application/Dbal/GetUserBySignInDataTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+              <folding>
+                <element signature="e#51#97#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Connection.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="1585" column="30" lean-forward="false" selection-start-line="1585" selection-start-column="30" selection-end-line="1585" selection-end-column="30" />
+              <folding>
+                <element signature="e#1015#1066#0#PHP" expanded="true" />
+                <marker date="1486558427000" expanded="true" signature="17292:17335" ph="DELETE FROM " />
+                <marker date="1486558427000" expanded="true" signature="20693:20747" ph="INSERT INTO ${$tableExpression}... " />
+                <marker date="1486558427000" expanded="true" signature="21094:21235" ph="INSERT INTO ${$tableExpression}... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueryBuilder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Query/QueryBuilder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-18">
+              <caret line="31" column="55" lean-forward="false" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+              <folding>
+                <marker date="1486558427000" expanded="true" signature="34780:34973" ph="INSERT INTO ${$this-&gt;sqlParts['from']['table']}... " />
+                <marker date="1486558427000" expanded="true" signature="35803:35815" ph="DELETE FROM " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,6 +153,7 @@
     <findStrings>
       <find>w</find>
       <find>array</find>
+      <find>return new Query\QueryBuilder</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -151,10 +200,18 @@
         <option value="$PROJECT_DIR$/src/Infrastructure/Service/Login/Login.php" />
         <option value="$PROJECT_DIR$/slim/dependencies.php" />
         <option value="$PROJECT_DIR$/src/Application/Service/Login/LoginService.php" />
-        <option value="$PROJECT_DIR$/slim/routes.php" />
-        <option value="$PROJECT_DIR$/slim/resources/views/main/homepage.twig" />
-        <option value="$PROJECT_DIR$/src/UserInterface/Slim/Controller/HomeController.php" />
         <option value="$PROJECT_DIR$/src/Infrastructure/Service/Dbal/UserByLoginData.php" />
+        <option value="$PROJECT_DIR$/tests/unit/Application/Command/SignInUserTest.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Service/Dbal/GetUserBySignData.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Service/Dbal/GetUserBySignInData.php" />
+        <option value="$PROJECT_DIR$/src/Application/Command/SignInUser.php" />
+        <option value="$PROJECT_DIR$/src/Application/Handler/SignInUserHandler.php" />
+        <option value="$PROJECT_DIR$/tests/unit/Application/Handler/SignInUserHandlerTest.php" />
+        <option value="$PROJECT_DIR$/tests/unit/Infrastructure/Application/Dbal/GetUserBySignInDataTest.php" />
+        <option value="$PROJECT_DIR$/src/Infrastructure/Application/Dbal/GetUserBySignInData.php" />
+        <option value="$PROJECT_DIR$/slim/routes.php" />
+        <option value="$PROJECT_DIR$/src/UserInterface/Slim/Controller/HomeController.php" />
+        <option value="$PROJECT_DIR$/slim/resources/views/main/homepage.twig" />
       </list>
     </option>
   </component>
@@ -168,7 +225,7 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP Lampp" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="27" />
     <option name="width" value="1910" />
@@ -292,6 +349,12 @@
               <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
               <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -299,14 +362,14 @@
               <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Service" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
               <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Service" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Dbal" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -329,6 +392,70 @@
               <item name="UserInterface" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Slim" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="_data" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="unit" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="unit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="unit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Command" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="unit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Handler" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="unit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="unit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DomainCoffeman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DomainCoffeman" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="unit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Infrastructure" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Dbal" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -454,60 +581,60 @@
       <workItem from="1499727033864" duration="3342000" />
       <workItem from="1500392513670" duration="4174000" />
       <workItem from="1500469553117" duration="3231000" />
-      <workItem from="1500642154765" duration="5888000" />
+      <workItem from="1500642154765" duration="9741000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_all - 2017.07.18 at 18h 28m 31s.xml">
+    <history-entry file="Test_all - 2017.07.21 at 17h 30m 40s.xml">
       <configuration name="Test all" configurationId="CodeceptionConfigurationType" />
     </history-entry>
-    <history-entry file="Test_all - 2017.07.18 at 18h 30m 20s.xml">
+    <history-entry file="Test_all - 2017.07.21 at 17h 32m 19s.xml">
       <configuration name="Test all" configurationId="CodeceptionConfigurationType" />
     </history-entry>
-    <history-entry file="Test_all - 2017.07.19 at 15h 43m 41s.xml">
+    <history-entry file="Test_all - 2017.07.21 at 17h 32m 28s.xml">
       <configuration name="Test all" configurationId="CodeceptionConfigurationType" />
     </history-entry>
-    <history-entry file="Test_all - 2017.07.19 at 15h 48m 05s.xml">
+    <history-entry file="Test_all - 2017.07.21 at 17h 34m 14s.xml">
       <configuration name="Test all" configurationId="CodeceptionConfigurationType" />
     </history-entry>
-    <history-entry file="Test_all - 2017.07.19 at 16h 00m 27s.xml">
+    <history-entry file="Test_all - 2017.07.21 at 17h 35m 29s.xml">
       <configuration name="Test all" configurationId="CodeceptionConfigurationType" />
     </history-entry>
-    <history-entry file="Test_all - 2017.07.19 at 16h 00m 55s.xml">
+    <history-entry file="Test_all - 2017.07.21 at 17h 40m 48s.xml">
       <configuration name="Test all" configurationId="CodeceptionConfigurationType" />
     </history-entry>
-    <history-entry file="Test_all - 2017.07.19 at 16h 03m 44s.xml">
+    <history-entry file="Test_all - 2017.07.21 at 17h 42m 25s.xml">
       <configuration name="Test all" configurationId="CodeceptionConfigurationType" />
     </history-entry>
-    <history-entry file="Test_all - 2017.07.19 at 16h 04m 13s.xml">
+    <history-entry file="Test_all - 2017.07.21 at 17h 43m 15s.xml">
       <configuration name="Test all" configurationId="CodeceptionConfigurationType" />
     </history-entry>
-    <history-entry file="Test_all - 2017.07.19 at 16h 05m 32s.xml">
+    <history-entry file="Test_all - 2017.07.21 at 17h 43m 22s.xml">
       <configuration name="Test all" configurationId="CodeceptionConfigurationType" />
     </history-entry>
-    <history-entry file="Test_all - 2017.07.21 at 15h 37m 00s.xml">
+    <history-entry file="Test_all - 2017.07.21 at 17h 43m 56s.xml">
       <configuration name="Test all" configurationId="CodeceptionConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27044000" />
+    <option name="totallyTimeSpent" value="30897000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
+    <frame x="0" y="25" width="1920" height="1055" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2484375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4625132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4625132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25554383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25554383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39915523" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -524,69 +651,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/assets/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Workout/Coffeeman.Domain.Workout.Property.WorkoutProperty.dcm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/_bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Workout/Coffeeman.Domain.Workout.Property.WorkoutStartDate.dcm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/User/Password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/User/Coffeeman.Domain.User.Password.dcm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/User/Coffeeman.Domain.User.Email.dcm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/User/Email.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Infrastructure/Domain/RepositoryInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -682,6 +751,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -845,16 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Service/Login/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-          <folding>
-            <element signature="e#138#184#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Command/CreateNewUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -871,32 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Handler/CreateNewWorkoutHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="48" column="34" lean-forward="true" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/SimpleCommandBus.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="14" column="42" lean-forward="false" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Service/Login/LoginService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-          <folding>
-            <element signature="e#135#181#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -905,9 +939,133 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Service/Login/LoginService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="23" column="70" lean-forward="false" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Application/Login/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Handler/CreateNewWorkoutHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="48" column="34" lean-forward="false" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Command/SignInUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="e#129#172#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/SimpleCommandBus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/unit/Application/Command/SignInUserTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="71" lean-forward="false" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+          <folding>
+            <element signature="e#39#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Handler/SignInUserHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#130#180#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/_data/dump.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="1585" column="30" lean-forward="false" selection-start-line="1585" selection-start-column="30" selection-end-line="1585" selection-end-column="30" />
+          <folding>
+            <element signature="e#1015#1066#0#PHP" expanded="true" />
+            <marker date="1486558427000" expanded="true" signature="17292:17335" ph="DELETE FROM " />
+            <marker date="1486558427000" expanded="true" signature="20693:20747" ph="INSERT INTO ${$tableExpression}... " />
+            <marker date="1486558427000" expanded="true" signature="21094:21235" ph="INSERT INTO ${$tableExpression}... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/dbal/lib/Doctrine/DBAL/Query/QueryBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="31" column="55" lean-forward="false" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+          <folding>
+            <marker date="1486558427000" expanded="true" signature="34780:34973" ph="INSERT INTO ${$this-&gt;sqlParts['from']['table']}... " />
+            <marker date="1486558427000" expanded="true" signature="35803:35815" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/unit/Application/Handler/SignInUserHandlerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#39#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/unit/Infrastructure/Application/Dbal/GetUserBySignInDataTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <folding>
+            <element signature="e#51#97#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Application/Dbal/GetUserBySignInData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <element signature="e#141#187#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/slim/dependencies.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
+        <state relative-caret-position="392">
           <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
           <folding />
         </state>
@@ -916,34 +1074,26 @@
     <entry file="file://$PROJECT_DIR$/slim/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slim/resources/views/main/homepage.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="124" lean-forward="false" selection-start-line="14" selection-start-column="124" selection-end-line="14" selection-end-column="124" />
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UserInterface/Slim/Controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="212">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#168#213#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Infrastructure/Service/Dbal/UserByLoginData.php">
+    <entry file="file://$PROJECT_DIR$/slim/resources/views/main/homepage.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
-          <folding>
-            <element signature="e#137#183#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="108">
+          <caret line="6" column="53" lean-forward="false" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
