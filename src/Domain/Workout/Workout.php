@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @TODO: SportsmanId as UserId.
+ */
+
 namespace Coffeeman\Domain\Workout;
 
 use Coffeeman\Application\Query\WorkoutQueryInterface;

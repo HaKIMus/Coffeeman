@@ -9,6 +9,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
@@ -29,6 +30,6 @@ $dbParams = [
 $config = Setup::createYAMLMetadataConfiguration($paths, $isDevMode);
 $entityManager = EntityManager::create($dbParams, $config);
 
-\Doctrine\DBAL\Types\Type::addType('uuid', 'Ramsey\Uuid\Doctrine\UuidType');
+Type::addType('uuid', 'Ramsey\Uuid\Doctrine\UuidType');
 
 return \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager);

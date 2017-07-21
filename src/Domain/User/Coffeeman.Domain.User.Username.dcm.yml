@@ -1,7 +1,7 @@
-Coffeeman\Domain\User\Name:
+Coffeeman\Domain\User\Username:
   type: embeddable
   fields:
-    name:
+    username:
       type: string
       nullable: false
       unique: false

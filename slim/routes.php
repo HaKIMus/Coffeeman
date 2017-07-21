@@ -6,4 +6,8 @@
  * Time: 16:45
  */
 
-$app->get('/', 'HomeController:index');
+$app->get('/', 'HomeController:index')
+    ->setName('homepage');
+
+$app->post('/login','HomeController:loginAction')
+    ->setName('login');

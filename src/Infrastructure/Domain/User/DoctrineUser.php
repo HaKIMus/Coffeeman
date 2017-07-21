@@ -10,10 +10,11 @@ namespace Coffeeman\Infrastructure\Domain\User;
 
 
 use Coffeeman\Domain\User\User;
+use Coffeeman\Domain\UsersInterface;
 use Coffeeman\Infrastructure\Domain\RepositoryInterface;
 use Doctrine\ORM\EntityManager;
 
-class DoctrineUser implements RepositoryInterface
+class DoctrineUser implements RepositoryInterface, UsersInterface
 {
     private $_em;
 
@@ -46,7 +47,7 @@ class DoctrineUser implements RepositoryInterface
         $this->_em->remove($entity);
     }
 
-    public function getById(int $id): User
+    public function getById(string $id): User
     {
         return $this->_em->getRepository(User::class)->find($id);
     }

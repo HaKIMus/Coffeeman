@@ -14,6 +14,10 @@ use Symfony\Component\Yaml\Yaml;
 $container = $app->getContainer();
 $appConfig = Yaml::parse(file_get_contents(__DIR__ . '/config/app.yml'));
 
+$container['dbParams'] = $dbParams;
+
+$container['entityManager'] = $entityManager;
+
 $container['titleWebsite'] = $appConfig['extras']['titleWebsite'];
 
 $container['view'] = function ($container) {

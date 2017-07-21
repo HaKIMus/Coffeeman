@@ -8,12 +8,12 @@
 
 namespace Coffeeman\Domain\User;
 
-final class Name
+final class Username
 {
-    private $name;
+    private $username;
 
     public function __construct(string $name)
     {
-        $this->name = $name;
+        $this->username = $name;
     }
 }

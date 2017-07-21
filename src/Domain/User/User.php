@@ -8,26 +8,24 @@
 
 namespace Coffeeman\Domain\User;
 
-use Ramsey\Uuid\UuidInterface;
-
 class User
 {
     private $id;
 
-    private $name;
+    private $username;
 
     private $password;
 
     private $email;
 
     public function __construct(
-        UuidInterface $id,
-        Name $name,
-        Password $password,
-        Email $email
+        string $id,
+        Username $username,
+        Email $email,
+        Password $password
     ) {
         $this->id = $id;
-        $this->name = $name;
+        $this->username = $username;
         $this->password = $password;
         $this->email = $email;
     }

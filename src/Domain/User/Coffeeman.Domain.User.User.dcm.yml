@@ -11,8 +11,8 @@ Coffeeman\Domain\User\User:
   fields:
     ~ #none
   embedded:
-    name:
-      class: Coffeeman\Domain\User\Name
+    username:
+      class: Coffeeman\Domain\User\Username
       columnPrefix: false
     password:
       class: Coffeeman\Domain\User\Password
