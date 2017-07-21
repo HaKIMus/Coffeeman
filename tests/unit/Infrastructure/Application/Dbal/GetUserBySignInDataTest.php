@@ -17,7 +17,7 @@ class GetUserBySignInDataTest extends \Codeception\Test\Unit
 
         $user = $getUserBySignInData->getUserByLoginData('Test', '123');
 
-        $this->assertEquals(new UserView('65e2dd25-88a4-4abc-a536-7d85c40a7674', 'Test', 'test@test.com', '123'),
+        $this->assertEquals(new UserView('65e2dd25-88a4-4abc-a536-7d85c40a7674', 'Test', 'test@email.test', '123'),
                             $user);
     }
 }
