@@ -20,7 +20,7 @@ $container['entityManager'] = $entityManager;
 
 $container['titleWebsite'] = $appConfig['extras']['titleWebsite'];
 
-$container['view'] = function ($container) {
+$container['view'] = function ($container) : Twig {
     $view = new Twig(__DIR__ . '/resources/views', [
         'cache' => false,
     ]);

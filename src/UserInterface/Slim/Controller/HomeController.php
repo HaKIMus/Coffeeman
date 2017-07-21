@@ -12,16 +12,12 @@ namespace Coffeeman\UserInterface\Slim\Controller;
 
 use Coffeeman\Application\Command\SignInUser;
 use Coffeeman\Application\Handler\SignInUserHandler;
-use Coffeeman\Application\Service\Login\LoginService;
 use Coffeeman\Application\SimpleCommandBus;
-use Coffeeman\Infrastructure\Service\Login\Login;
-use Coffeeman\Infrastructure\Service\Dbal\GetUserBySignInData;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Http\Request;
-use Slim\Http\Response;
 
 final class HomeController extends Controller
 {
@@ -45,7 +41,5 @@ final class HomeController extends Controller
 
         $commandBus->registerHandler($signInUserCommand, $signInUserHandler);
         $commandBus->handle($signInUserCommand);
-
-        var_dump($signInUserHandler->getUser());
     }
 }

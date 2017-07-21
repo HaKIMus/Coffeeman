@@ -11,19 +11,11 @@ namespace Coffeeman\Infrastructure\Domain\User;
 
 use Coffeeman\Domain\User\User;
 use Coffeeman\Domain\UsersInterface;
+use Coffeeman\Infrastructure\Domain\AbstractDoctrineEntity;
 use Coffeeman\Infrastructure\Domain\RepositoryInterface;
-use Doctrine\ORM\EntityManager;
 
-class DoctrineUser implements RepositoryInterface, UsersInterface
+class DoctrineUser extends AbstractDoctrineEntity implements RepositoryInterface, UsersInterface
 {
-    private $_em;
-
-    public function __construct(EntityManager $entityManager)
-    {
-        $this->_em = $entityManager;
-        $this->_em->beginTransaction();
-    }
-
     public function rollback(): void
     {
         $this->_em->rollback();
