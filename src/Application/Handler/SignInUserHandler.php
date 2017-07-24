@@ -20,9 +20,7 @@ final class SignInUserHandler implements CommandHandlerInterface
 
     public function handle(CommandInterface $command): void
     {
-        $signIn = new GetUserBySignInData($command->getConnection());
-
-        $this->user = $signIn->getUserByLoginData($command->getUsername(), $command->getPassword());
+        $this->user = $command->getUserBySignInData()->getUserBySignInData($command->getUsername(), $command->getPassword());
     }
 
     public function getUser(): UserView

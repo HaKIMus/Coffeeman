@@ -6,7 +6,9 @@
  * Time: 20:17
  */
 
-namespace Coffeeman\Domain\Contract;
+namespace Coffeeman\Domain\Contract\Workout;
+
+use Coffeeman\Domain\Contract\ContractInterface;
 
 final class WorkoutTypeNameContract implements ContractInterface
 {

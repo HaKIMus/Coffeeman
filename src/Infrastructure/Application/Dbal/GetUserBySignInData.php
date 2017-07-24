@@ -13,7 +13,7 @@ use Coffeeman\Infrastructure\Domain\AbstractDBALQuery;
 
 final class GetUserBySignInData extends AbstractDBALQuery
 {
-    public function getUserByLoginData(string $username, string $password): UserView
+    public function getUserBySignInData(string $username, string $password): UserView
     {
         $queryBuilder = $this->connection->createQueryBuilder();
 

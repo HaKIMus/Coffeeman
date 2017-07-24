@@ -13,6 +13,7 @@ namespace Coffeeman\UserInterface\Slim\Controller;
 use Coffeeman\Application\Command\SignInUser;
 use Coffeeman\Application\Handler\SignInUserHandler;
 use Coffeeman\Application\SimpleCommandBus;
+use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use Psr\Http\Message\ResponseInterface;
@@ -28,18 +29,21 @@ final class HomeController extends Controller
         ]);
     }
 
-    public function signInAction(Request $request): void
+    public function signInAction(Request $request, ResponseInterface $response): ResponseInterface
     {
         $signInUserCommand = new SignInUser(
             $request->getParam('username'),
             $request->getParam('password'),
-            new Connection($this->container['dbParams'], new Driver()));
-
-        $commandBus = new SimpleCommandBus();
+            new GetUserBySignInData(new Connection($this->container['dbParams'], new Driver())));
 
         $signInUserHandler = new SignInUserHandler();
+        $commandBus = new SimpleCommandBus();
+
 
         $commandBus->registerHandler($signInUserCommand, $signInUserHandler);
         $commandBus->handle($signInUserCommand);
+
+        $url = $this->container->router->pathFor('homepage');
+        return $response->withStatus(200)->withHeader('Location', $url);
     }
 }

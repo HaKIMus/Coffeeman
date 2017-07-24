@@ -2,7 +2,7 @@
 namespace Tests\Validation;
 
 use Codeception\Test\Unit;
-use Coffeeman\Domain\Contract\WorkoutTypeNameContract;
+use Coffeeman\Domain\Contract\Workout\WorkoutTypeNameContract;
 use InvalidArgumentException;
 
 class WorkoutTypeNameTest extends Unit

@@ -4,6 +4,7 @@ namespace Application\Handler;
 
 use Coffeeman\Application\Command\SignInUser;
 use Coffeeman\Application\Handler\SignInUserHandler;
+use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use Tests\Unit\CoffeemanDatabase;
@@ -22,8 +23,8 @@ class SignInUserHandlerTest extends \Codeception\Test\Unit
             ->willReturn('Test');
         $signInUserCommand->method('getPassword')
             ->willReturn('123');
-        $signInUserCommand->method('getConnection')
-            ->willReturn($connection);
+        $signInUserCommand->method('getUserBySignInData')
+            ->willReturn(new GetUserBySignInData($connection));
 
         $signInUserHandler = new SignInUserHandler();
 

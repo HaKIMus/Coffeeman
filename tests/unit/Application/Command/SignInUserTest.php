@@ -3,6 +3,7 @@ namespace Application\Command;
 
 
 use Coffeeman\Application\Command\SignInUser;
+use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 use Doctrine\DBAL\Connection;
 
 class SignInUserTest extends \Codeception\Test\Unit
@@ -13,10 +14,12 @@ class SignInUserTest extends \Codeception\Test\Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $signInUser = new SignInUser('Test', '123', $connection);
+        $userBySignInData = new GetUserBySignInData($connection);
+
+        $signInUser = new SignInUser('Test', '123', $userBySignInData);
 
         $this->assertEquals('Test', $signInUser->getUsername());
         $this->assertEquals('123', $signInUser->getPassword());
-        $this->assertEquals($connection, $signInUser->getConnection());
+        $this->assertEquals($userBySignInData, $signInUser->getUserBySignInData());
     }
 }

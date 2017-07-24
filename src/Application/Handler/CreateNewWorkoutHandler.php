@@ -10,7 +10,7 @@ namespace Coffeeman\Application\Handler;
 
 use Coffeeman\Application\CommandHandlerInterface;
 use Coffeeman\Application\CommandInterface;
-use Coffeeman\Domain\Contract\BurnedCaloriesContract;
+use Coffeeman\Domain\Contract\Workout\BurnedCaloriesContract;
 use Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories;
 use Coffeeman\Domain\Workout\Property\WorkoutProperty;
 use Coffeeman\Domain\Workout\Property\WorkoutStartDate;

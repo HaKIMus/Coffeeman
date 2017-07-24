@@ -9,19 +9,20 @@
 namespace Coffeeman\Application\Command;
 
 use Coffeeman\Application\CommandInterface;
+use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 use Doctrine\DBAL\Connection;
 
 class SignInUser implements CommandInterface
 {
     private $username;
     private $password;
-    private $connection;
+    private $userBySignInData;
 
-    public function __construct(string $username, string $password, Connection $connection)
+    public function __construct(string $username, string $password, GetUserBySignInData $userBySignInData)
     {
         $this->username = $username;
         $this->password = $password;
-        $this->connection = $connection;
+        $this->userBySignInData = $userBySignInData;
     }
 
     public function getUsername(): string
@@ -34,8 +35,8 @@ class SignInUser implements CommandInterface
         return $this->password;
     }
 
-    public function getConnection(): Connection
+    public function getUserBySignInData(): GetUserBySignInData
     {
-        return $this->connection;
+        return $this->userBySignInData;
     }
 }
