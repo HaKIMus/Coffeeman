@@ -1,0 +1,15 @@
+/* Homepage */
+    .homepage-coffeeman-description{
+
+    }
+
+    .homepage-coffeeman-logo{
+        display: inline-block;
+        width: 120px;
+        height: 120px;
+    }
+
+    .homepage-coffeeman-description > p{
+        display: inline-block;
+    }
+/**/

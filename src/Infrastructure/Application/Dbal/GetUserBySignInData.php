@@ -31,7 +31,7 @@ final class GetUserBySignInData extends AbstractDBALQuery
         $userData = $this->connection->fetchAssoc($queryBuilder->getSQL(), $queryBuilder->getParameters());
 
         if (empty($userData) || !isset($userData)) {
-            throw new \InvalidArgumentException('No user founded.');
+            throw new \InvalidArgumentException('No user found.');
         }
 
         return new UserView(
