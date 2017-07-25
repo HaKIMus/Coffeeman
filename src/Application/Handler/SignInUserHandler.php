@@ -26,7 +26,7 @@ final class SignInUserHandler implements CommandHandlerInterface
     public function getUser(): UserView
     {
         if (!isset($this->user)) {
-            throw new \InvalidArgumentException('No user founded');
+            throw new \InvalidArgumentException('No user found');
         }
 
         return $this->user;
