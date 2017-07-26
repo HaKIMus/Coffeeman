@@ -12,7 +12,6 @@ namespace Coffeeman\Application\Handler;
 use Coffeeman\Application\CommandHandlerInterface;
 use Coffeeman\Application\CommandInterface;
 use Coffeeman\Application\Query\User\UserView;
-use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 
 final class SignInUserHandler implements CommandHandlerInterface
 {

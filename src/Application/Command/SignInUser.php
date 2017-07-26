@@ -10,7 +10,6 @@ namespace Coffeeman\Application\Command;
 
 use Coffeeman\Application\CommandInterface;
 use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
-use Doctrine\DBAL\Connection;
 
 class SignInUser implements CommandInterface
 {
