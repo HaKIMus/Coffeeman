@@ -10,20 +10,14 @@ namespace Coffeeman\Infrastructure\Domain\Workout\Dbal;
 
 use Coffeeman\Application\Query\WorkoutQueryInterface;
 use Coffeeman\Application\Query\Workout\WorkoutView;
-use Doctrine\DBAL\Connection;
+use Coffeeman\Infrastructure\Domain\AbstractDBALQuery;
 
-class DbalWorkoutQuery implements WorkoutQueryInterface
+class DbalWorkoutQuery extends AbstractDBALQuery implements WorkoutQueryInterface
 {
-    private $connection;
-
-    public function __construct(Connection $connection)
-    {
-        $this->connection = $connection;
-    }
-
     public function getById(int $id): WorkoutView
     {
         $queryBuilder = $this->connection->createQueryBuilder();
+
         $queryBuilder
             ->select('w.sportsmanId',
                 'w.workoutTypeId',

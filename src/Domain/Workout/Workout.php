@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @TODO: SportsmanId as UserId.
+ */
+
 namespace Coffeeman\Domain\Workout;
 
 use Coffeeman\Application\Query\WorkoutQueryInterface;
@@ -30,9 +34,9 @@ class Workout
         $this->workoutProperty = $property;
     }
 
-    public function sumAllWorkouts(WorkoutQueryInterface $workoutQuery): void
+    public function sumAllWorkouts(SumAllWorkouts $sumAllWorkouts, WorkoutQueryInterface $workoutQuery): void
     {
-        $this->sumAllWorkouts = new Sum(new SumAllWorkouts());
+        $this->sumAllWorkouts = new Sum($sumAllWorkouts);
         $this->sumAllWorkouts->allWorkouts($workoutQuery, 1);
     }
 

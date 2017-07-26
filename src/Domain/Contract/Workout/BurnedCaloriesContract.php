@@ -6,18 +6,20 @@
  * Time: 22:37
  */
 
-namespace Coffeeman\Domain\Contract;
+namespace Coffeeman\Domain\Contract\Workout;
 
-use \InvalidArgumentException;
+use Coffeeman\Domain\Contract\ContractInterface;
 
 final class BurnedCaloriesContract implements ContractInterface
 {
+    const MIN_VALUE = 50;
+    const MAX_VALUE = 2000;
     private $value;
 
     public function __construct(int $value)
     {
-        if ($value < 50 || $value > 2000) {
-            throw new InvalidArgumentException('Value cannot be greater than 2000 and not less than 50!');
+        if ($value < self::MIN_VALUE || $value > self::MAX_VALUE) {
+            throw new \InvalidArgumentException('Value cannot be greater than ' . self::MAX_VALUE . ' and not less than ' . self::MIN_VALUE);
         }
 
         $this->value = $value;

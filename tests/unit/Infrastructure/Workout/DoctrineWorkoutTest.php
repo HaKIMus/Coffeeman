@@ -1,7 +1,8 @@
 <?php
 namespace Tests\Infrastructure\Workout;
+
 use Codeception\Test\Unit;
-use Coffeeman\Domain\Contract\BurnedCaloriesContract;
+use Coffeeman\Domain\Contract\Workout\BurnedCaloriesContract;
 use Coffeeman\Domain\Workout\Property\WorkoutProperty;
 use Coffeeman\Domain\Workout\Workout;
 use Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories;

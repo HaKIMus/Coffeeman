@@ -2,7 +2,7 @@
 
 namespace Coffeeman\Domain\Workout\Property;
 
-use Coffeeman\Domain\Contract\BurnedCaloriesContract;
+use Coffeeman\Domain\Contract\Workout\BurnedCaloriesContract;
 
 final class WorkoutBurnedCalories
 {

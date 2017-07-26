@@ -2,7 +2,7 @@
 namespace Tests\Validation;
 
 use Codeception\Test\Unit;
-use Coffeeman\Domain\Contract\BurnedCaloriesContract;
+use Coffeeman\Domain\Contract\Workout\BurnedCaloriesContract;
 use InvalidArgumentException;
 
 class BurnedCaloriesContractTest extends Unit
