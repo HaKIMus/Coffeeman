@@ -2,8 +2,10 @@
 
 {% block body %}
     <main class="container">
-        <section id="sign-in">
-            <div class="sign-in col-md-6">
+        <div class="col-md-6">
+            <section id="sign-in">
+                <h3>Sign In</h3>
+
                 <form action="{{ base_url() }}/signIn" method="POST">
                     <div class="form-group">
                         <label for="usernameInput" class="">Username</label>
@@ -17,8 +19,31 @@
 
                     <button type="submit" class="btn btn-default btn-sign-in">Sign In</button>
                 </form>
-            </div>
-        </section>
+            </section>
+
+            <section id="sign-up">
+                <h3>Join Us</h3>
+
+                <form action="{{ base_url() }}/signUp" method="POST">
+                    <div class="form-group">
+                        <label for="usernameInput" class="">Username</label>
+                        <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passwordInput">Email</label>
+                        <input type="email" class="form-control" id="passwordInput" placeholder="E-mail" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passwordInput">Password</label>
+                        <input type="password" class="form-control" id="passwordInput" placeholder="Password" name="password">
+                    </div>
+
+                    <button type="submit" class="btn btn-default btn-sign-in">Sign Up</button>
+                </form>
+            </section>
+        </div>
 
         <div class="col-md-6 homepage-coffeeman-description">
             <p>
