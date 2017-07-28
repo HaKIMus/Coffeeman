@@ -11,6 +11,7 @@ namespace Coffeeman\Application\Handler;
 
 use Coffeeman\Application\CommandHandlerInterface;
 use Coffeeman\Application\CommandInterface;
+use Coffeeman\Domain\Contract\User\UsernameContract;
 use Coffeeman\Domain\User\Email;
 use Coffeeman\Domain\User\Password;
 use Coffeeman\Domain\User\User;
@@ -31,7 +32,7 @@ final class SignUpUserHandler implements CommandHandlerInterface
     {
         $newUser = new User(
             UUid::uuid4(),
-            new Username($command->getUsername()),
+            new Username(new UsernameContract($command->getUsername())),
             new Email($command->getEmail()),
             new Password($command->getPassword())
         );

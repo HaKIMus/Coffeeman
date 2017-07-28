@@ -14,6 +14,9 @@ class SignUpUserHandlerTest extends \Codeception\Test\Unit
             ->disableOriginalConstructor()
             ->getMock();
 
+        $command->method('getUsername')
+            ->willReturn('Test');
+
         $doctrineUsers = $this->getMockBuilder(DoctrineUser::class)
             ->disableOriginalConstructor()
             ->getMock();
