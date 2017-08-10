@@ -18,7 +18,10 @@ final class WorkoutTypeNameContract implements ContractInterface
 
     public function __construct(string $value)
     {
-        if (strlen($value) > self::MAX_LENGTH || strlen($value) < self::MIN_LENGTH || empty($value)) {
+        if (strlen($value) > self::MAX_LENGTH ||
+            strlen($value) < self::MIN_LENGTH ||
+            empty($value)
+        ) {
             throw new \InvalidArgumentException("Value: $value cannot be larger than " . self::MAX_LENGTH . " characters | cannot be smaller than " . self::MIN_LENGTH . " characters | cannot be empty");
         }
 

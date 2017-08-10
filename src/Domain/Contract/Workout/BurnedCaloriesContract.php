@@ -18,7 +18,9 @@ final class BurnedCaloriesContract implements ContractInterface
 
     public function __construct(int $value)
     {
-        if ($value < self::MIN_VALUE || $value > self::MAX_VALUE) {
+        if ($value < self::MIN_VALUE ||
+            $value > self::MAX_VALUE
+        ) {
             throw new \InvalidArgumentException('Burned Calories cannot be greater than ' . self::MAX_VALUE . ' and not less than ' . self::MIN_VALUE);
         }
 

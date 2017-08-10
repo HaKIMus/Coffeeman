@@ -9,11 +9,13 @@
 namespace Coffeeman\Domain\User;
 
 
+use Coffeeman\Domain\Contract\User\PasswordContract;
+
 final class Password
 {
     private $password;
 
-    public function __construct(string $password)
+    public function __construct(PasswordContract $password)
     {
         $this->password = $password;
     }

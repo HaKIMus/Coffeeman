@@ -9,12 +9,14 @@
 namespace Coffeeman\Domain\User;
 
 
+use Coffeeman\Domain\Contract\User\EmailContract;
+
 final class Email
 {
     private $email;
 
-    public function __construct(string $email)
+    public function __construct(EmailContract $email)
     {
-        $this->email = $email;
+        $this->email = $email->getValue();
     }
 }
