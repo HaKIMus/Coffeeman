@@ -12,22 +12,40 @@ namespace Coffeeman\UserInterface\Slim\Controller;
 
 use Coffeeman\Application\Command\SignInUser;
 use Coffeeman\Application\Command\SignUpUser;
+use Coffeeman\Application\Command\SumSportsmanWorkouts;
 use Coffeeman\Application\Handler\SignInUserHandler;
 use Coffeeman\Application\Handler\SignUpUserHandler;
-use Coffeeman\Application\SimpleCommandBus;
+use Coffeeman\Application\Handler\SumSportsmanWorkoutsHandler;
+use Coffeeman\Application\Service\Check;
+use Coffeeman\Application\Service\SumSportsmanWorkoutsApplicationService;
 use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 use Coffeeman\Infrastructure\Domain\User\DoctrineUser;
+use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
+use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutTypeQuery;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Slim\Container;
 
 final class HomeController extends Controller
 {
+    private $check;
+
+    public function __construct(Container $container, Check $check)
+    {
+        parent::__construct($container);
+
+        $this->check = $check;
+    }
+
     public function index(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         return $this->view->render($response, 'main/homepage.twig', [
-            'titleWebsite' => $this->container->get('titleWebsite')
+            'titleWebsite' => $this->container->get('titleWebsite'),
+            'isUserSignedIn' => $this->isUserSignedIn(),
+            'user' => $this->setUserIfSignedIn(),
+            'summedSportsmanWorkouts' => $this->setSumOfSportsmanWorkoutsIfSignedIn()
         ]);
     }
 
@@ -38,19 +56,15 @@ final class HomeController extends Controller
             $request->getParam('password'),
             new GetUserBySignInData(new Connection($this->container['dbParams'], new Driver())));
 
-        $signInUserHandler = new SignInUserHandler();
-        $commandBus = new SimpleCommandBus();
-
-
-        $commandBus->registerHandler($signInUserCommand, $signInUserHandler);
-        $commandBus->handle($signInUserCommand);
+        $this->container->commandBus->registerHandler(SignInUser::class, new SignInUserHandler());
+        $this->container->commandBus->handle($signInUserCommand);
 
         $homepageUrl = $this->container->router->pathFor('homepage');
 
         return $response->withStatus(200)->withHeader('Location', $homepageUrl);
     }
 
-    public function signUpAction(ServerRequestInterface $request, ResponseInterface $response): void
+    public function signUpAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $signUpUserCommand = new SignUpUser(
             $request->getParam('username'),
@@ -58,7 +72,40 @@ final class HomeController extends Controller
             $request->getParam('password')
         );
 
-        $signUpUserHandler = new SignUpUserHandler(new DoctrineUser($this->container->get('entityManager')));
-        $signUpUserHandler->handle($signUpUserCommand);
+        $this->container->commandBus->registerHandler(SignUpUser::class, new SignUpUserHandler(new DoctrineUser($this->container->entityManager)));
+        $this->container->commandBus->handle($signUpUserCommand);
+
+        $homepageUrl = $this->container->router->pathFor('homepage');
+        return $response->withStatus(200)->withHeader('Location', $homepageUrl);
+    }
+
+    private function sumSportsmanWorkouts(): void
+    {
+        $service = new SumSportsmanWorkoutsApplicationService($this->container);
+        $service->sumSportsmanWorkouts();
+    }
+
+    private function setUserIfSignedIn(): ?array
+    {
+        if ($this->isUserSignedIn()) {
+            return $_SESSION['user'];
+        }
+
+        return Null;
+    }
+
+    private function setSumOfSportsmanWorkoutsIfSignedIn(): ?array
+    {
+        if ($this->isUserSignedIn()) {
+            $this->sumSportsmanWorkouts();
+            return $_SESSION['summedSportsmanWorkouts'];
+        }
+
+        return Null;
+    }
+
+    private function isUserSignedIn(): bool
+    {
+        return $this->check->isUserSignedIn();
     }
 }

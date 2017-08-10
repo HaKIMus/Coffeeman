@@ -8,9 +8,7 @@
 
 namespace Coffeeman\Application\Command;
 
-use Coffeeman\Application\CommandInterface;
-
-class CreateNewWorkout implements CommandInterface
+class CreateNewWorkout
 {
     private $sportsmanId;
     private $workoutTypeId;
@@ -19,7 +17,7 @@ class CreateNewWorkout implements CommandInterface
     private $stopDate;
 
     public function __construct(
-        int $sportsmanId,
+        string $sportsmanId,
         int $typeId,
         int $burnedCalories,
         \DateTime $startDate,
@@ -32,7 +30,7 @@ class CreateNewWorkout implements CommandInterface
         $this->stopDate = $stopDate;
     }
 
-    public function getSportsmanId(): int
+    public function getSportsmanId(): string
     {
         return $this->sportsmanId;
     }

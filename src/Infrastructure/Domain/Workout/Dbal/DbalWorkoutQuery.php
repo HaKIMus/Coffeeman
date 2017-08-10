@@ -8,6 +8,7 @@
 
 namespace Coffeeman\Infrastructure\Domain\Workout\Dbal;
 
+use Coffeeman\Application\Query\Workout\WorkoutTypeView;
 use Coffeeman\Application\Query\WorkoutQueryInterface;
 use Coffeeman\Application\Query\Workout\WorkoutView;
 use Coffeeman\Infrastructure\Domain\AbstractDBALQuery;
@@ -20,15 +21,18 @@ class DbalWorkoutQuery extends AbstractDBALQuery implements WorkoutQueryInterfac
 
         $queryBuilder
             ->select('w.sportsmanId',
-                'w.workoutTypeId',
-                'w.workoutPropertyId',
+                'w.workoutInformation',
+                'wInformation.workoutBurnedCalories',
+                'wInformation.workoutTime',
+                'wType.id',
                 'wType.name',
-                'wProperty.workoutBurnedCalories',
-                'wProperty.workoutStartDate',
-                'wProperty.workoutStopDate')
-            ->from('workout', 'w')
-            ->innerJoin('w', 'workoutType', 'wType', 'wType.id = w.workoutTypeId')
-            ->innerJoin('w', 'workoutProperty', 'wProperty', 'wProperty.id = w.workoutPropertyId')
+                'wTime.id',
+                'wTime.workoutStartDate',
+                'wTime.workoutStopDate')
+                ->from('workout', 'w')
+                ->innerJoin('w', 'workoutInformation', 'wInformation', 'wInformation.id = w.workoutInformation')
+                ->innerJoin('w', 'workoutType', 'wType', 'wType.id = wInformation.workoutType')
+                ->innerJoin('w', 'workoutTime', 'wTime', 'wTime.id = wInformation.workoutTime')
             ->where('w.id = :id')
             ->setParameter('id', $id);
 
@@ -50,16 +54,18 @@ class DbalWorkoutQuery extends AbstractDBALQuery implements WorkoutQueryInterfac
         $queryBuilder = $this->connection->createQueryBuilder();
         $queryBuilder
             ->select('w.sportsmanId',
-                'w.workoutTypeId',
-                'w.workoutPropertyId',
+                'w.workoutInformation',
+                'wInformation.workoutBurnedCalories',
+                'wInformation.workoutTime',
+                'wType.id',
                 'wType.name',
-                'wProperty.workoutBurnedCalories',
-                'wProperty.workoutStartDate',
-                'wProperty.workoutStopDate')
+                'wTime.id',
+                'wTime.workoutStartDate',
+                'wTime.workoutStopDate')
             ->from('workout', 'w')
-            ->innerJoin('w', 'workoutType', 'wType', 'wType.id = w.workoutTypeId')
-            ->innerJoin('w', 'workoutProperty', 'wProperty', 'wProperty.id = w.workoutPropertyId');
-
+            ->innerJoin('w', 'workoutInformation', 'wInformation', 'wInformation.id = w.workoutInformation')
+            ->innerJoin('w', 'workoutType', 'wType', 'wType.id = wInformation.workoutType')
+            ->innerJoin('w', 'workoutTime', 'wTime', 'wTime.id = wInformation.workoutTime');
         $workoutsData = $this->connection->fetchAll($queryBuilder->getSQL(), $queryBuilder->getParameters());
 
         return array_map(function(array $workoutData) {
@@ -75,20 +81,24 @@ class DbalWorkoutQuery extends AbstractDBALQuery implements WorkoutQueryInterfac
         }, $workoutsData);
     }
 
-    public function getAllWorkoutsBySportsmanId(int $sportsmanId): array
+    public function getAllWorkoutsBySportsmanId(string $sportsmanId): array
     {
         $queryBuilder = $this->connection->createQueryBuilder();
+
         $queryBuilder
             ->select('w.sportsmanId',
-                'w.workoutTypeId',
-                'w.workoutPropertyId',
+                'w.workoutInformation',
+                'wInformation.workoutBurnedCalories',
+                'wInformation.workoutTime',
+                'wType.id',
                 'wType.name',
-                'wProperty.workoutBurnedCalories',
-                'wProperty.workoutStartDate',
-                'wProperty.workoutStopDate')
-            ->from('workout', 'w')
-            ->innerJoin('w', 'workoutType', 'wType', 'wType.id = w.workoutTypeId')
-            ->innerJoin('w', 'workoutProperty', 'wProperty', 'wProperty.id = w.workoutPropertyId')
+                'wTime.id',
+                'wTime.workoutStartDate',
+                'wTime.workoutStopDate')
+                ->from('workout', 'w')
+                ->innerJoin('w', 'workoutInformation', 'wInformation', 'wInformation.id = w.workoutInformation')
+                ->innerJoin('w', 'workoutType', 'wType', 'wType.id = wInformation.workoutType')
+                ->innerJoin('w', 'workoutTime', 'wTime', 'wTime.id = wInformation.workoutTime')
             ->where('w.sportsmanId = :sportsmanId')
             ->setParameter('sportsmanId', $sportsmanId);
 
@@ -97,39 +107,13 @@ class DbalWorkoutQuery extends AbstractDBALQuery implements WorkoutQueryInterfac
         return array_map(function(array $workoutData) {
             return new WorkoutView(
                 $workoutData['sportsmanId'],
-                $workoutData['workoutTypeId'],
-                $workoutData['workoutPropertyId'],
+                $workoutData['id'],
+                $workoutData['workoutInformation'],
                 $workoutData['name'],
                 $workoutData['workoutBurnedCalories'],
                 $workoutData['workoutStartDate'],
                 $workoutData['workoutStopDate']
             );
         }, $workoutsData);
-    }
-
-    public function getBySportsmanIdMostPopularWorkoutType(int $sportsmanId)
-    {
-        $queryBuilder = $this->connection->createQueryBuilder();
-        $queryBuilder
-            ->select('w.workoutTypeId',
-                'COUNT(w.workoutTypeId) AS mostPopularWorkoutType',
-                'wType.id',
-                'wType.name')
-            ->from('workout', 'w')
-            ->innerJoin('w', 'workoutType', 'wType', 'wType.id = w.workoutTypeId')
-            ->where('w.sportsmanId = :sportsmanId')
-            ->groupBy('w.workoutTypeId')
-            ->orderBy('mostPopularWorkoutType', 'DESC')
-            ->setMaxResults(1)
-            ->setParameter('sportsmanId', $sportsmanId);
-
-        $workoutData = $this->connection->fetchAssoc($queryBuilder->getSQL(), $queryBuilder->getParameters());
-
-        return new WorkoutView(
-            0,
-            $workoutData['workoutTypeId'],
-            0,
-            $workoutData['name']
-        );
     }
 }

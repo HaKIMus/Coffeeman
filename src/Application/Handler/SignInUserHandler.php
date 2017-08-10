@@ -9,25 +9,13 @@
 namespace Coffeeman\Application\Handler;
 
 
+use Coffeeman\Application\Command\SignInUser;
 use Coffeeman\Application\CommandHandlerInterface;
-use Coffeeman\Application\CommandInterface;
-use Coffeeman\Application\Query\User\UserView;
 
 final class SignInUserHandler implements CommandHandlerInterface
 {
-    private $user;
-
-    public function handle(CommandInterface $command): void
+    public function handle(SignInUser $command): void
     {
-        $this->user = $command->getUserBySignInData()->getUserBySignInData($command->getUsername(), $command->getPassword());
-    }
-
-    public function getUser(): UserView
-    {
-        if (!isset($this->user)) {
-            throw new \InvalidArgumentException('No user found');
-        }
-
-        return $this->user;
+        $_SESSION['user'] = $command->getUserBySignInData()->getUserBySignInData($command->getUsername(), $command->getPassword());
     }
 }

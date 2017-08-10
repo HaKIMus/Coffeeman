@@ -6,15 +6,15 @@
  * Date: 27.03.17
  * Time: 21:45
  */
+
 namespace Coffeeman\Infrastructure\Domain\Workout;
 
-
-use Coffeeman\Domain\Workout\Information\WorkoutType;
-use Coffeeman\Domain\WorkoutsTypesInterface;
+use Coffeeman\Domain\Workout\Information\InformationAboutWorkout;
+use Coffeeman\Domain\WorkoutInformationInterface;
 use Coffeeman\Infrastructure\Domain\AbstractDoctrineEntity;
 use Coffeeman\Infrastructure\Domain\RepositoryInterface;
 
-class DoctrineWorkoutType extends AbstractDoctrineEntity implements RepositoryInterface, WorkoutsTypesInterface
+class DoctrineWorkoutInformation extends AbstractDoctrineEntity implements RepositoryInterface, WorkoutInformationInterface
 {
     public function rollback(): void
     {
@@ -39,13 +39,13 @@ class DoctrineWorkoutType extends AbstractDoctrineEntity implements RepositoryIn
         $this->_em->remove($entity);
     }
 
-    public function getById(int $id): WorkoutType
+    public function getById(int $id): InformationAboutWorkout
     {
-        return $this->_em->getRepository(WorkoutType::class)->find($id);
+        return $this->_em->getRepository(InformationAboutWorkout::class)->find($id);
     }
 
     public function getAll(): array
     {
-        return $this->_em->getRepository(WorkoutType::class)->findAll();
+        return $this->_em->getRepository(InformationAboutWorkout::class)->findAll();
     }
 }

@@ -13,5 +13,8 @@ use Coffeeman\Application\Query\Workout\WorkoutView;
 interface WorkoutQueryInterface
 {
     public function getById(int $id): WorkoutView;
+
     public function getAll(): array;
+
+    public function getAllWorkoutsBySportsmanId(string $sportsmanId): array;
 }

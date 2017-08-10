@@ -13,7 +13,7 @@ use Coffeeman\Infrastructure\Domain\AbstractDBALQuery;
 
 final class GetUserBySignInData extends AbstractDBALQuery
 {
-    public function getUserBySignInData(string $username, string $password): UserView
+    public function getUserBySignInData(string $username, string $password): array
     {
         $queryBuilder = $this->connection->createQueryBuilder();
 
@@ -34,11 +34,6 @@ final class GetUserBySignInData extends AbstractDBALQuery
             throw new \InvalidArgumentException('No user found.');
         }
 
-        return new UserView(
-            $userData['id'],
-            $userData['username'],
-            $userData['email'],
-            $userData['password']
-        );
+        return $userData;
     }
 }

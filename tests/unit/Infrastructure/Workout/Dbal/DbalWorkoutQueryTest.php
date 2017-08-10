@@ -37,7 +37,7 @@ class DbalWorkoutQueryTest extends Unit
 
     public function testGetAllWorkoutsBySportsmanId()
     {
-        $sportsmanWorkouts = $this->workoutQuery->getAllWorkoutsBySportsmanId(1);
+        $this->workoutQuery->getAllWorkoutsBySportsmanId(1);
     }
 
     public function testGetBySportsmanIdMostPopularWorkoutType()

@@ -13,8 +13,6 @@ use Coffeeman\Domain\Workout\Workout;
 use Coffeeman\Domain\WorkoutsInterface;
 use Coffeeman\Infrastructure\Domain\AbstractDoctrineEntity;
 use Coffeeman\Infrastructure\Domain\RepositoryInterface;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityRepository;
 
 class DoctrineWorkout extends AbstractDoctrineEntity implements RepositoryInterface, WorkoutsInterface
 {

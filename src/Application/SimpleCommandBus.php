@@ -12,12 +12,12 @@ final class SimpleCommandBus implements CommandBusInterface
 {
     private $handlers = [];
 
-    public function registerHandler(CommandInterface $command, CommandHandlerInterface $handler): void
+    public function registerHandler(string $command, CommandHandlerInterface $handler): void
     {
-        $this->handlers[get_class($command)] = $handler;
+        $this->handlers[$command] = $handler;
     }
 
-    public function handle(CommandInterface $command): void
+    public function handle($command): void
     {
         $this->handlers[get_class($command)]->handle($command);
     }

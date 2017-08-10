@@ -14,3 +14,6 @@ $app->post('/signIn','HomeController:signInAction')
 
 $app->post('/signUp','HomeController:signUpAction')
     ->setName('signUp');
+
+$app->get('/signOut', 'SignOutUser:signOut')
+    ->setName('signOut');

@@ -4,4 +4,4 @@ Coffeeman\Domain\User\Email:
     email:
       type: string
       nullable: false
-      unique: false
+      unique: true

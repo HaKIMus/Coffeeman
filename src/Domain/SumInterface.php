@@ -6,10 +6,11 @@
  * Time: 13:09
  */
 
-namespace Coffeeman\Domain\Workout\Sum;
+namespace Coffeeman\Domain;
 
 
 interface SumInterface
 {
+    public function sum(): void;
     public function getSummary(): array;
 }

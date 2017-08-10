@@ -1,6 +1,6 @@
 <?php
 
-namespace Coffeeman\Domain\Workout\Type;
+namespace Coffeeman\Domain\Workout\Information;
 
 class WorkoutType
 {

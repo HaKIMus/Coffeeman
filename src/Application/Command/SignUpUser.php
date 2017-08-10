@@ -8,9 +8,7 @@
 
 namespace Coffeeman\Application\Command;
 
-use Coffeeman\Application\CommandInterface;
-
-class SignUpUser implements CommandInterface
+class SignUpUser
 {
     private $username;
     private $email;

@@ -12,31 +12,31 @@ class WorkoutView
 {
     private $sportsmanId;
     private $workoutTypeId;
-    private $workoutPropertyId;
+    private $informationAboutWorkout;
     private $burnedCalories;
     private $workoutTypeName;
     private $workoutStartDate;
     private $workoutStopDate;
 
     public function __construct(
-        int $sportsmanId = 0,
-        int $workoutTypeId = 0,
-        int $workoutPropertyId = 0,
-        string $workoutTypeName = '',
-        int $burnedCalories = 0,
-        string $workoutStartDate = '',
-        string $workoutStopDate = ''
+        string $sportsmanId,
+        int $workoutTypeId,
+        int $informationAboutWorkout,
+        string $workoutTypeName,
+        int $burnedCalories,
+        string $workoutStartDate,
+        string $workoutStopDate
     ){
         $this->sportsmanId = $sportsmanId;
         $this->workoutTypeId = $workoutTypeId;
-        $this->workoutPropertyId = $workoutPropertyId;
+        $this->informationAboutWorkout = $informationAboutWorkout;
         $this->workoutTypeName = $workoutTypeName;
         $this->burnedCalories = $burnedCalories;
         $this->workoutStartDate = $workoutStartDate;
         $this->workoutStopDate = $workoutStopDate;
     }
 
-    public function getSportsmanId(): int
+    public function getSportsmanId(): string
     {
         return $this->sportsmanId;
     }
@@ -46,9 +46,9 @@ class WorkoutView
         return $this->workoutTypeId;
     }
 
-    public function getWorkoutPropertyId(): int
+    public function getInformationAboutWorkout(): int
     {
-        return $this->workoutPropertyId;
+        return $this->informationAboutWorkout;
     }
 
     public function getWorkoutTypeName(): string

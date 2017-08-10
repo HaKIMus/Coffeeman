@@ -8,7 +8,4 @@
 
 namespace Coffeeman\Application;
 
-interface CommandHandlerInterface
-{
-    public function handle(CommandInterface $command): void;
-}
+interface CommandHandlerInterface {}

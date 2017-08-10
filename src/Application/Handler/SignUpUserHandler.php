@@ -8,9 +8,8 @@
 
 namespace Coffeeman\Application\Handler;
 
-
+use Coffeeman\Application\Command\SignUpUser;
 use Coffeeman\Application\CommandHandlerInterface;
-use Coffeeman\Application\CommandInterface;
 use Coffeeman\Domain\Contract\User\UsernameContract;
 use Coffeeman\Domain\User\Email;
 use Coffeeman\Domain\User\Password;
@@ -28,7 +27,7 @@ final class SignUpUserHandler implements CommandHandlerInterface
         $this->users = $users;
     }
 
-    public function handle(CommandInterface $command): void
+    public function handle(SignUpUser $command): void
     {
         $newUser = new User(
             UUid::uuid4(),

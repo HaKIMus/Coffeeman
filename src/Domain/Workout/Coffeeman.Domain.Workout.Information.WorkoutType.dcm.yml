@@ -1,4 +1,4 @@
-Coffeeman\Domain\Workout\Type\WorkoutType:
+Coffeeman\Domain\Workout\Information\WorkoutType:
   type: entity
   table: workoutType
   id:
@@ -8,5 +8,5 @@ Coffeeman\Domain\Workout\Type\WorkoutType:
         strategy: AUTO
   fields:
     name:
-      class: Coffeeman\Domain\Workout\Type\WorkoutTypeName
+      class: Coffeeman\Domain\Workout\Information\WorkoutTypeName
       columnPrefix: false
