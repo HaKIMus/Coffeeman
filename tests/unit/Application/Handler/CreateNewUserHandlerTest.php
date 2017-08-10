@@ -22,9 +22,8 @@ class CreateNewUserHandlerTest extends \Codeception\Test\Unit
 
         $command->method('getId')
             ->willReturn(Uuid::uuid4());
-        $command->method('getUsername');
-        $command->method('getEmail');
-        $command->method('getPassword');
+        $command->method('getUsername')
+            ->willReturn('Test');
 
         $createNewUserHandler->handle($command);
     }

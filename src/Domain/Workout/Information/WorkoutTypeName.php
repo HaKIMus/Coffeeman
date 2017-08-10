@@ -6,9 +6,9 @@
  * Time: 13:51
  */
 
-namespace Coffeeman\Domain\Workout\Type;
+namespace Coffeeman\Domain\Workout\Information;
 
-use Coffeeman\Domain\Contract\WorkoutTypeNameContract;
+use Coffeeman\Domain\Contract\Workout\WorkoutTypeNameContract;
 
 final class WorkoutTypeName
 {

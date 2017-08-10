@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Validation;
+namespace Tests\Domain\Contract\Workout;
 
 use Codeception\Test\Unit;
 use Coffeeman\Domain\Contract\Workout\BurnedCaloriesContract;

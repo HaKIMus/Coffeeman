@@ -6,6 +6,7 @@ session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
 
+
 $appConfig = Yaml::parse(file_get_contents(__DIR__ . '/../slim/config/app.yml'));
 $app = new \Slim\App($appConfig);
 

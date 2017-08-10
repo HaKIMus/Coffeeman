@@ -1,4 +1,4 @@
-Coffeeman\Domain\Workout\Property\WorkoutStopDate:
+Coffeeman\Domain\Workout\Information\WorkoutStopDate:
   type: embeddable
   fields:
     workoutStopDate:

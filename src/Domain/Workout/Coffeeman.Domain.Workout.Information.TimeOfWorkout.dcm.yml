@@ -1,0 +1,17 @@
+Coffeeman\Domain\Workout\Information\TimeOfWorkout:
+  type: entity
+  table: workoutTime
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    ~ #none
+  embedded:
+    workoutStartDate:
+      class: Coffeeman\Domain\Workout\Information\WorkoutStartDate
+      columnPrefix: false
+    workoutStopDate:
+      class: Coffeeman\Domain\Workout\Information\WorkoutStopDate
+      columnPrefix: false

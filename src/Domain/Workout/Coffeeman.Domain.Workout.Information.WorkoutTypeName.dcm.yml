@@ -1,4 +1,4 @@
-Coffeeman\Domain\Workout\Type\WorkoutTypeName:
+Coffeeman\Domain\Workout\Information\WorkoutTypeName:
   type: embeddable
   fields:
     name:

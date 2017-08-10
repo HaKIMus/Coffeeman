@@ -2,7 +2,7 @@
 
 namespace Domain\Workout\Summary;
 
-use Coffeeman\Domain\Workout\Sum\SumAllWorkouts;
+use Coffeeman\Domain\Workout\Sum\SumSportsmanWorkouts;
 use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
@@ -18,7 +18,7 @@ class SumAllWorkoutsTest extends \Codeception\Test\Unit
             'mostPopularWorkoutType' => 'CARDIO'
         ];
 
-        $sumAllWorkouts = new SumAllWorkouts();
+        $sumAllWorkouts = new SumSportsmanWorkouts();
         $sumAllWorkouts->sumData(
             new DbalWorkoutQuery(new Connection(CoffeemanDatabase::getDbParams(), new Driver())),
             1);

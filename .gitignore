@@ -4,3 +4,4 @@ composer.lock
 .git/
 tests/_envs/
 tests/_output/
+.idea/

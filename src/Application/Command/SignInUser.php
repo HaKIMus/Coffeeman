@@ -8,17 +8,19 @@
 
 namespace Coffeeman\Application\Command;
 
-use Coffeeman\Application\CommandInterface;
 use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 
-class SignInUser implements CommandInterface
+class SignInUser
 {
     private $username;
     private $password;
     private $userBySignInData;
 
-    public function __construct(string $username, string $password, GetUserBySignInData $userBySignInData)
-    {
+    public function __construct(
+        string $username,
+        string $password,
+        GetUserBySignInData $userBySignInData
+    ) {
         $this->username = $username;
         $this->password = $password;
         $this->userBySignInData = $userBySignInData;

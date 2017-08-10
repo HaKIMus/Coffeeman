@@ -4,4 +4,4 @@ Coffeeman\Domain\User\Username:
     username:
       type: string
       nullable: false
-      unique: false
+      unique: true

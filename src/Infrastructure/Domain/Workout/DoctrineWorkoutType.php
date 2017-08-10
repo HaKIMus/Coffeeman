@@ -9,12 +9,10 @@
 namespace Coffeeman\Infrastructure\Domain\Workout;
 
 
+use Coffeeman\Domain\Workout\Information\WorkoutType;
 use Coffeeman\Domain\WorkoutsTypesInterface;
 use Coffeeman\Infrastructure\Domain\AbstractDoctrineEntity;
 use Coffeeman\Infrastructure\Domain\RepositoryInterface;
-use Coffeeman\Domain\Workout\Type\WorkoutType;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityRepository;
 
 class DoctrineWorkoutType extends AbstractDoctrineEntity implements RepositoryInterface, WorkoutsTypesInterface
 {

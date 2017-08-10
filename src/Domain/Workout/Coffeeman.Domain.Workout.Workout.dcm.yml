@@ -8,21 +8,13 @@ Coffeeman\Domain\Workout\Workout:
         strategy: AUTO
   fields:
     sportsmanId:
-      type: integer
+      type: uuid
       nullable: false
       unique: false
-  manyToOne:
-    workoutTypeId:
-      targetEntity: Coffeeman\Domain\Workout\Type\WorkoutType
-      cascade: ["persist"]
-      joinColumn:
-        name: workoutTypeId
-        referencedColumnName: id
-        onDelete: CASCADE
   oneToOne:
-    workoutProperty:
-      targetEntity: Coffeeman\Domain\Workout\Property\WorkoutProperty
+    informationAboutWorkout:
+      targetEntity: Coffeeman\Domain\Workout\Information\InformationAboutWorkout
       cascade: ["persist"]
       joinColumn:
-        name: workoutPropertyId
+        name: workoutInformation
         referencedColumnName: id

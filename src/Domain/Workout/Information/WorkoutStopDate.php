@@ -1,6 +1,6 @@
 <?php
 
-namespace Coffeeman\Domain\Workout\Property;
+namespace Coffeeman\Domain\Workout\Information;
 
 final class WorkoutStopDate
 {
