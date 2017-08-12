@@ -2,10 +2,18 @@
 namespace Application\Handler;
 
 use Codeception\Test\Unit;
+use Coffeeman\Application\Command\CreateNewUser;
 use Coffeeman\Application\Command\CreateNewWorkout;
+use Coffeeman\Application\Command\SignInUser;
+use Coffeeman\Application\Handler\CreateNewUserHandler;
 use Coffeeman\Application\Handler\CreateNewWorkoutHandler;
+use Coffeeman\Application\Handler\SignInUserHandler;
 use Coffeeman\Application\SimpleCommandBus;
+use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
+use Coffeeman\Infrastructure\Domain\User\DoctrineUser;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkout;
+use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutInformation;
+use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutType;
 use Tests\Unit\CoffeemanDatabase;
 
 class SimpleCommandBusTest extends Unit
@@ -39,12 +47,19 @@ class SimpleCommandBusTest extends Unit
 
     public function testRegisterHandler()
     {
-        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout, CoffeemanDatabase::getEntityManager()));
+        $this->simpleCommandBus->registerHandler(CreateNewWorkout::class, new CreateNewWorkoutHandler(
+            new DoctrineWorkout(CoffeemanDatabase::getEntityManager()),
+            new DoctrineWorkoutType(CoffeemanDatabase::getEntityManager()),
+            new DoctrineWorkoutInformation(CoffeemanDatabase::getEntityManager())));
     }
 
     public function testHandleCreateNewWorkoutClass()
     {
-        $this->simpleCommandBus->registerHandler($this->createNewWorkout, new CreateNewWorkoutHandler($this->doctrineWorkout, CoffeemanDatabase::getEntityManager()));
-        $this->simpleCommandBus->handle($this->createNewWorkout);
+        $createNewWorkout = new SignInUser('Test', '123');
+        $this->simpleCommandBus->registerHandler(SignInUser::class, new SignInUserHandler(
+            new GetUserBySignInData(CoffeemanDatabase::getConnection())
+        ));
+
+        $this->simpleCommandBus->handle($createNewWorkout);
     }
 }

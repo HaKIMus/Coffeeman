@@ -18,15 +18,14 @@ class SignInUserHandlerTest extends \Codeception\Test\Unit
             ->getMock();
 
         $connection = new Connection(CoffeemanDatabase::getDbParams(), new Driver());
+        $getUserBySignInData = new GetUserBySignInData($connection);
 
         $signInUserCommand->method('getUsername')
             ->willReturn('Test');
         $signInUserCommand->method('getPassword')
             ->willReturn('123');
-        $signInUserCommand->method('getUserBySignInData')
-            ->willReturn(new GetUserBySignInData($connection));
 
-        $signInUserHandler = new SignInUserHandler();
+        $signInUserHandler = new SignInUserHandler($getUserBySignInData);
 
         $signInUserHandler->handle($signInUserCommand);
     }

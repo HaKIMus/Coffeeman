@@ -8,22 +8,17 @@
 
 namespace Coffeeman\Application\Command;
 
-use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
-
 class SignInUser
 {
     private $username;
     private $password;
-    private $userBySignInData;
 
     public function __construct(
         string $username,
-        string $password,
-        GetUserBySignInData $userBySignInData
+        string $password
     ) {
         $this->username = $username;
         $this->password = $password;
-        $this->userBySignInData = $userBySignInData;
     }
 
     public function getUsername(): string
@@ -34,10 +29,5 @@ class SignInUser
     public function getPassword(): string
     {
         return $this->password;
-    }
-
-    public function getUserBySignInData(): GetUserBySignInData
-    {
-        return $this->userBySignInData;
     }
 }

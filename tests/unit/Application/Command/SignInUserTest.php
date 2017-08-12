@@ -10,16 +10,9 @@ class SignInUserTest extends \Codeception\Test\Unit
 {
     public function testSignInUserParameters()
     {
-        $connection = $this->getMockBuilder(Connection::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $userBySignInData = new GetUserBySignInData($connection);
-
-        $signInUser = new SignInUser('Test', '123', $userBySignInData);
+        $signInUser = new SignInUser('Test', '123');
 
         $this->assertEquals('Test', $signInUser->getUsername());
         $this->assertEquals('123', $signInUser->getPassword());
-        $this->assertEquals($userBySignInData, $signInUser->getUserBySignInData());
     }
 }

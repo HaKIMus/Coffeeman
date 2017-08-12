@@ -20,10 +20,12 @@ class CreateNewUserHandlerTest extends \Codeception\Test\Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $command->method('getId')
-            ->willReturn(Uuid::uuid4());
         $command->method('getUsername')
             ->willReturn('Test');
+        $command->method('getEmail')
+            ->willReturn('Test@email.com');
+        $command->method('getPassword')
+            ->willReturn('Hello');
 
         $createNewUserHandler->handle($command);
     }

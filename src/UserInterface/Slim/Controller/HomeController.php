@@ -53,10 +53,19 @@ final class HomeController extends Controller
     {
         $signInUserCommand = new SignInUser(
             $request->getParam('username'),
-            $request->getParam('password'),
-            new GetUserBySignInData(new Connection($this->container['dbParams'], new Driver())));
+            $request->getParam('password')
+        );
 
-        $this->container->commandBus->registerHandler(SignInUser::class, new SignInUserHandler());
+        $this->container->commandBus->registerHandler(
+            SignInUser::class,
+            new SignInUserHandler(
+                new GetUserBySignInData(
+                    new Connection($this->container['dbParams'],
+                    new Driver())
+                )
+            )
+        );
+
         $this->container->commandBus->handle($signInUserCommand);
 
         $homepageUrl = $this->container->router->pathFor('homepage');

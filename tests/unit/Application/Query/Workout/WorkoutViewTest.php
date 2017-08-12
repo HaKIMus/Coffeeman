@@ -25,11 +25,11 @@ class WorkoutViewTest extends \PHPUnit_Framework_TestCase
 
     public function testGetBurnedCalories()
     {
-        $this->assertEquals(1, $this->workoutView->getWorkoutPropertyId());
+        $this->assertEquals(200, $this->workoutView->getBurnedCalories());
     }
 
     public function testGetStartDate()
     {
-        $this->assertEquals(1, $this->workoutView->getWorkoutTypeId());
+        $this->assertEquals('2017-06-22 23:11:00', $this->workoutView->getWorkoutStartDate());
     }
 }

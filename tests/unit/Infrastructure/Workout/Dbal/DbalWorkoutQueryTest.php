@@ -23,7 +23,7 @@ class DbalWorkoutQueryTest extends Unit
 
     public function testGetWorkoutById()
     {
-        $workout = $this->workoutQuery->getById(2);
+        $workout = $this->workoutQuery->getById(3);
 
         $this->assertNotEmpty($workout);
     }
@@ -37,13 +37,14 @@ class DbalWorkoutQueryTest extends Unit
 
     public function testGetAllWorkoutsBySportsmanId()
     {
-        $this->workoutQuery->getAllWorkoutsBySportsmanId(1);
+        $this->workoutQuery->getAllWorkoutsBySportsmanId('d6e66f53-843b-4dab-bb64-6faa91e5928e');
     }
 
     public function testGetBySportsmanIdMostPopularWorkoutType()
     {
-        $mostPopularWorkoutBySportsmanId = $this->workoutQuery->getBySportsmanIdMostPopularWorkoutType(1);
-        $this->assertEquals('CARDIO', $mostPopularWorkoutBySportsmanId->getWorkoutTypeName());
+        $mostPopularWorkoutBySportsmanId = $this->workoutQuery->getAllWorkoutsBySportsmanId('d6e66f53-843b-4dab-bb64-6faa91e5928e');
+
+        $this->assertEquals('HIIT', $mostPopularWorkoutBySportsmanId[0]->getWorkoutTypeName());
     }
 
     /**

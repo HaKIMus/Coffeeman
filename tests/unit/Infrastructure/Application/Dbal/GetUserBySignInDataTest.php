@@ -12,12 +12,16 @@ class GetUserBySignInDataTest extends \Codeception\Test\Unit
 {
     public function testGettingUserByRightData()
     {
+        $expected = [
+            "id" => "d6e66f53-843b-4dab-bb64-6faa91e5928e",
+            "username" => "Test",
+            "email" => "test@email.test",
+        ];
+
         $connection = new Connection(CoffeemanDatabase::getDbParams(), new Driver());
         $getUserBySignInData = new GetUserBySignInData($connection);
 
-        $user = $getUserBySignInData->getUserBySignInData('Test', '123');
-
-        $this->assertEquals(new UserView('65e2dd25-88a4-4abc-a536-7d85c40a7674', 'Test', 'test@email.test', '123'),
-                            $user);
+        $actualDataOfUser = $getUserBySignInData->getUserBySignInData('Test', '123');
+        $this->assertEquals($expected, $actualDataOfUser);
     }
 }

@@ -3,11 +3,12 @@ namespace Tests\Infrastructure\Workout;
 
 use Codeception\Test\Unit;
 use Coffeeman\Domain\Contract\Workout\BurnedCaloriesContract;
-use Coffeeman\Domain\Workout\Property\WorkoutProperty;
+use Coffeeman\Domain\Workout\Information\InformationAboutWorkout;
+use Coffeeman\Domain\Workout\Information\TimeOfWorkout;
 use Coffeeman\Domain\Workout\Workout;
-use Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories;
-use Coffeeman\Domain\Workout\Property\WorkoutStartDate;
-use Coffeeman\Domain\Workout\Property\WorkoutStopDate;
+use Coffeeman\Domain\Workout\Information\WorkoutBurnedCalories;
+use Coffeeman\Domain\Workout\Information\WorkoutStartDate;
+use Coffeeman\Domain\Workout\Information\WorkoutStopDate;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkout;
 use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutType;
 use Tests\Unit\CoffeemanDatabase;
@@ -32,30 +33,20 @@ class DoctrineWorkoutTest extends Unit
 
     public function testAddWorkout()
     {
-        $workout = new Workout(
-            1,
-            $this->doctrineTypeWorkout->getById(1),
-            new WorkoutProperty(
-                new WorkoutBurnedCalories(new BurnedCaloriesContract(200)),
+        $informationAboutWorkout = new InformationAboutWorkout(
+            new WorkoutBurnedCalories(new BurnedCaloriesContract(200)),
+            new TimeOfWorkout(
                 new WorkoutStartDate(new \DateTime()),
                 new WorkoutStopDate(new \DateTime())
-            )
+            ),
+            $this->doctrineTypeWorkout->getById(1)
+        );
+
+        $workout = new Workout(
+            1,
+            $informationAboutWorkout
         );
 
         $this->doctrineTypeWorkout->add($workout);
-    }
-
-    public function testGetWorkoutById()
-    {
-        $workout = $this->doctrineWorkout->getById(2);
-        $this->assertNotEmpty($workout);
-        $this->isInstanceOf(Workout::class);
-    }
-
-    public function testGetAllWorkouts()
-    {
-        $workouts = $this->doctrineWorkout->getAll();
-        $this->assertNotEmpty($workouts);
-        $this->assertInternalType('array', $workouts);
     }
 }
