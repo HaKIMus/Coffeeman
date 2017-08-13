@@ -20,7 +20,6 @@ final class GetUserBySignInData extends AbstractDBALQuery
         $queryBuilder->
             select('u.id',
                 'u.username',
-                'u.password',
                 'u.email')
                 ->from('user', 'u')
                 ->where('u.username = :username')

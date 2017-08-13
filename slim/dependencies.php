@@ -6,20 +6,10 @@
  * Time: 16:45
  */
 
-use Coffeeman\Application\Command\CreateNewUser;
-use Coffeeman\Application\Command\CreateNewWorkout;
-use Coffeeman\Application\Command\SignInUser;
-use Coffeeman\Application\Command\SignUpUser;
-use Coffeeman\Application\Handler\CreateNewUserHandler;
-use Coffeeman\Application\Handler\CreateNewWorkoutHandler;
-use Coffeeman\Application\Handler\SignInUserHandler;
-use Coffeeman\Application\Handler\SignUpUserHandler;
-use Coffeeman\Application\Service\Check;
+use Coffeeman\Application\Service\CheckStrategy;
+use Coffeeman\Application\Service\IsUserSignedIn;
 use Coffeeman\Application\Service\SignOutUser;
 use Coffeeman\Application\SimpleCommandBus;
-use Coffeeman\Infrastructure\Domain\User\DoctrineUser;
-use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkout;
-use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutType;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use Slim\Views\Twig;
@@ -54,7 +44,7 @@ $container['connection'] = function ($container) : Connection {
 };
 
 $container['HomeController'] = function($container): HomeController {
-    return new HomeController($container, new Check());
+    return new HomeController($container, new CheckStrategy(new IsUserSignedIn()));
 };
 
 $container['commandBus'] = function () : SimpleCommandBus {

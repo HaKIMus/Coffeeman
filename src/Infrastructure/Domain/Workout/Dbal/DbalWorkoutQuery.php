@@ -40,8 +40,8 @@ class DbalWorkoutQuery extends AbstractDBALQuery implements WorkoutQueryInterfac
 
         return new WorkoutView(
             $workoutData['sportsmanId'],
-            $workoutData['workoutTypeId'],
-            $workoutData['workoutPropertyId'],
+            $workoutData['id'],
+            $workoutData['workoutInformation'],
             $workoutData['name'],
             $workoutData['workoutBurnedCalories'],
             $workoutData['workoutStartDate'],
@@ -71,8 +71,8 @@ class DbalWorkoutQuery extends AbstractDBALQuery implements WorkoutQueryInterfac
         return array_map(function(array $workoutData) {
             return new WorkoutView(
                 $workoutData['sportsmanId'],
-                $workoutData['workoutTypeId'],
-                $workoutData['workoutPropertyId'],
+                $workoutData['id'],
+                $workoutData['workoutInformation'],
                 $workoutData['name'],
                 $workoutData['workoutBurnedCalories'],
                 $workoutData['workoutStartDate'],

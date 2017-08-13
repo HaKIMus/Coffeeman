@@ -8,9 +8,10 @@
 
 namespace Coffeeman\Application\Handler;
 
-
 use Coffeeman\Application\Command\CreateNewUser;
 use Coffeeman\Application\CommandHandlerInterface;
+use Coffeeman\Domain\Contract\User\EmailContract;
+use Coffeeman\Domain\Contract\User\PasswordContract;
 use Coffeeman\Domain\Contract\User\UsernameContract;
 use Coffeeman\Domain\User\Email;
 use Coffeeman\Domain\User\Username;
@@ -33,8 +34,8 @@ final class CreateNewUserHandler implements CommandHandlerInterface
         $user = new User(
             Uuid::uuid4(),
             new Username(new UsernameContract($command->getUsername())),
-            new Email($command->getEmail()),
-            new Password($command->getPassword())
+            new Email(new EmailContract($command->getEmail())),
+            new Password(new PasswordContract($command->getPassword()))
         );
 
         $this->users->add($user);
