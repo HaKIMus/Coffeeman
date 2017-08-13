@@ -12,7 +12,6 @@ $app = new \Slim\App($appConfig);
 
 $container = $app->getContainer();
 
-
 require __DIR__ . '/../config/cli-config.php';
 require __DIR__ . '/../slim/routes.php';
 require __DIR__ . '/../slim/middleware.php';

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @TODO: SportsmanId as UserId.
- */
-
 namespace Coffeeman\Domain\Workout;
 
 use Coffeeman\Domain\Workout\Information\InformationAboutWorkout;

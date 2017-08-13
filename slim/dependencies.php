@@ -12,6 +12,7 @@ use Coffeeman\Application\Service\SignOutUser;
 use Coffeeman\Application\SimpleCommandBus;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
+use Slim\Container;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
 use Coffeeman\UserInterface\Slim\Controller\HomeController;
@@ -26,7 +27,7 @@ $container['entityManager'] = $entityManager;
 
 $container['titleWebsite'] = $appConfig['extras']['titleWebsite'];
 
-$container['view'] = function ($container) : Twig {
+$container['view'] = function (Container $container) : Twig {
     $view = new Twig(__DIR__ . '/resources/views', [
         'cache' => false,
     ]);
@@ -39,11 +40,11 @@ $container['view'] = function ($container) : Twig {
     return $view;
 };
 
-$container['connection'] = function ($container) : Connection {
+$container['connection'] = function (Container $container) : Connection {
     return new Connection($container['dbParams'], new Driver());
 };
 
-$container['HomeController'] = function($container): HomeController {
+$container['HomeController'] = function(Container $container): HomeController {
     return new HomeController($container, new CheckStrategy(new IsUserSignedIn()));
 };
 
