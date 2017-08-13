@@ -8,45 +8,51 @@
 
 namespace Coffeeman\Application\Handler;
 
+use Coffeeman\Application\Command\CreateNewWorkout;
 use Coffeeman\Application\CommandHandlerInterface;
-use Coffeeman\Application\CommandInterface;
-use Coffeeman\Domain\Contract\BurnedCaloriesContract;
-use Coffeeman\Domain\Workout\Property\WorkoutBurnedCalories;
-use Coffeeman\Domain\Workout\Property\WorkoutProperty;
-use Coffeeman\Domain\Workout\Property\WorkoutStartDate;
-use Coffeeman\Domain\Workout\Property\WorkoutStopDate;
+use Coffeeman\Domain\Contract\Workout\BurnedCaloriesContract;
+use Coffeeman\Domain\Workout\Information\TimeOfWorkout;
+use Coffeeman\Domain\Workout\Information\WorkoutBurnedCalories;
+use Coffeeman\Domain\Workout\Information\InformationAboutWorkout;
+use Coffeeman\Domain\Workout\Information\WorkoutStartDate;
+use Coffeeman\Domain\Workout\Information\WorkoutStopDate;
 use Coffeeman\Domain\Workout\Workout;
+use Coffeeman\Domain\WorkoutInformationInterface;
 use Coffeeman\Domain\WorkoutsInterface;
-use Coffeeman\Infrastructure\Domain\Workout\DoctrineWorkoutType;
-use Doctrine\ORM\EntityManager;
+use Coffeeman\Domain\WorkoutsTypesInterface;
 
 final class CreateNewWorkoutHandler implements CommandHandlerInterface
 {
     private $workouts;
-    private $entityManager;
+    private $workoutType;
+    private $workoutInformation;
 
-    public function __construct(WorkoutsInterface $workouts, EntityManager $entityManager)
+    public function __construct(WorkoutsInterface $workouts, WorkoutsTypesInterface $workoutType, WorkoutInformationInterface $workoutInformation)
     {
         $this->workouts = $workouts;
-        $this->entityManager = $entityManager;
+        $this->workoutType = $workoutType;
+        $this->workoutInformation = $workoutInformation;
     }
 
-    public function handle(CommandInterface $command): void
+    public function handle(CreateNewWorkout $command): void
     {
-        $workoutType = new DoctrineWorkoutType($this->entityManager);
+        $informationAboutWorkout = new InformationAboutWorkout(
+            new WorkoutBurnedCalories(new BurnedCaloriesContract($command->getBurnedCalories())),
+            new TimeOfWorkout(
+                new WorkoutStartDate($command->getStartDate()),
+                new WorkoutStopDate($command->getStopDate())),
+            $this->workoutType->getById($command->getWorkoutTypeId()));
 
         $workout = new Workout(
             $command->getSportsmanId(),
-            $workoutType->getById($command->getWorkoutTypeId()),
-            new WorkoutProperty(
-                new WorkoutBurnedCalories(new BurnedCaloriesContract($command->getBurnedCalories())),
-                new WorkoutStartDate($command->getStartDate()),
-                new WorkoutStopDate($command->getStopDate())
-            )
+            $informationAboutWorkout
         );
 
+        $this->workoutInformation->add($informationAboutWorkout);
         $this->workouts->add($workout);
+
         $this->workouts->commit();
-        $workoutType->commit();
+        $this->workoutType->commit();
+        $this->workoutInformation->commit();
     }
 }

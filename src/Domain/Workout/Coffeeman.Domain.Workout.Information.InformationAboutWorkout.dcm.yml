@@ -1,0 +1,29 @@
+Coffeeman\Domain\Workout\Information\InformationAboutWorkout:
+  type: entity
+  table: workoutInformation
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    ~ #none
+  embedded:
+    workoutBurnedCalories:
+      class: Coffeeman\Domain\Workout\Information\WorkoutBurnedCalories
+      columnPrefix: false
+  oneToOne:
+    timeOfWorkout:
+      targetEntity: Coffeeman\Domain\Workout\Information\TimeOfWorkout
+      cascade: ["persist"]
+      joinColumn:
+        name: workoutTime
+        referencedColumnName: id
+  manyToOne:
+    typeOfWorkout:
+      targetEntity: Coffeeman\Domain\Workout\Information\WorkoutType
+      cascade: ["persist"]
+      joinColumn:
+        name: workoutType
+        referencedColumnName: id
+        onDelete: CASCADE

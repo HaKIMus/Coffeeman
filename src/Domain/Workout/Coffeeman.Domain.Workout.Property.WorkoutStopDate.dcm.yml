@@ -1,7 +1,0 @@
-Coffeeman\Domain\Workout\Property\WorkoutStopDate:
-  type: embeddable
-  fields:
-    workoutStopDate:
-      type: datetime
-      nullable: false
-      unique: false

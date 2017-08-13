@@ -1,0 +1,7 @@
+Coffeeman\Domain\Workout\Information\WorkoutBurnedCalories:
+  type: embeddable
+  fields:
+    workoutBurnedCalories:
+      type: integer
+      nullable: false
+      unique: false

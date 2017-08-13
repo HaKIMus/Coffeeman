@@ -1,7 +1,0 @@
-Coffeeman\Domain\Workout\Type\WorkoutTypeName:
-  type: embeddable
-  fields:
-    name:
-      type: string
-      nullable: false
-      unique: true

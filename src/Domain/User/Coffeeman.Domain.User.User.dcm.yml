@@ -1,0 +1,22 @@
+Coffeeman\Domain\User\User:
+  type: entity
+  table: user
+  id:
+    id:
+      type: uuid
+      generator:
+        strategy: CUSTOM
+      customIdGenerator:
+        class: Ramsey\Uuid\Doctrine\UuidGenerator
+  fields:
+    ~ #none
+  embedded:
+    username:
+      class: Coffeeman\Domain\User\Username
+      columnPrefix: false
+    password:
+      class: Coffeeman\Domain\User\Password
+      columnPrefix: false
+    email:
+      class: Coffeeman\Domain\User\Email
+      columnPrefix: false

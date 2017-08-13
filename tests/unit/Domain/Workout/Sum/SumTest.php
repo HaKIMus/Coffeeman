@@ -2,22 +2,18 @@
 namespace Domain\Workout\Sum;
 
 
-use Coffeeman\Domain\Workout\Sum\Sum;
-use Coffeeman\Domain\Workout\Sum\SumAllWorkouts;
-use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
+use Coffeeman\Domain\SumStrategy;
+use Coffeeman\Domain\Workout\Sum\SumSportsmanWorkouts;
 
 class SumTest extends \Codeception\Test\Unit
 {
     public function testSumAllWorkouts()
     {
-        $mockSumObject = $this->getMockBuilder(SumAllWorkouts::class)
-            ->getMock();
-
-        $mockDBALWorkoutQuery = $this->getMockBuilder(DbalWorkoutQuery::class)
+        $mockSumObject = $this->getMockBuilder(SumSportsmanWorkouts::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $sum = new Sum($mockSumObject);
-        $sum->allWorkouts($mockDBALWorkoutQuery, 1);
+        $sum = new SumStrategy($mockSumObject);
+        $sum->sum();
     }
 }

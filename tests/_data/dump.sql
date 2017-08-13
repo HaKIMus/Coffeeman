@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 16, 2017 at 01:30 PM
--- Server version: 10.1.22-MariaDB
--- PHP Version: 7.1.4
+-- Generation Time: Aug 13, 2017 at 11:27 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `coffeeman`
+-- Database: `coffeeman_test`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` char(36) COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:uuid)',
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `email`) VALUES
+('d6e66f53-843b-4dab-bb64-6faa91e5928e', 'Test', '123', 'test@email.test');
 
 -- --------------------------------------------------------
 
@@ -30,55 +50,67 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `workout` (
   `id` int(11) NOT NULL,
-  `sportsmanId` int(11) NOT NULL,
-  `workoutPropertyId` int(11) DEFAULT NULL,
-  `workoutTypeId` int(11) DEFAULT NULL
+  `sportsmanId` char(36) COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:uuid)',
+  `workoutInformation` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `workout`
 --
 
-INSERT INTO `workout` (`id`, `sportsmanId`, `workoutPropertyId`, `workoutTypeId`) VALUES
-(2, 1, 3, 1),
-(3, 1, 4, 1),
-(4, 1, 5, 2),
-(5, 1, 6, 2),
-(6, 1, 7, 2),
-(7, 1, 8, 3),
-(8, 1, 9, 3),
-(9, 1, 10, 3),
-(10, 1, 11, 2),
-(11, 1, 12, 2);
+INSERT INTO `workout` (`id`, `sportsmanId`, `workoutInformation`) VALUES
+(3, 'd6e66f53-843b-4dab-bb64-6faa91e5928e', 3),
+(4, 'd6e66f53-843b-4dab-bb64-6faa91e5928e', 4),
+(5, 'd6e66f53-843b-4dab-bb64-6faa91e5928e', 5),
+(6, 'd6e66f53-843b-4dab-bb64-6faa91e5928e', 6),
+(7, 'd6e66f53-843b-4dab-bb64-6faa91e5928e', 7);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `workoutProperty`
+-- Table structure for table `workoutInformation`
 --
 
-CREATE TABLE `workoutProperty` (
+CREATE TABLE `workoutInformation` (
   `id` int(11) NOT NULL,
   `workoutBurnedCalories` int(11) NOT NULL,
+  `workoutTime` int(11) DEFAULT NULL,
+  `workoutType` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `workoutInformation`
+--
+
+INSERT INTO `workoutInformation` (`id`, `workoutBurnedCalories`, `workoutTime`, `workoutType`) VALUES
+(3, 200, 2, 2),
+(4, 200, 3, 2),
+(5, 602, 4, 1),
+(6, 234, 5, 1),
+(7, 434, 6, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `workoutTime`
+--
+
+CREATE TABLE `workoutTime` (
+  `id` int(11) NOT NULL,
   `workoutStartDate` datetime NOT NULL,
   `workoutStopDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `workoutProperty`
+-- Dumping data for table `workoutTime`
 --
 
-INSERT INTO `workoutProperty` (`id`, `workoutBurnedCalories`, `workoutStartDate`, `workoutStopDate`) VALUES
-(3, 60, '2017-06-14 06:02:39', '2017-06-14 06:02:39'),
-(4, 100, '2017-06-15 05:52:22', '2017-06-15 05:52:22'),
-(5, 160, '2017-06-16 11:26:25', '2017-06-16 12:10:44'),
-(6, 140, '2017-06-16 09:18:12', '2017-06-16 09:18:12'),
-(7, 120, '2017-06-16 09:19:17', '2017-06-16 09:19:17'),
-(8, 230, '2017-04-16 09:00:42', '2017-06-16 09:49:07'),
-(9, 230, '2017-04-16 09:00:42', '2017-06-16 09:50:37'),
-(10, 230, '2017-04-16 09:00:42', '2017-06-16 09:51:27'),
-(11, 240, '2017-04-16 08:00:42', '2017-04-16 09:04:32'),
-(12, 210, '2017-04-16 10:00:42', '2017-04-16 11:04:32');
+INSERT INTO `workoutTime` (`id`, `workoutStartDate`, `workoutStopDate`) VALUES
+(2, '2017-08-10 19:53:50', '2017-08-10 19:53:50'),
+(3, '2017-08-10 19:54:31', '2017-08-10 19:54:31'),
+(4, '2017-08-10 20:28:14', '2017-08-10 20:28:14'),
+(5, '2017-08-10 20:28:38', '2017-08-10 20:28:38'),
+(6, '2017-08-10 20:28:44', '2017-08-10 20:28:44');
 
 -- --------------------------------------------------------
 
@@ -105,17 +137,32 @@ INSERT INTO `workoutType` (`id`, `name`) VALUES
 --
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_8D93D649F85E0677` (`username`),
+  ADD UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`);
+
+--
 -- Indexes for table `workout`
 --
 ALTER TABLE `workout`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `UNIQ_649FFB7211CB947` (`workoutPropertyId`),
-  ADD KEY `IDX_649FFB724FABCE2E` (`workoutTypeId`);
+  ADD UNIQUE KEY `UNIQ_649FFB72A08A28A6` (`workoutInformation`);
 
 --
--- Indexes for table `workoutProperty`
+-- Indexes for table `workoutInformation`
 --
-ALTER TABLE `workoutProperty`
+ALTER TABLE `workoutInformation`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_A08A28A6B07F0C9` (`workoutTime`),
+  ADD KEY `IDX_A08A28A6E84D3FA5` (`workoutType`);
+
+--
+-- Indexes for table `workoutTime`
+--
+ALTER TABLE `workoutTime`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -132,12 +179,17 @@ ALTER TABLE `workoutType`
 -- AUTO_INCREMENT for table `workout`
 --
 ALTER TABLE `workout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `workoutProperty`
+-- AUTO_INCREMENT for table `workoutInformation`
 --
-ALTER TABLE `workoutProperty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+ALTER TABLE `workoutInformation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `workoutTime`
+--
+ALTER TABLE `workoutTime`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `workoutType`
 --
@@ -151,8 +203,14 @@ ALTER TABLE `workoutType`
 -- Constraints for table `workout`
 --
 ALTER TABLE `workout`
-  ADD CONSTRAINT `FK_649FFB7211CB947` FOREIGN KEY (`workoutPropertyId`) REFERENCES `workoutProperty` (`id`),
-  ADD CONSTRAINT `FK_649FFB724FABCE2E` FOREIGN KEY (`workoutTypeId`) REFERENCES `workoutType` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_649FFB72A08A28A6` FOREIGN KEY (`workoutInformation`) REFERENCES `workoutInformation` (`id`);
+
+--
+-- Constraints for table `workoutInformation`
+--
+ALTER TABLE `workoutInformation`
+  ADD CONSTRAINT `FK_A08A28A6B07F0C9` FOREIGN KEY (`workoutTime`) REFERENCES `workoutTime` (`id`),
+  ADD CONSTRAINT `FK_A08A28A6E84D3FA5` FOREIGN KEY (`workoutType`) REFERENCES `workoutType` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

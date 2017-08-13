@@ -14,7 +14,10 @@
     ],
     "require": {
         "doctrine/orm": "^2.5",
-        "symfony/yaml": "^3.2"
+        "symfony/yaml": "^3.2",
+        "slim/slim": "^3.8.1",
+        "slim/twig-view": "^2.1",
+        "ramsey/uuid-doctrine": "^1.4"
     },
     "autoload": {
         "psr-4": {

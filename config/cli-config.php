@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: webdevhakim
@@ -8,23 +9,27 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 $paths = [
-    __DIR__ . '/../src/Domain/Workout'
+    __DIR__ . '/../src/Domain/Workout',
+    __DIR__ . '/../src/Domain/User'
 ];
-$isDevMode  = true;
 
+$isDevMode  = true;
 $dbParams = [
     'driver' => 'pdo_mysql',
     'user' => 'root',
     'password' => '',
-    'dbname' => 'coffeeman',
+    'dbname' => 'coffeeman_test',
     'host' => '127.0.0.1',
 ];
 
 $config = Setup::createYAMLMetadataConfiguration($paths, $isDevMode);
 $entityManager = EntityManager::create($dbParams, $config);
+
+Type::addType('uuid', 'Ramsey\Uuid\Doctrine\UuidType');
 
 return \Doctrine\ORM\Tools\Console\ConsoleRunner::createHelperSet($entityManager);

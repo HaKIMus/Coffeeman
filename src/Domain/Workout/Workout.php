@@ -1,12 +1,12 @@
 <?php
 
+/**
+ * @TODO: SportsmanId as UserId.
+ */
+
 namespace Coffeeman\Domain\Workout;
 
-use Coffeeman\Application\Query\WorkoutQueryInterface;
-use Coffeeman\Domain\Workout\Property\WorkoutProperty;
-use Coffeeman\Domain\Workout\Sum\Sum;
-use Coffeeman\Domain\Workout\Sum\SumAllWorkouts;
-use Coffeeman\Domain\Workout\Type\WorkoutType;
+use Coffeeman\Domain\Workout\Information\InformationAboutWorkout;
 
 class Workout
 {
@@ -14,30 +14,13 @@ class Workout
 
     private $sportsmanId;
 
-    private $workoutTypeId;
-
-    private $workoutProperty;
-
-    private $sumAllWorkouts;
+    private $informationAboutWorkout;
 
     public function __construct(
-        int $sportsmanId,
-        WorkoutType $typeId,
-        WorkoutProperty $property
+        string $sportsmanId,
+        InformationAboutWorkout $informationAboutWorkout
     ){
         $this->sportsmanId = $sportsmanId;
-        $this->workoutTypeId = $typeId;
-        $this->workoutProperty = $property;
-    }
-
-    public function sumAllWorkouts(WorkoutQueryInterface $workoutQuery): void
-    {
-        $this->sumAllWorkouts = new Sum(new SumAllWorkouts());
-        $this->sumAllWorkouts->allWorkouts($workoutQuery, 1);
-    }
-
-    public function getSummaryAllWorkouts(): array
-    {
-        return $this->sumAllWorkouts->getSummedAllWorkouts();
+        $this->informationAboutWorkout = $informationAboutWorkout;
     }
 }
