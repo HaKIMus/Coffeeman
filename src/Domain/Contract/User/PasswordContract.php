@@ -32,3 +32,4 @@ final class PasswordContract implements ContractInterface
         return $this->password;
     }
 }
+

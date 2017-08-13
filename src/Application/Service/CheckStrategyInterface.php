@@ -8,7 +8,6 @@
 
 namespace Coffeeman\Application\Service;
 
-
 interface CheckStrategyInterface
 {
     public function check(): bool;
