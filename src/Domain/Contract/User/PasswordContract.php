@@ -18,8 +18,7 @@ final class PasswordContract implements ContractInterface
 
     public function __construct(string $password)
     {
-        if (filter_var($password, FILTER_SANITIZE_SPECIAL_CHARS) === FALSE ||
-            strlen($password) > self::LONGEST_PASSWORD ||
+        if (strlen($password) > self::LONGEST_PASSWORD ||
             strlen($password) < self::SHORTEST_PASSWORD
         ) {
             throw new \InvalidArgumentException();

@@ -12,6 +12,7 @@ namespace Coffeeman\Infrastructure\Domain\Workout\Dbal;
 use Coffeeman\Application\Query\Workout\WorkoutTypeView;
 use Coffeeman\Application\Query\WorkoutTypeQueryInterface;
 use Coffeeman\Infrastructure\Domain\AbstractDBALQuery;
+use Psr\Log\InvalidArgumentException;
 
 class DbalWorkoutTypeQuery extends AbstractDBALQuery implements WorkoutTypeQueryInterface
 {
@@ -73,6 +74,9 @@ class DbalWorkoutTypeQuery extends AbstractDBALQuery implements WorkoutTypeQuery
 
         $workoutData = $this->connection->fetchAssoc($queryBuilder->getSQL(), $queryBuilder->getParameters());
 
+        if (empty($workoutData)) {
+            throw new InvalidArgumentException('No user found.');
+        }
         return new WorkoutTypeView(
             $workoutData['id'],
             $workoutData['name']

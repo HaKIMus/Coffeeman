@@ -9,7 +9,7 @@
 namespace Coffeeman\Application\Service;
 
 
-interface CheckInterface
+interface CheckStrategyInterface
 {
     public function check(): bool;
 }

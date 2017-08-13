@@ -9,7 +9,7 @@
 namespace Coffeeman\Application\Service;
 
 
-final class IsUserSignedIn implements CheckInterface
+final class IsUserSignedIn implements CheckStrategyInterface
 {
     public function check(): bool
     {

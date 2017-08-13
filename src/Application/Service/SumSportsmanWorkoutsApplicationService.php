@@ -8,32 +8,36 @@
 
 namespace Coffeeman\Application\Service;
 
-
 use Coffeeman\Application\Command\SumSportsmanWorkouts;
 use Coffeeman\Application\Handler\SumSportsmanWorkoutsHandler;
+use Coffeeman\Application\SimpleCommandBus;
 use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
 use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutTypeQuery;
-use Slim\Container;
+use Doctrine\DBAL\Connection;
 
 final class SumSportsmanWorkoutsApplicationService
 {
-    private $container;
+    private $commandBus;
+    private $connection;
+    private $userId;
 
-    public function __construct(Container $container)
+    public function __construct(SimpleCommandBus $commandBus, Connection $connection, string $userId)
     {
-        $this->container = $container;
+        $this->commandBus = $commandBus;
+        $this->connection = $connection;
+        $this->userId = $userId;
     }
 
     public function sumSportsmanWorkouts()
     {
-        $sumSportsmanWorkoutsCommand = new SumSportsmanWorkouts($_SESSION['user']['id']);
+        $sumSportsmanWorkoutsCommand = new SumSportsmanWorkouts($this->userId);
 
-        $this->container->commandBus->registerHandler(
+        $this->commandBus->registerHandler(
             SumSportsmanWorkouts::class,
-            new SumSportsmanWorkoutsHandler(new DbalWorkoutQuery($this->container->connection),
-                new DbalWorkoutTypeQuery($this->container->connection))
+            new SumSportsmanWorkoutsHandler(new DbalWorkoutQuery($this->connection),
+                new DbalWorkoutTypeQuery($this->connection))
         );
 
-        $this->container->commandBus->handle($sumSportsmanWorkoutsCommand);
+        $this->commandBus->handle($sumSportsmanWorkoutsCommand);
     }
 }

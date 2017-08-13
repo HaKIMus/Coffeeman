@@ -16,8 +16,9 @@ use Coffeeman\Application\Command\SumSportsmanWorkouts;
 use Coffeeman\Application\Handler\SignInUserHandler;
 use Coffeeman\Application\Handler\SignUpUserHandler;
 use Coffeeman\Application\Handler\SumSportsmanWorkoutsHandler;
-use Coffeeman\Application\Service\Check;
+use Coffeeman\Application\Service\CheckStrategy;
 use Coffeeman\Application\Service\SumSportsmanWorkoutsApplicationService;
+use Coffeeman\Application\SimpleCommandBus;
 use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 use Coffeeman\Infrastructure\Domain\User\DoctrineUser;
 use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
@@ -32,7 +33,7 @@ final class HomeController extends Controller
 {
     private $check;
 
-    public function __construct(Container $container, Check $check)
+    public function __construct(Container $container, CheckStrategy $check)
     {
         parent::__construct($container);
 
@@ -90,7 +91,7 @@ final class HomeController extends Controller
 
     private function sumSportsmanWorkouts(): void
     {
-        $service = new SumSportsmanWorkoutsApplicationService($this->container);
+        $service = new SumSportsmanWorkoutsApplicationService($this->container->commandBus, $this->container->connection, $_SESSION['user']['id']);
         $service->sumSportsmanWorkouts();
     }
 
@@ -115,6 +116,6 @@ final class HomeController extends Controller
 
     private function isUserSignedIn(): bool
     {
-        return $this->check->isUserSignedIn();
+        return $this->check->check();
     }
 }
