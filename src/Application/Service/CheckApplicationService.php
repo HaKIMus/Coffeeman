@@ -8,8 +8,8 @@
 
 namespace Coffeeman\Application\Service;
 
-use Coffeeman\Infrastructure\Domain\Workout\Check\CheckStrategy;
-use Coffeeman\Infrastructure\Domain\Workout\Check\CheckStrategyInterface;
+use Coffeeman\Infrastructure\Domain\Check\CheckStrategy;
+use Coffeeman\Infrastructure\Domain\Check\CheckStrategyInterface;
 
 final class CheckApplicationService
 {

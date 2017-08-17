@@ -6,10 +6,7 @@
  * Time: 06:14
  */
 
-namespace Coffeeman\Application\Service;
-
-
-use Coffeeman\Infrastructure\Domain\Workout\Check\CheckStrategyInterface;
+namespace Coffeeman\Infrastructure\Domain\Check;
 
 final class IsUserSignedIn implements CheckStrategyInterface
 {

@@ -1,8 +1,7 @@
 <?php
 namespace Application\Service;
 
-
-use Coffeeman\Application\Service\IsUserSignedIn;
+use Coffeeman\Infrastructure\Domain\Check\IsUserSignedIn;
 
 class IsUserSignedInTest extends \Codeception\Test\Unit
 {

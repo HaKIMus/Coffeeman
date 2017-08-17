@@ -4,7 +4,6 @@ namespace Application\Handler;
 use Coffeeman\Application\Command\CreateNewUser;
 use Coffeeman\Application\Handler\CreateNewUserHandler;
 use Coffeeman\Infrastructure\Domain\User\DoctrineUser;
-use Ramsey\Uuid\Uuid;
 
 class CreateNewUserHandlerTest extends \Codeception\Test\Unit
 {

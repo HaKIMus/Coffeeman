@@ -12,17 +12,13 @@ namespace Coffeeman\UserInterface\Slim\Controller;
 
 use Coffeeman\Application\Command\SignInUser;
 use Coffeeman\Application\Command\SignUpUser;
-use Coffeeman\Application\Command\SumSportsmanWorkouts;
 use Coffeeman\Application\Handler\SignInUserHandler;
 use Coffeeman\Application\Handler\SignUpUserHandler;
-use Coffeeman\Application\Handler\SumSportsmanWorkoutsHandler;
+use Coffeeman\Application\Service\CheckApplicationService;
 use Coffeeman\Application\Service\CheckStrategy;
 use Coffeeman\Application\Service\SumSportsmanWorkoutsApplicationService;
-use Coffeeman\Application\SimpleCommandBus;
 use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 use Coffeeman\Infrastructure\Domain\User\DoctrineUser;
-use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
-use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutTypeQuery;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use Psr\Http\Message\ResponseInterface;
@@ -33,7 +29,7 @@ final class HomeController extends Controller
 {
     private $check;
 
-    public function __construct(Container $container, CheckStrategy $check)
+    public function __construct(Container $container, CheckApplicationService $check)
     {
         parent::__construct($container);
 

@@ -6,7 +6,7 @@
  * Time: 06:18
  */
 
-namespace Coffeeman\Infrastructure\Domain\Workout\Check;
+namespace Coffeeman\Infrastructure\Domain\Check;
 
 final class CheckStrategy
 {

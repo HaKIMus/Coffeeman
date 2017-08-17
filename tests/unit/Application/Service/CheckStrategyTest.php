@@ -1,8 +1,8 @@
 <?php
 namespace Application\Service;
 
-use Coffeeman\Application\Service\CheckStrategy;
-use Coffeeman\Application\Service\IsUserSignedIn;
+use Coffeeman\Infrastructure\Domain\Check\CheckStrategy;
+use Coffeeman\Infrastructure\Domain\Check\IsUserSignedIn;
 
 class CheckStrategyTest extends \Codeception\Test\Unit
 {

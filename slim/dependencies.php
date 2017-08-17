@@ -6,10 +6,10 @@
  * Time: 16:45
  */
 
-use Coffeeman\Application\Service\CheckStrategy;
-use Coffeeman\Application\Service\IsUserSignedIn;
+use Coffeeman\Application\Service\CheckApplicationService;
 use Coffeeman\Application\Service\SignOutUser;
 use Coffeeman\Application\SimpleCommandBus;
+use Coffeeman\Infrastructure\Domain\Check\IsUserSignedIn;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use Slim\Container;
@@ -45,7 +45,7 @@ $container['connection'] = function (Container $container) : Connection {
 };
 
 $container['HomeController'] = function(Container $container): HomeController {
-    return new HomeController($container, new CheckStrategy(new IsUserSignedIn()));
+    return new HomeController($container, new CheckApplicationService(new IsUserSignedIn()));
 };
 
 $container['commandBus'] = function () : SimpleCommandBus {
