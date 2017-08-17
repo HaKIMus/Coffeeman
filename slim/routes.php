@@ -16,4 +16,8 @@ $app->post('/signUp','HomeController:signUpAction')
     ->setName('signUp');
 
 $app->get('/signOut', 'SignOutUser:signOut')
+    ->setArguments([
+        'redirecting' => true,
+        'url' => 'http://localhost/Coffeeman/public/'
+    ])
     ->setName('signOut');

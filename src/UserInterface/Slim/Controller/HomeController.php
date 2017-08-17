@@ -52,10 +52,10 @@ final class HomeController extends Controller
         $signInService = new SignInUserApplicationService(
             $request->getParam('username'),
             $request->getParam('password'),
-            $response,
             $this->container);
 
-        return $signInService->signIn();
+        $homepageUrl = $this->container->router->pathFor('homepage');
+        return $signInService->signIn()->andRedirectTo($homepageUrl);
     }
 
     public function signUpAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface

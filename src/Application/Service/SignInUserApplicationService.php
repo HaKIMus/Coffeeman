@@ -14,23 +14,22 @@ use Coffeeman\Application\Handler\SignInUserHandler;
 use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Container;
+use Slim\Http\Response;
 
 final class SignInUserApplicationService
 {
     private $username;
     private $password;
     private $container;
-    private $response;
 
-    public function __construct(string $username, string $password, ResponseInterface $response, Container $container)
+    public function __construct(string $username, string $password, Container $container)
     {
         $this->username = $username;
         $this->password = $password;
         $this->container = $container;
-        $this->response = $response;
     }
 
-    public function signIn(): ResponseInterface
+    public function signIn(): self
     {
         $signInUserCommand = new SignInUser(
             $this->username,
@@ -46,8 +45,11 @@ final class SignInUserApplicationService
 
         $this->container->get('commandBus')->handle($signInUserCommand);
 
-        $homepageUrl = $this->container->router->pathFor('homepage');
+        return $this;
+    }
 
-        return $this->response->withStatus(200)->withHeader('Location', $homepageUrl);
+    public function andRedirectTo(string $url): Response
+    {
+        return (new Response)->withStatus(200)->withHeader('Location', $url);
     }
 }
