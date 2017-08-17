@@ -24,7 +24,7 @@ class SumSportsmanWorkoutsHandlerTest extends \Codeception\Test\Unit
         $sumSportsmanWorkoutsHandler = new SumSportsmanWorkoutsHandler(new DbalWorkoutQuery(CoffeemanDatabase::getConnection()), new DbalWorkoutTypeQuery(CoffeemanDatabase::getConnection()));
         $sumSportsmanWorkoutsHandler->handle($command);
 
-        $this->assertTrue(isset($_SESSION['summedSportsmanWorkouts']));
+        $this->assertTrue(isset($_SESSION['user']['summedSportsmanWorkouts']));
     }
 
     /**

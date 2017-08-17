@@ -12,6 +12,6 @@ final class SignOutUser
 {
     public function signOut(): void
     {
-        unset($_SESSION['user'], $_SESSION['summedSportsmanWorkouts']);
+        unset($_SESSION['user']);
     }
 }

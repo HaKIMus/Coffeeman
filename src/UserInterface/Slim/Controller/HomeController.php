@@ -16,6 +16,7 @@ use Coffeeman\Application\Handler\SignInUserHandler;
 use Coffeeman\Application\Handler\SignUpUserHandler;
 use Coffeeman\Application\Service\CheckApplicationService;
 use Coffeeman\Application\Service\CheckStrategy;
+use Coffeeman\Application\Service\SignInUserApplicationService;
 use Coffeeman\Application\Service\SumSportsmanWorkoutsApplicationService;
 use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 use Coffeeman\Infrastructure\Domain\User\DoctrineUser;
@@ -48,26 +49,13 @@ final class HomeController extends Controller
 
     public function signInAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $signInUserCommand = new SignInUser(
+        $signInService = new SignInUserApplicationService(
             $request->getParam('username'),
-            $request->getParam('password')
-        );
+            $request->getParam('password'),
+            $response,
+            $this->container);
 
-        $this->container->commandBus->registerHandler(
-            SignInUser::class,
-            new SignInUserHandler(
-                new GetUserBySignInData(
-                    new Connection($this->container['dbParams'],
-                    new Driver())
-                )
-            )
-        );
-
-        $this->container->commandBus->handle($signInUserCommand);
-
-        $homepageUrl = $this->container->router->pathFor('homepage');
-
-        return $response->withStatus(200)->withHeader('Location', $homepageUrl);
+        return $signInService->signIn();
     }
 
     public function signUpAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
@@ -104,7 +92,7 @@ final class HomeController extends Controller
     {
         if ($this->isUserSignedIn()) {
             $this->sumSportsmanWorkouts();
-            return $_SESSION['summedSportsmanWorkouts'];
+            return $_SESSION['user']['summedSportsmanWorkouts'];
         }
 
         return Null;

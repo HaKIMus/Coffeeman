@@ -28,7 +28,7 @@ class SumSportsmanWorkoutsApplicationServiceTest extends \Codeception\Test\Unit
         $sumSportsmanWorkout = new SumSportsmanWorkoutsApplicationService(new SimpleCommandBus(), new Connection(CoffeemanDatabase::getDbParams(), new Driver()), 'd6e66f53-843b-4dab-bb64-6faa91e5928e');
         $sumSportsmanWorkout->sumSportsmanWorkouts();
 
-        $this->assertEquals($expected, $_SESSION['summedSportsmanWorkouts']);
+        $this->assertEquals($expected, $_SESSION['user']['summedSportsmanWorkouts']);
     }
 
     /**

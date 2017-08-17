@@ -23,7 +23,7 @@ $dbParams = [
     'driver' => 'pdo_mysql',
     'user' => 'root',
     'password' => '',
-    'dbname' => 'coffeeman_test',
+    'dbname' => 'coffeeman',
     'host' => '127.0.0.1',
 ];
 

@@ -8,7 +8,6 @@
 
 namespace Coffeeman\Application\Handler;
 
-
 use Coffeeman\Application\Command\SignInUser;
 use Coffeeman\Application\CommandHandlerInterface;
 use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;

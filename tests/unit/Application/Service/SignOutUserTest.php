@@ -16,13 +16,12 @@ class SignOutUserTest extends \Codeception\Test\Unit
     public function testSigningOutUserDeletingUserSessionAndSummedSportsmanWorkouts()
     {
         @session_start();
-        $_SESSION['user'] = 'Test';
-        $_SESSION['summedSportsmanWorkouts'] = ['burnedCalories' => 600];
+        $_SESSION['user'] = ['test', ['summedSportsmanWorkouts' => ['burnedCalories' => 600]]];
 
         $signOutUser = new SignOutUser();
         $signOutUser->signOut();
 
         $this->assertFalse(isset($_SESSION['user']));
-        $this->assertFalse(isset($_SESSION['summedSportsmanWorkouts']));
+        $this->assertFalse(isset($_SESSION['user']['summedSportsmanWorkouts']));
     }
 }
