@@ -6,7 +6,7 @@
  * Time: 06:15
  */
 
-namespace Coffeeman\Application\Service;
+namespace Coffeeman\Infrastructure\Domain\Workout\Check;
 
 interface CheckStrategyInterface
 {

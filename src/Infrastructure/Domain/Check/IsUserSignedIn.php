@@ -9,6 +9,8 @@
 namespace Coffeeman\Application\Service;
 
 
+use Coffeeman\Infrastructure\Domain\Workout\Check\CheckStrategyInterface;
+
 final class IsUserSignedIn implements CheckStrategyInterface
 {
     public function check(): bool
