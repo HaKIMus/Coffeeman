@@ -7,9 +7,11 @@
  */
 
 use Coffeeman\Application\Service\CheckApplicationService;
-use Coffeeman\Application\Service\SignOutUser;
 use Coffeeman\Application\SimpleCommandBus;
 use Coffeeman\Infrastructure\Domain\Check\IsUserSignedIn;
+use Coffeeman\UserInterface\Slim\Controller\Authentication\SignInController;
+use Coffeeman\UserInterface\Slim\Controller\Authentication\SignOutController;
+use Coffeeman\UserInterface\Slim\Controller\Authentication\SignUpController;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use Slim\Container;
@@ -40,18 +42,33 @@ $container['view'] = function (Container $container) : Twig {
     return $view;
 };
 
-$container['connection'] = function (Container $container) : Connection {
-    return new Connection($container['dbParams'], new Driver());
-};
-
+/*
+ * Controllers
+ */
 $container['HomeController'] = function(Container $container): HomeController {
     return new HomeController($container, new CheckApplicationService(new IsUserSignedIn()));
+};
+
+$container['SignInController'] = function(Container $container): SignInController {
+    return new SignInController($container);
+};
+
+$container['SignUpController'] = function(Container $container): SignUpController {
+    return new SignUpController($container);
+};
+
+$container['SignOutController'] = function (Container $container) : SignOutController {
+    return new SignOutController($container);
+};
+
+/*
+ * Assets
+ */
+$container['connection'] = function (Container $container) : Connection {
+    return new Connection($container['dbParams'], new Driver());
 };
 
 $container['commandBus'] = function () : SimpleCommandBus {
     return new SimpleCommandBus();
 };
 
-$container['SignOutUser'] = function () : SignOutUser {
-    return new SignOutUser();
-};

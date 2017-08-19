@@ -24,7 +24,7 @@ final class SumStrategy
         $this->sumStrategy->sum();
     }
 
-    public function getSum(): array
+    public function getSummary(): array
     {
         if (empty($this->sumStrategy->getSummary())) {
             throw new LogicException();

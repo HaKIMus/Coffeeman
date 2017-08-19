@@ -9,7 +9,7 @@
                 <section id="sign-in">
                     <h3>Sign In</h3>
 
-                    <form action="{{ base_url() }}/signIn" method="POST">
+                    <form action="{{ path_for('sign-in') }}" method="POST">
                         <div class="form-group">
                             <label for="usernameInput" class="">Username</label>
                             <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username">
@@ -27,7 +27,7 @@
                 <section id="sign-up">
                     <h3>Join Us</h3>
 
-                    <form action="{{ base_url() }}/signUp" method="POST">
+                    <form action="{{ path_for('sign-up') }}" method="POST">
                         <div class="form-group">
                             <label for="usernameInput" class="">Username</label>
                             <input type="text" class="form-control" id="usernameInput" placeholder="Username" name="username">

@@ -8,27 +8,10 @@
 
 namespace Coffeeman\Application\Service;
 
-use Psr\Http\Message\ServerRequestInterface;
-
 final class SignOutUser
 {
-    public function signOut(ServerRequestInterface $request): void
+    public function signOut(): void
     {
         unset($_SESSION['user']);
-
-        if ($request->getAttribute('redirecting') === true) {
-            if ($request->getAttribute('url') === '') {
-                $this->redirectTo('http://localhost/Coffeeman/public/');
-            }
-
-            $this->redirectTo($request->getAttribute('url'));
-        }
-    }
-
-    private function redirectTo(string $url): void
-    {
-        header('Location: ' . $url);
-
-        exit;
     }
 }

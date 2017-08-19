@@ -20,6 +20,7 @@ class Controller
     {
         $this->container = $container;
     }
+
     public function __get(string $property)
     {
         if ($this->container->{$property}) {

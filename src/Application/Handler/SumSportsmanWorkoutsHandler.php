@@ -32,6 +32,6 @@ class SumSportsmanWorkoutsHandler implements CommandHandlerInterface
         $this->sumStrategy = new SumStrategy(new SumSportsmanWorkouts($this->workoutQuery, $this->workoutTypeQuery, $sumSportsmanWorkouts->getSportsmanId()));
         $this->sumStrategy->sum();
 
-        $_SESSION['user']['summedSportsmanWorkouts'] = $this->sumStrategy->getSum();
+        $_SESSION['user']['summedSportsmanWorkouts'] = $this->sumStrategy->getSummary();
     }
 }

@@ -9,15 +9,11 @@
 $app->get('/', 'HomeController:index')
     ->setName('homepage');
 
-$app->post('/signIn','HomeController:signInAction')
-    ->setName('signIn');
+$app->post('/sign-in','SignInController:signInAction')
+    ->setName('sign-in');
 
-$app->post('/signUp','HomeController:signUpAction')
-    ->setName('signUp');
+$app->post('/sign-up','SignUpController:signUpAction')
+    ->setName('sign-up');
 
-$app->get('/signOut', 'SignOutUser:signOut')
-    ->setArguments([
-        'redirecting' => true,
-        'url' => 'http://localhost/Coffeeman/public/'
-    ])
-    ->setName('signOut');
+$app->get('/sign-out', 'SignOutController:signOutAction')
+    ->setName('sign-out');

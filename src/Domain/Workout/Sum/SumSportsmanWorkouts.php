@@ -35,7 +35,7 @@ class SumSportsmanWorkouts implements SumInterface
         foreach ($informationAboutSportsman as $information) {
             $this->summary['sportsmanId'] = $information->getSportsmanId();
             $this->summary['burnedCalories'] += $information->getBurnedCalories();
-            $this->summary['mostPopularWorkoutType'] = $mostSportsmanPopularWorkout->getWorkoutTypeName();
+            $this->summary['mostFrequentWorkoutType'] = $mostSportsmanPopularWorkout->getWorkoutTypeName();
         }
     }
 

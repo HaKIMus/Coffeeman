@@ -43,34 +43,7 @@ final class HomeController extends Controller
             'titleWebsite' => $this->container->get('titleWebsite'),
             'isUserSignedIn' => $this->isUserSignedIn(),
             'user' => $this->setUserIfSignedIn(),
-            'summedSportsmanWorkouts' => $this->setSumOfSportsmanWorkoutsIfSignedIn()
         ]);
-    }
-
-    public function signInAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
-    {
-        $signInService = new SignInUserApplicationService(
-            $request->getParam('username'),
-            $request->getParam('password'),
-            $this->container);
-
-        $homepageUrl = $this->container->router->pathFor('homepage');
-        return $signInService->signIn()->andRedirectTo($homepageUrl);
-    }
-
-    public function signUpAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
-    {
-        $signUpUserCommand = new SignUpUser(
-            $request->getParam('username'),
-            $request->getParam('email'),
-            $request->getParam('password')
-        );
-
-        $this->container->commandBus->registerHandler(SignUpUser::class, new SignUpUserHandler(new DoctrineUser($this->container->entityManager)));
-        $this->container->commandBus->handle($signUpUserCommand);
-
-        $homepageUrl = $this->container->router->pathFor('homepage');
-        return $response->withStatus(200)->withHeader('Location', $homepageUrl);
     }
 
     private function sumSportsmanWorkouts(): void
@@ -82,17 +55,8 @@ final class HomeController extends Controller
     private function setUserIfSignedIn(): ?array
     {
         if ($this->isUserSignedIn()) {
-            return $_SESSION['user'];
-        }
-
-        return Null;
-    }
-
-    private function setSumOfSportsmanWorkoutsIfSignedIn(): ?array
-    {
-        if ($this->isUserSignedIn()) {
             $this->sumSportsmanWorkouts();
-            return $_SESSION['user']['summedSportsmanWorkouts'];
+            return $_SESSION['user'];
         }
 
         return Null;
