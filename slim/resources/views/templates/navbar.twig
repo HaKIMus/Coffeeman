@@ -17,9 +17,6 @@
                 <li><a href="#">Home</a></li>
                 {% if isUserSignedIn == true %}
                     <li><a href="{{ path_for('sign-out') }}">Sign out</a></li>
-                {% else %}
-                    <li><a href="#">Sign Up</a></li>
-                    <li><a href="#">Sign In</a></li>
                 {% endif %}
             </ul>
             <form class="navbar-form navbar-right">

@@ -14,15 +14,15 @@ use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
 
 final class SignInUserHandler implements CommandHandlerInterface
 {
-    private $userBySignInData;
+    private $dbalUserBySignInData;
 
     public function __construct(GetUserBySignInData $userBySignInData)
     {
-        $this->userBySignInData = $userBySignInData;
+        $this->dbalUserBySignInData = $userBySignInData;
     }
 
     public function handle(SignInUser $command): void
     {
-        $_SESSION['user'] = $this->userBySignInData->getUserBySignInData($command->getUsername(), $command->getPassword());
+        $_SESSION['user'] = $this->dbalUserBySignInData->getUserBySignInData($command->getUsername(), $command->getPassword());
     }
 }

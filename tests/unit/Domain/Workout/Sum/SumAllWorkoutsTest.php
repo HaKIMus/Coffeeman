@@ -14,7 +14,7 @@ class SumAllWorkoutsTest extends \Codeception\Test\Unit
         $summary = [
             'burnedCalories' => 1670,
             'sportsmanId' => 'd6e66f53-843b-4dab-bb64-6faa91e5928e',
-            'mostPopularWorkoutType' => 'HIIT'
+            'mostFrequentWorkoutType' => 'HIIT'
         ];
 
         $sumAllWorkouts = new SumSportsmanWorkouts(

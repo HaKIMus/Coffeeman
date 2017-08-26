@@ -22,11 +22,11 @@ use Ramsey\Uuid\Uuid;
 
 final class SignUpUserHandler implements CommandHandlerInterface
 {
-    private $users;
+    private $usersRepository;
 
     public function __construct(UsersInterface $users)
     {
-        $this->users = $users;
+        $this->usersRepository = $users;
     }
 
     public function handle(SignUpUser $command): void
@@ -38,7 +38,7 @@ final class SignUpUserHandler implements CommandHandlerInterface
             new Password(new PasswordContract($command->getPassword()))
         );
 
-        $this->users->add($newUser);
-        $this->users->commit();
+        $this->usersRepository->add($newUser);
+        $this->usersRepository->commit();
     }
 }

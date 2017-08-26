@@ -23,15 +23,15 @@ use Coffeeman\Domain\WorkoutsTypesInterface;
 
 final class CreateNewWorkoutHandler implements CommandHandlerInterface
 {
-    private $workouts;
-    private $workoutType;
-    private $workoutInformation;
+    private $workoutsRepository;
+    private $workoutTypeRepository;
+    private $workoutInformationRepository;
 
     public function __construct(WorkoutsInterface $workouts, WorkoutsTypesInterface $workoutType, WorkoutInformationInterface $workoutInformation)
     {
-        $this->workouts = $workouts;
-        $this->workoutType = $workoutType;
-        $this->workoutInformation = $workoutInformation;
+        $this->workoutsRepository = $workouts;
+        $this->workoutTypeRepository = $workoutType;
+        $this->workoutInformationRepository = $workoutInformation;
     }
 
     public function handle(CreateNewWorkout $command): void
@@ -41,18 +41,18 @@ final class CreateNewWorkoutHandler implements CommandHandlerInterface
             new TimeOfWorkout(
                 new WorkoutStartDate($command->getStartDate()),
                 new WorkoutStopDate($command->getStopDate())),
-            $this->workoutType->getById($command->getWorkoutTypeId()));
+            $this->workoutTypeRepository->getById($command->getWorkoutTypeId()));
 
         $workout = new Workout(
             $command->getSportsmanId(),
             $informationAboutWorkout
         );
 
-        $this->workoutInformation->add($informationAboutWorkout);
-        $this->workouts->add($workout);
+        $this->workoutInformationRepository->add($informationAboutWorkout);
+        $this->workoutsRepository->add($workout);
 
-        $this->workouts->commit();
-        $this->workoutType->commit();
-        $this->workoutInformation->commit();
+        $this->workoutsRepository->commit();
+        $this->workoutTypeRepository->commit();
+        $this->workoutInformationRepository->commit();
     }
 }

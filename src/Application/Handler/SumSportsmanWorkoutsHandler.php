@@ -17,21 +17,20 @@ use Coffeeman\Application\Command\SumSportsmanWorkouts as SumSportsmanWorkoutsCo
 
 class SumSportsmanWorkoutsHandler implements CommandHandlerInterface
 {
-    private $workoutQuery;
-    private $workoutTypeQuery;
-    private $sumStrategy;
+    private $dbalWorkoutQuery;
+    private $dbalWorkoutTypeQuery;
 
     public function __construct(WorkoutQueryInterface $workoutQuery, WorkoutTypeQueryInterface $workoutTypeQuery)
     {
-        $this->workoutQuery = $workoutQuery;
-        $this->workoutTypeQuery = $workoutTypeQuery;
+        $this->dbalWorkoutQuery = $workoutQuery;
+        $this->dbalWorkoutTypeQuery = $workoutTypeQuery;
     }
 
     public function handle(SumSportsmanWorkoutsCommand $sumSportsmanWorkouts): void
     {
-        $this->sumStrategy = new SumStrategy(new SumSportsmanWorkouts($this->workoutQuery, $this->workoutTypeQuery, $sumSportsmanWorkouts->getSportsmanId()));
-        $this->sumStrategy->sum();
+        $sumStrategy = new SumStrategy(new SumSportsmanWorkouts($this->dbalWorkoutQuery, $this->dbalWorkoutTypeQuery, $sumSportsmanWorkouts->getSportsmanId()));
+        $sumStrategy->sum();
 
-        $_SESSION['user']['summedSportsmanWorkouts'] = $this->sumStrategy->getSummary();
+        $_SESSION['user']['summedSportsmanWorkouts'] = $sumStrategy->getSummary();
     }
 }

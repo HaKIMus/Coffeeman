@@ -22,7 +22,7 @@ class SumSportsmanWorkoutsApplicationServiceTest extends \Codeception\Test\Unit
         $expected = [
             'burnedCalories' => 1670,
             'sportsmanId' => 'd6e66f53-843b-4dab-bb64-6faa91e5928e',
-            'mostPopularWorkoutType' => 'HIIT'
+            'mostFrequentWorkoutType' => 'HIIT'
         ];
 
         $sumSportsmanWorkout = new SumSportsmanWorkoutsApplicationService(new SimpleCommandBus(), new Connection(CoffeemanDatabase::getDbParams(), new Driver()), 'd6e66f53-843b-4dab-bb64-6faa91e5928e');
