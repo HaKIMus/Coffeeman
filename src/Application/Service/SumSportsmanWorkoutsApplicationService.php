@@ -8,36 +8,38 @@
 
 namespace Coffeeman\Application\Service;
 
-use Coffeeman\Application\Command\SumSportsmanWorkouts;
-use Coffeeman\Application\Handler\SumSportsmanWorkoutsHandler;
-use Coffeeman\Application\SimpleCommandBus;
+use Coffeeman\Domain\SumStrategy;
+use Coffeeman\Domain\Workout\Sum\SumSportsmanWorkouts;
 use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutQuery;
 use Coffeeman\Infrastructure\Domain\Workout\Dbal\DbalWorkoutTypeQuery;
 use Doctrine\DBAL\Connection;
 
 final class SumSportsmanWorkoutsApplicationService
 {
-    private $commandBus;
     private $connection;
     private $userId;
+    private $summedWorkouts;
 
-    public function __construct(SimpleCommandBus $commandBus, Connection $connection, string $userId)
+    public function __construct(Connection $connection, string $userId)
     {
-        $this->commandBus = $commandBus;
         $this->connection = $connection;
         $this->userId = $userId;
     }
 
-    public function sumSportsmanWorkouts()
+    public function sumSportsmanWorkouts(): void
     {
-        $sumSportsmanWorkoutsCommand = new SumSportsmanWorkouts($this->userId);
+        $sumSportsmanWorkouts = new SumStrategy(new SumSportsmanWorkouts(
+            new DbalWorkoutQuery($this->connection),
+            new DbalWorkoutTypeQuery($this->connection),
+            $this->userId
+        ));
 
-        $this->commandBus->registerHandler(
-            SumSportsmanWorkouts::class,
-            new SumSportsmanWorkoutsHandler(new DbalWorkoutQuery($this->connection),
-                new DbalWorkoutTypeQuery($this->connection))
-        );
+        $sumSportsmanWorkouts->sum();
+        $this->summedWorkouts = $sumSportsmanWorkouts->getSummary();
+    }
 
-        $this->commandBus->handle($sumSportsmanWorkoutsCommand);
+    public function getSummedSportsmanWorkouts(): array
+    {
+        return $this->summedWorkouts;
     }
 }

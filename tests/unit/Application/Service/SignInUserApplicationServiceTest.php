@@ -2,8 +2,9 @@
 namespace Application\Service;
 
 
-use Coffeeman\Application\Service\SignInUserApplicationService;
+use Coffeeman\Application\Service\SignInUserService;
 use Coffeeman\Application\SimpleCommandBus;
+use Coffeeman\Infrastructure\Authorization\GetUserBySignInData;
 use Slim\Container;
 use Tests\Unit\CoffeemanDatabase;
 
@@ -29,7 +30,7 @@ class SignInUserApplicationServiceTest extends \Codeception\Test\Unit
             return CoffeemanDatabase::getConnection();
         };
 
-        $signInService = new SignInUserApplicationService('Test', '123', $container);
+        $signInService = new SignInUserService('Test', '123', $container, new GetUserBySignInData(CoffeemanDatabase::getConnection()));
         $signInService->signIn();
 
         $this->assertTrue(isset($_SESSION['user']));
@@ -50,7 +51,7 @@ class SignInUserApplicationServiceTest extends \Codeception\Test\Unit
             return CoffeemanDatabase::getConnection();
         };
 
-        $signInService = new SignInUserApplicationService('Hello', '123', $container);
+        $signInService = new SignInUserService('Hello', '123', $container, new GetUserBySignInData(CoffeemanDatabase::getConnection()));
         $signInService->signIn();
     }
 }

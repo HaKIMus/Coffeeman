@@ -23,12 +23,6 @@ use Symfony\Component\Yaml\Yaml;
 $container = $app->getContainer();
 $appConfig = Yaml::parse(file_get_contents(__DIR__ . '/config/app.yml'));
 
-$container['dbParams'] = $dbParams;
-
-$container['entityManager'] = $entityManager;
-
-$container['titleWebsite'] = $appConfig['extras']['titleWebsite'];
-
 $container['view'] = function (Container $container) : Twig {
     $view = new Twig(__DIR__ . '/resources/views', [
         'cache' => false,
@@ -72,3 +66,8 @@ $container['commandBus'] = function () : SimpleCommandBus {
     return new SimpleCommandBus();
 };
 
+$container['dbParams'] = $dbParams;
+
+$container['entityManager'] = $entityManager;
+
+$container['titleWebsite'] = $appConfig['extras']['titleWebsite'];

@@ -25,10 +25,10 @@ class SumSportsmanWorkoutsApplicationServiceTest extends \Codeception\Test\Unit
             'mostFrequentWorkoutType' => 'HIIT'
         ];
 
-        $sumSportsmanWorkout = new SumSportsmanWorkoutsApplicationService(new SimpleCommandBus(), new Connection(CoffeemanDatabase::getDbParams(), new Driver()), 'd6e66f53-843b-4dab-bb64-6faa91e5928e');
+        $sumSportsmanWorkout = new SumSportsmanWorkoutsApplicationService(new Connection(CoffeemanDatabase::getDbParams(), new Driver()), 'd6e66f53-843b-4dab-bb64-6faa91e5928e');
         $sumSportsmanWorkout->sumSportsmanWorkouts();
 
-        $this->assertEquals($expected, $_SESSION['user']['summedSportsmanWorkouts']);
+        $this->assertEquals($expected,  $sumSportsmanWorkout->getSummedSportsmanWorkouts());
     }
 
     /**
@@ -36,7 +36,7 @@ class SumSportsmanWorkoutsApplicationServiceTest extends \Codeception\Test\Unit
      */
     public function testPassingIncorrectUserIdShouldReturnAnException()
     {
-        $sumSportsmanWorkout = new SumSportsmanWorkoutsApplicationService(new SimpleCommandBus(), new Connection(CoffeemanDatabase::getDbParams(), new Driver()), 'incorrect-id');
+        $sumSportsmanWorkout = new SumSportsmanWorkoutsApplicationService( new Connection(CoffeemanDatabase::getDbParams(), new Driver()), 'incorrect-id');
         $sumSportsmanWorkout->sumSportsmanWorkouts();
     }
 }

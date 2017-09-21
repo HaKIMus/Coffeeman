@@ -12,7 +12,7 @@ use Coffeeman\Application\Query\WorkoutQueryInterface;
 use Coffeeman\Application\Query\WorkoutTypeQueryInterface;
 use Coffeeman\Domain\SumInterface;
 
-class SumSportsmanWorkouts implements SumInterface
+final class SumSportsmanWorkouts implements SumInterface
 {
     private $summary = [];
     private $workoutDBALQuery;

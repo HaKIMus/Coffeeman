@@ -1,19 +1,23 @@
 <?php
+
 namespace Domain\Workout\Sum;
 
-
+use Coffeeman\Domain\SumInterface;
 use Coffeeman\Domain\SumStrategy;
-use Coffeeman\Domain\Workout\Sum\SumSportsmanWorkouts;
 
 class SumTest extends \Codeception\Test\Unit
 {
     public function testSumAllWorkouts()
     {
-        $mockSumObject = $this->getMockBuilder(SumSportsmanWorkouts::class)
+        $mockSumObject = $this->getMockBuilder(SumInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
+        $mockSumObject->method('sum');
+        $mockSumObject->method('getSummary')
+            ->willReturn([2]);
 
         $sum = new SumStrategy($mockSumObject);
         $sum->sum();
+        $this->assertEquals([2], $sum->getSummary());
     }
 }

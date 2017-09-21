@@ -1,9 +1,7 @@
 <?php
 namespace Infrastructure\Application\Dbal;
 
-
-use Coffeeman\Application\Query\User\UserView;
-use Coffeeman\Infrastructure\Application\Dbal\GetUserBySignInData;
+use Coffeeman\Infrastructure\Authorization\GetUserBySignInData;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver;
 use Tests\Unit\CoffeemanDatabase;

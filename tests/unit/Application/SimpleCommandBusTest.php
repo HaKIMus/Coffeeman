@@ -44,22 +44,4 @@ class SimpleCommandBusTest extends Unit
             ->disableOriginalConstructor()
             ->getMock();
     }
-
-    public function testRegisterHandler()
-    {
-        $this->simpleCommandBus->registerHandler(CreateNewWorkout::class, new CreateNewWorkoutHandler(
-            new DoctrineWorkout(CoffeemanDatabase::getEntityManager()),
-            new DoctrineWorkoutType(CoffeemanDatabase::getEntityManager()),
-            new DoctrineWorkoutInformation(CoffeemanDatabase::getEntityManager())));
-    }
-
-    public function testHandleCreateNewWorkoutClass()
-    {
-        $createNewWorkout = new SignInUser('Test', '123');
-        $this->simpleCommandBus->registerHandler(SignInUser::class, new SignInUserHandler(
-            new GetUserBySignInData(CoffeemanDatabase::getConnection())
-        ));
-
-        $this->simpleCommandBus->handle($createNewWorkout);
-    }
 }

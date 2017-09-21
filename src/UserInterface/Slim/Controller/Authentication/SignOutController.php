@@ -9,7 +9,7 @@
 namespace Coffeeman\UserInterface\Slim\Controller\Authentication;
 
 
-use Coffeeman\Application\Service\SignOutUser;
+use Coffeeman\Application\Service\SignOutUserService;
 use Coffeeman\UserInterface\Slim\Controller\Controller;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -18,7 +18,7 @@ class SignOutController extends Controller
 {
     public function signOutAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $signOut = new SignOutUser();
+        $signOut = new SignOutUserService();
         $signOut->signOut();
 
         $homepageUrl = $this->container->router->pathFor('homepage');

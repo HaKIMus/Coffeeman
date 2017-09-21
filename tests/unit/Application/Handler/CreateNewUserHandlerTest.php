@@ -21,8 +21,10 @@ class CreateNewUserHandlerTest extends \Codeception\Test\Unit
 
         $command->method('getUsername')
             ->willReturn('Test');
+
         $command->method('getEmail')
             ->willReturn('Test@email.com');
+
         $command->method('getPassword')
             ->willReturn('Hello');
 

@@ -2,10 +2,10 @@
 namespace Application\Service;
 
 
-use Coffeeman\Application\Service\SignOutUser;
+use Coffeeman\Application\Service\SignOutUserService;
 use Slim\Http\Request;
 
-class SignOutUserTest extends \Codeception\Test\Unit
+class SignOutUserServiceTest extends \Codeception\Test\Unit
 {
     public function tearDown()
     {
@@ -23,7 +23,7 @@ class SignOutUserTest extends \Codeception\Test\Unit
             ->disableOriginalConstructor()
             ->getMock();
 
-        $signOutUser = new SignOutUser();
+        $signOutUser = new SignOutUserService();
         $signOutUser->signOut($request);
 
         $this->assertFalse(isset($_SESSION['user']));

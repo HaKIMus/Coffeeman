@@ -8,10 +8,10 @@
 
 namespace Coffeeman\Application\Service;
 
-final class SignOutUser
+final class SignOutUserService
 {
     public function signOut(): void
     {
-        unset($_SESSION['user']);
+            unset($_SESSION['user']);
     }
 }

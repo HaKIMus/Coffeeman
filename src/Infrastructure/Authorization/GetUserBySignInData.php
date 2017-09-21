@@ -6,7 +6,7 @@
  * Time: 15:58
  */
 
-namespace Coffeeman\Infrastructure\Application\Dbal;
+namespace Coffeeman\Infrastructure\Authorization;
 
 use Coffeeman\Application\Query\User\UserView;
 use Coffeeman\Infrastructure\Domain\AbstractDBALQuery;
@@ -29,7 +29,7 @@ final class GetUserBySignInData extends AbstractDBALQuery
 
         $userData = $this->connection->fetchAssoc($queryBuilder->getSQL(), $queryBuilder->getParameters());
 
-        if (empty($userData) || !isset($userData)) {
+        if (!$userData) {
             throw new \InvalidArgumentException('No user found.');
         }
 
